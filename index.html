@@ -23,7 +23,7 @@
             <!-- SELETTORE GIORNATA SERIE A -->
             <div class="flex items-center gap-3 bg-slate-900 p-3 rounded-lg border border-slate-700 z-50">
                 <label for="giornataSelect" class="text-xs font-bold text-amber-400 uppercase">📅 Giornata:</label>
-                <select id="giornataSelect" onchange="updateAll()" class="bg-slate-800 border border-slate-600 text-white font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <select id="giornataSelect" onchange="updateAll()" class="cursor-pointer bg-slate-800 border border-slate-600 text-white font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </select>
             </div>
         </header>
@@ -32,7 +32,7 @@
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
                 <h2 id="teamTitle" class="text-xl font-bold text-slate-100">Rosa Squadra</h2>
-                <select id="teamSelect" onchange="renderTeam()" class="bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1.5 px-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
+                <select id="teamSelect" onchange="renderTeam()" class="cursor-pointer bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1.5 px-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
             </div>
             
             <div class="overflow-x-auto">
@@ -62,7 +62,7 @@
                 <div class="flex items-center gap-4 bg-slate-900 p-3 rounded-lg border border-slate-700">
                     <span class="text-sm font-bold text-emerald-400">CASCINA</span>
                     <span class="text-xs font-black text-slate-500">VS</span>
-                    <select id="opponentSelect" onchange="renderMatchup()" class="bg-slate-800 border border-slate-600 text-amber-400 font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <select id="opponentSelect" onchange="renderMatchup()" class="cursor-pointer bg-slate-800 border border-slate-600 text-amber-400 font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
                     </select>
                 </div>
             </div>
@@ -389,41 +389,43 @@
 
             "ATALANTA_38": "Como", "COMO_38": "Atalanta", "CAGLIARI_38": "Milan", "MILAN_38": "Cagliari",
             "FROSINONE_38": "Lecce", "LECCE_38": "Frosinone", "JUVENTUS_38": "Inter", "INTER_38": "Juventus",
-            "LAZIO_38": "Roma", "ROMA_38": "Lazio", "PARMA_38": "Bologna", "BOLOGNA_38": "Parma",
+            "LAZIO_38": "Roma", "ROMA_38": "Lazio", "PARMA_38": "BOLOGNA", "BOLOGNA_38": "Parma",
             "SASSUOLO_38": "Genoa", "GENOA_38": "Sassuolo", "TORINO_38": "Napoli", "NAPOLI_38": "Torino",
             "UDINESE_38": "Monza", "MONZA_38": "Udinese", "VERONA_38": "Venezia", "VENEZIA_38": "Verona"
         };
 
         function initDashboard() {
             const giornataSelect = document.getElementById('giornataSelect');
-            if (!giornataSelect) return;
-            giornataSelect.innerHTML = '';
-            for (let i = 1; i <= 38; i++) {
-                const opt = document.createElement('option');
-                opt.value = i;
-                opt.textContent = `${i}ª Giornata`;
-                if (i === 12) opt.selected = true;
-                giornataSelect.appendChild(opt);
+            if (giornataSelect && giornataSelect.options.length === 0) {
+                for (let i = 1; i <= 38; i++) {
+                    const opt = document.createElement('option');
+                    opt.value = i;
+                    opt.textContent = `${i}ª Giornata`;
+                    if (i === 12) opt.selected = true;
+                    giornataSelect.appendChild(opt);
+                }
             }
 
             const teamSelect = document.getElementById('teamSelect');
             const opponentSelect = document.getElementById('opponentSelect');
-            if (teamSelect) teamSelect.innerHTML = '';
-            if (opponentSelect) opponentSelect.innerHTML = '';
-
-            Object.keys(leagueData).forEach(team => {
-                if (teamSelect) {
+            
+            if (teamSelect && teamSelect.options.length === 0) {
+                Object.keys(leagueData).forEach(team => {
                     const opt1 = document.createElement('option');
                     opt1.value = team; opt1.textContent = team;
                     teamSelect.appendChild(opt1);
-                }
+                });
+            }
 
-                if (team !== "CASCINA" && opponentSelect) {
-                    const opt2 = document.createElement('option');
-                    opt2.value = team; opt2.textContent = team;
-                    opponentSelect.appendChild(opt2);
-                }
-            });
+            if (opponentSelect && opponentSelect.options.length === 0) {
+                Object.keys(leagueData).forEach(team => {
+                    if (team !== "CASCINA") {
+                        const opt2 = document.createElement('option');
+                        opt2.value = team; opt2.textContent = team;
+                        opponentSelect.appendChild(opt2);
+                    }
+                });
+            }
 
             updateAll();
         }
@@ -439,4 +441,166 @@
             let squadraKey = p.squadra.toUpperCase().trim();
             if (squadraKey === "JUVE") squadraKey = "JUVENTUS";
             if (squadraKey === "SASSLUOLO") squadraKey = "SASSUOLO";
-            if (squadraKey
+            if (squadraKey === "FROSINORE") squadraKey = "FROSINONE";
+            
+            const matchKey = `${squadraKey}_${giornata}`;
+            return calendarioSerieA[matchKey] || "-";
+        }
+
+        function getBest11(teamKey, giornata) {
+            const team = leagueData[teamKey];
+            if (!team) return [];
+            
+            const normalize = (p, role) => ({
+                role, name: p.name, squadra: p.squadra || "N/D", mv: p.mv || 6.0, fm: p.fm || 6.0, avversario: getOpponent(p, giornata)
+            });
+
+            const porList = (team.por || []).map(p => normalize(p, 'POR'));
+            const difList = (team.dif || []).map(p => normalize(p, 'DIF')).sort((a,b) => b.fm - a.fm).slice(0, 4);
+            const cenList = (team.cen || []).map(p => normalize(p, 'CEN')).sort((a,b) => b.fm - a.fm).slice(0, 3);
+            const attList = (team.att || []).map(p => normalize(p, 'ATT')).sort((a,b) => b.fm - a.fm).slice(0, 3);
+
+            return [porList[0], ...difList, ...cenList, ...attList].filter(Boolean);
+        }
+
+        function calculateAverages(lineup) {
+            if (lineup.length === 0) return { mv: "0.00", fm: "0.00" };
+            let totalMv = lineup.reduce((acc, p) => acc + Number(p.mv), 0);
+            let totalFm = lineup.reduce((acc, p) => acc + Number(p.fm), 0);
+            return {
+                mv: (totalMv / lineup.length).toFixed(2),
+                fm: (totalFm / lineup.length).toFixed(2)
+            };
+        }
+
+        function renderTeam() {
+            const giornataEl = document.getElementById('giornataSelect');
+            const teamEl = document.getElementById('teamSelect');
+            if (!giornataEl || !teamEl) return;
+
+            const giornata = giornataEl.value || 12;
+            const teamName = teamEl.value || "CASCINA";
+            const team = leagueData[teamName];
+            if (!team) return;
+            
+            const teamTitleEl = document.getElementById('teamTitle');
+            if (teamTitleEl) teamTitleEl.textContent = `Rosa Completa: ${teamName}`;
+
+            const tbody = document.getElementById('rosterTable');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            const categories = [
+                { role: 'POR', list: team.por || [], color: 'text-amber-400 font-bold' },
+                { role: 'DIF', list: team.dif || [], color: 'text-blue-400 font-bold' },
+                { role: 'CEN', list: team.cen || [], color: 'text-emerald-400 font-bold' },
+                { role: 'ATT', list: team.att || [], color: 'text-rose-400 font-bold' }
+            ];
+
+            categories.forEach(cat => {
+                cat.list.forEach(p => {
+                    const squadra = p.squadra || "N/D";
+                    const avv = getOpponent(p, giornata);
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-700/50 transition";
+                    tr.innerHTML = `
+                        <td class="p-3 ${cat.color}">${cat.role}</td>
+                        <td class="p-3 font-semibold text-slate-200">${p.name}</td>
+                        <td class="p-3 text-xs"><span class="text-slate-300 font-medium">${squadra}</span> <span class="text-slate-500 mx-1">→</span> <span class="text-amber-300 font-semibold">vs ${avv}</span></td>
+                        <td class="p-3 text-center text-slate-300 font-mono">${Number(p.mv).toFixed(2)}</td>
+                        <td class="p-3 text-center text-emerald-400 font-mono font-bold">${Number(p.fm).toFixed(2)}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            });
+        }
+
+        function renderMatchup() {
+            const giornataEl = document.getElementById('giornataSelect');
+            const oppEl = document.getElementById('opponentSelect');
+            if (!giornataEl || !oppEl) return;
+
+            const giornata = giornataEl.value || 12;
+            const oppName = oppEl.value || Object.keys(leagueData).find(t => t !== "CASCINA");
+            
+            const oppTitleEl = document.getElementById('opponentMatchupTitle');
+            if (oppTitleEl) oppTitleEl.textContent = `⚔️ ${oppName}`;
+
+            const cascinaLineup = getBest11("CASCINA", giornata);
+            const opponentLineup = getBest11(oppName, giornata);
+
+            const cAvg = calculateAverages(cascinaLineup);
+            const oAvg = calculateAverages(opponentLineup);
+
+            const cAvgEl = document.getElementById('cascinaAverages');
+            const oAvgEl = document.getElementById('opponentAverages');
+            if (cAvgEl) cAvgEl.textContent = `Media Voto: ${cAvg.mv} | Fantamedia: ${cAvg.fm}`;
+            if (oAvgEl) oAvgEl.textContent = `Media Voto: ${oAvg.mv} | Fantamedia: ${oAvg.fm}`;
+
+            const renderLineupList = (containerId, lineup) => {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = '';
+                lineup.forEach(p => {
+                    const div = document.createElement('div');
+                    div.className = "flex justify-between items-center bg-slate-800 p-2 rounded border border-slate-700 text-xs gap-2";
+                    div.innerHTML = `
+                        <div class="flex items-center gap-2 overflow-hidden flex-wrap">
+                            <span class="font-bold px-1.5 py-0.5 rounded bg-slate-900 shrink-0 ${
+                                p.role === 'POR' ? 'text-amber-400' : p.role === 'DIF' ? 'text-blue-400' : p.role === 'CEN' ? 'text-emerald-400' : 'text-rose-400'
+                            }">${p.role}</span>
+                            <span class="font-semibold text-slate-200">${p.name}</span>
+                            <span class="text-slate-400 text-[10px]">(${p.squadra})</span>
+                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">vs ${p.avversario}</span>
+                        </div>
+                        <div class="flex gap-2 font-mono text-[11px] shrink-0">
+                            <span class="text-slate-300">MV: <b>${Number(p.mv).toFixed(2)}</b></span>
+                            <span class="text-emerald-400">FM: <b>${Number(p.fm).toFixed(2)}</b></span>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            };
+
+            renderLineupList('cascinaMatchupLineup', cascinaLineup);
+            renderLineupList('opponentMatchupLineup', opponentLineup);
+        }
+
+        function renderRecommendedLineup() {
+            const giornataEl = document.getElementById('giornataSelect');
+            if (!giornataEl) return;
+            const giornata = giornataEl.value || 12;
+            const best11 = getBest11("CASCINA", giornata);
+            const container = document.getElementById('recommendedLineup');
+            if (!container) return;
+            container.innerHTML = '';
+
+            best11.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-900 p-3 rounded-lg border border-slate-700 space-y-1";
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-slate-800 ${
+                            p.role === 'POR' ? 'text-amber-400' : p.role === 'DIF' ? 'text-blue-400' : p.role === 'CEN' ? 'text-emerald-400' : 'text-rose-400'
+                        }">${p.role}</span>
+                        <span class="text-[11px] text-amber-300">vs <b>${p.avversario}</b></span>
+                    </div>
+                    <div class="font-bold text-slate-100 text-sm pt-1">${p.name} <span class="text-xs text-slate-400 font-normal">(${p.squadra})</span></div>
+                    <div class="flex justify-between text-xs pt-1 border-t border-slate-800">
+                        <span class="text-slate-400">MV: ${Number(p.mv).toFixed(2)}</span>
+                        <span class="text-emerald-400 font-bold">FM: ${Number(p.fm).toFixed(2)}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Avvio immediato e sicuro al caricamento del DOM
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initDashboard);
+        } else {
+            initDashboard();
+        }
+    </script>
+</body>
+</html>
