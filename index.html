@@ -28,6 +28,35 @@
             </div>
         </header>
 
+        <!-- SEZIONE: CREA LA TUA FORMAZIONE CON SCELTA MODULO -->
+        <section class="bg-slate-800 p-6 rounded-xl border-2 border-emerald-500/80 shadow-xl space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-3 gap-3">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-xl font-bold text-emerald-400 flex items-center gap-2">
+                        <span>📋</span> Schiera la Tua Formazione (Cascina)
+                    </h2>
+                    <!-- SCELTA MODULO -->
+                    <div class="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-lg border border-slate-700">
+                        <label for="moduloSelect" class="text-xs font-bold text-amber-400">Modulo:</label>
+                        <select id="moduloSelect" onchange="initCustomLineupSelectors()" class="cursor-pointer bg-slate-800 text-emerald-400 font-bold text-xs py-1 px-2 rounded focus:outline-none">
+                            <option value="3-5-2">3-5-2</option>
+                            <option value="4-3-3" selected>4-3-3</option>
+                            <option value="4-4-2">4-4-2</option>
+                            <option value="4-5-1">4-5-1</option>
+                            <option value="5-4-1">5-4-1</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700 font-mono text-amber-400" id="customLineupStats">
+                    MV: 0.00 | FM: 0.00
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3" id="customLineupSelectors">
+                <!-- I selettori dei ruoli si rigenerano in base al modulo -->
+            </div>
+        </section>
+
         <!-- 1. VISUALIZZATORE ROSE COMPLETE -->
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
@@ -164,9 +193,6 @@
             }
         };
 
-        // Calendario ufficiale completo per tutte le 38 giornate (Casa e Fuori)
-        // Usiamo un formato diretto in cui ogni match è esplicitamente definito per giornata.
-        // Formato: { "GIORNATA": [ {home: "INTER", away: "MONZA"}, ... ] }
         const calendarioUfficiale = {
             1: [
                 {home: "INTER", away: "MONZA"}, {home: "UDINESE", away: "COMO"}, {home: "GENOA", away: "NAPOLI"},
@@ -393,6 +419,7 @@
                 });
             }
 
+            initCustomLineupSelectors();
             updateAll();
         }
 
@@ -400,29 +427,116 @@
             renderTeam();
             renderMatchup();
             renderRecommendedLineup();
+            updateCustomLineupStats();
         }
 
         function getMatchDetails(p, giornata) {
             if (!p || !p.squadra) return { avversario: "-", isHome: false };
             let squadraKey = p.squadra.toUpperCase().trim();
-            
-            // Correzione e normalizzazione dei nomi delle squadre per evitare disallineamenti
             if (squadraKey === "JUVE") squadraKey = "JUVENTUS";
             if (squadraKey === "SASSLUOLO") squadraKey = "SASSUOLO";
             if (squadraKey === "FROSINORE") squadraKey = "FROSINONE";
             
             const partiteGiornata = calendarioUfficiale[giornata] || [];
-
             for (let match of partiteGiornata) {
-                if (match.home === squadraKey) {
-                    return { avversario: match.away, isHome: true };
-                }
-                if (match.away === squadraKey) {
-                    return { avversario: match.home, isHome: false };
-                }
+                if (match.home === squadraKey) return { avversario: match.away, isHome: true };
+                if (match.away === squadraKey) return { avversario: match.home, isHome: false };
             }
-
             return { avversario: "-", isHome: false };
+        }
+
+        // Generazione dinamica dei menu in base al modulo selezionato (3-5-2, 4-3-3, ecc.)
+        function initCustomLineupSelectors() {
+            const container = document.getElementById('customLineupSelectors');
+            const moduloVal = document.getElementById('moduloSelect').value;
+            if (!container) return;
+            container.innerHTML = '';
+
+            const parts = moduloVal.split('-');
+            const difCount = parseInt(parts[0]);
+            const cenCount = parseInt(parts[1]);
+            const attCount = parseInt(parts[2]);
+
+            const cascina = leagueData["CASCINA"];
+            
+            let slots = [
+                {type: 'POR', count: 1, list: cascina.por},
+                {type: 'DIF', count: difCount, list: cascina.dif},
+                {type: 'CEN', count: cenCount, list: cascina.cen},
+                {type: 'ATT', count: attCount, list: cascina.att}
+            ];
+
+            slots.forEach(slot => {
+                for (let i = 1; i <= slot.count; i++) {
+                    const div = document.createElement('div');
+                    div.className = "bg-slate-900 p-2 rounded border border-slate-700 space-y-1";
+                    
+                    const label = document.createElement('label');
+                    label.className = "text-[11px] font-bold text-slate-400 block uppercase";
+                    label.textContent = `${slot.type} #${i}`;
+                    
+                    const select = document.createElement('select');
+                    select.className = "custom-player-select w-full bg-slate-800 text-white text-xs p-1.5 rounded border border-slate-600 focus:outline-none focus:ring-1 focus:ring-emerald-500";
+                    select.dataset.role = slot.type;
+                    select.onchange = updateCustomLineupStats;
+
+                    const emptyOpt = document.createElement('option');
+                    emptyOpt.value = "";
+                    emptyOpt.textContent = "-- Seleziona --";
+                    select.appendChild(emptyOpt);
+
+                    slot.list.forEach((p, idx) => {
+                        const opt = document.createElement('option');
+                        opt.value = p.name;
+                        opt.textContent = `${p.name} (${p.squadra})`;
+                        // Seleziona i primi disponibili per default fino a riempire il modulo
+                        if (idx < slot.count && i === idx + 1) opt.selected = true;
+                        select.appendChild(opt);
+                    });
+
+                    div.appendChild(label);
+                    div.appendChild(select);
+                    container.appendChild(div);
+                }
+            });
+
+            updateCustomLineupStats();
+        }
+
+        function updateCustomLineupStats() {
+            const selects = document.querySelectorAll('.custom-player-select');
+            const giornata = document.getElementById('giornataSelect').value || 12;
+            const cascina = leagueData["CASCINA"];
+            
+            let selectedPlayers = [];
+            
+            selects.forEach(sel => {
+                const name = sel.value;
+                const role = sel.dataset.role;
+                if (!name) return;
+                
+                let roleKey = role.toLowerCase() === 'por' ? 'por' : role.toLowerCase() === 'dif' ? 'dif' : role.toLowerCase() === 'cen' ? 'cen' : 'att';
+                let playerObj = (cascina[roleKey] || []).find(p => p.name === name);
+                
+                if (playerObj) {
+                    const match = getMatchDetails(playerObj, giornata);
+                    selectedPlayers.push({
+                        role,
+                        name: playerObj.name,
+                        squadra: playerObj.squadra,
+                        mv: playerObj.mv,
+                        fm: playerObj.fm,
+                        avversario: match.avversario,
+                        isHome: match.isHome
+                    });
+                }
+            });
+
+            const stats = calculateAverages(selectedPlayers);
+            const statsEl = document.getElementById('customLineupStats');
+            if (statsEl) {
+                statsEl.textContent = `Titolari schierati: ${selectedPlayers.length}/11 | Media Voto: ${stats.mv} | Fantamedia: ${stats.fm}`;
+            }
         }
 
         function getBest11(teamKey, giornata) {
@@ -580,7 +694,6 @@
             });
         }
 
-        // Avvio immediato e sicuro al caricamento del DOM
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initDashboard);
         } else {
