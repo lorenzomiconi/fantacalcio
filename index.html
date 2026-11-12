@@ -8,6 +8,35 @@
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
         select { background-color: #1e293b !important; color: #f8fafc !important; }
+        /* Stile Campo da Calcio */
+        .football-pitch {
+            background: linear-gradient(180deg, #166534 0%, #15803d 100%);
+            position: relative;
+            border: 3px solid #ffffff;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+        }
+        /* Linea di centrocampo */
+        .pitch-midline {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+        }
+        /* Cerchio di centrocampo */
+        .pitch-center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -28,12 +57,12 @@
             </div>
         </header>
 
-        <!-- SEZIONE: CREA LA TUA FORMAZIONE CON SCELTA MODULO -->
+        <!-- SEZIONE: CAMPO DA CALCIO INTERATTIVO PER LA FORMAZIONE -->
         <section class="bg-slate-800 p-6 rounded-xl border-2 border-emerald-500/80 shadow-xl space-y-4">
             <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-3 gap-3">
                 <div class="flex items-center gap-4">
                     <h2 class="text-xl font-bold text-emerald-400 flex items-center gap-2">
-                        <span>📋</span> Schiera la Tua Formazione (Cascina)
+                        <span>⚽</span> Schiera la Tua Formazione su Campo (Cascina)
                     </h2>
                     <!-- SCELTA MODULO -->
                     <div class="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-lg border border-slate-700">
@@ -48,12 +77,27 @@
                     </div>
                 </div>
                 <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700 font-mono text-amber-400" id="customLineupStats">
-                    MV: 0.00 | FM: 0.00
+                    Titolari: 0/11 | MV: 0.00 | FM: 0.00
                 </div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3" id="customLineupSelectors">
-                <!-- I selettori dei ruoli si rigenerano in base al modulo -->
+
+            <!-- IL CAMPO DA CALCIO -->
+            <div class="football-pitch rounded-2xl p-6 min-h-[550px] flex flex-col justify-between items-center relative overflow-hidden shadow-inner">
+                <div class="pitch-midline"></div>
+                <div class="pitch-center-circle"></div>
+
+                <!-- I reparti disposti sul campo dal basso (Portiere) verso l'alto (Attacco) -->
+                <!-- 1. PORTIERE -->
+                <div class="w-full flex justify-center z-10 my-2" id="pitch-por"></div>
+                
+                <!-- 2. DIFESA -->
+                <div class="w-full flex justify-around z-10 my-2" id="pitch-dif"></div>
+                
+                <!-- 3. CENTROCAMPO -->
+                <div class="w-full flex justify-around z-10 my-2" id="pitch-cen"></div>
+                
+                <!-- 4. ATTACCO -->
+                <div class="w-full flex justify-around z-10 my-2" id="pitch-att"></div>
             </div>
         </section>
 
@@ -445,39 +489,32 @@
             return { avversario: "-", isHome: false };
         }
 
-        // Generazione dinamica dei menu in base al modulo selezionato (3-5-2, 4-3-3, ecc.)
+        // Genera i menu direttamente sul campo da calcio in base al modulo
         function initCustomLineupSelectors() {
-            const container = document.getElementById('customLineupSelectors');
             const moduloVal = document.getElementById('moduloSelect').value;
-            if (!container) return;
-            container.innerHTML = '';
-
             const parts = moduloVal.split('-');
             const difCount = parseInt(parts[0]);
             const cenCount = parseInt(parts[1]);
             const attCount = parseInt(parts[2]);
 
             const cascina = leagueData["CASCINA"];
-            
-            let slots = [
-                {type: 'POR', count: 1, list: cascina.por},
-                {type: 'DIF', count: difCount, list: cascina.dif},
-                {type: 'CEN', count: cenCount, list: cascina.cen},
-                {type: 'ATT', count: attCount, list: cascina.att}
-            ];
 
-            slots.forEach(slot => {
-                for (let i = 1; i <= slot.count; i++) {
-                    const div = document.createElement('div');
-                    div.className = "bg-slate-900 p-2 rounded border border-slate-700 space-y-1";
-                    
-                    const label = document.createElement('label');
-                    label.className = "text-[11px] font-bold text-slate-400 block uppercase";
-                    label.textContent = `${slot.type} #${i}`;
-                    
+            const renderRow = (containerId, role, count, list) => {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = '';
+
+                for (let i = 1; i <= count; i++) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = "flex flex-col items-center bg-slate-900/90 p-2 rounded-lg border border-slate-700 shadow-md w-36 sm:w-40";
+
+                    const label = document.createElement('span');
+                    label.className = "text-[10px] font-bold text-amber-400 uppercase mb-1";
+                    label.textContent = `${role} #${i}`;
+
                     const select = document.createElement('select');
-                    select.className = "custom-player-select w-full bg-slate-800 text-white text-xs p-1.5 rounded border border-slate-600 focus:outline-none focus:ring-1 focus:ring-emerald-500";
-                    select.dataset.role = slot.type;
+                    select.className = "custom-player-select w-full bg-slate-800 text-white text-xs p-1 rounded border border-slate-600 focus:outline-none focus:ring-1 focus:ring-emerald-500 text-center";
+                    select.dataset.role = role;
                     select.onchange = updateCustomLineupStats;
 
                     const emptyOpt = document.createElement('option');
@@ -485,20 +522,24 @@
                     emptyOpt.textContent = "-- Seleziona --";
                     select.appendChild(emptyOpt);
 
-                    slot.list.forEach((p, idx) => {
+                    list.forEach((p, idx) => {
                         const opt = document.createElement('option');
                         opt.value = p.name;
                         opt.textContent = `${p.name} (${p.squadra})`;
-                        // Seleziona i primi disponibili per default fino a riempire il modulo
-                        if (idx < slot.count && i === idx + 1) opt.selected = true;
+                        if (idx < count && i === idx + 1) opt.selected = true;
                         select.appendChild(opt);
                     });
 
-                    div.appendChild(label);
-                    div.appendChild(select);
-                    container.appendChild(div);
+                    wrapper.appendChild(label);
+                    wrapper.appendChild(select);
+                    container.appendChild(wrapper);
                 }
-            });
+            };
+
+            renderRow('pitch-por', 'POR', 1, cascina.por);
+            renderRow('pitch-dif', 'DIF', difCount, cascina.dif);
+            renderRow('pitch-cen', 'CEN', cenCount, cascina.cen);
+            renderRow('pitch-att', 'ATT', attCount, cascina.att);
 
             updateCustomLineupStats();
         }
@@ -535,7 +576,7 @@
             const stats = calculateAverages(selectedPlayers);
             const statsEl = document.getElementById('customLineupStats');
             if (statsEl) {
-                statsEl.textContent = `Titolari schierati: ${selectedPlayers.length}/11 | Media Voto: ${stats.mv} | Fantamedia: ${stats.fm}`;
+                statsEl.textContent = `Titolari: ${selectedPlayers.length}/11 | Media Voto: ${stats.mv} | Fantamedia: ${stats.fm}`;
             }
         }
 
