@@ -255,13 +255,13 @@
                     const div = document.createElement('div');
                     div.className = "flex justify-between items-center bg-slate-800 p-2 rounded border border-slate-700 text-xs gap-2";
                     div.innerHTML = `
-                        <div class="flex items-center gap-2 overflow-hidden">
+                        <div class="flex items-center gap-2 overflow-hidden flex-wrap">
                             <span class="font-bold px-1.5 py-0.5 rounded bg-slate-900 shrink-0 ${
                                 p.role === 'POR' ? 'text-amber-400' : p.role === 'DIF' ? 'text-blue-400' : p.role === 'CEN' ? 'text-emerald-400' : 'text-rose-400'
                             }">${p.role}</span>
-                            <span class="font-semibold text-slate-200 truncate">${p.name}</span>
-                            <span class="text-slate-400 text-[10px] shrink-0">(${p.squadra})</span>
-                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20 shrink-0">vs ${p.avversario}</span>
+                            <span class="font-semibold text-slate-200">${p.name}</span>
+                            <span class="text-slate-400 text-[10px]">(${p.squadra})</span>
+                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">vs ${p.avversario}</span>
                         </div>
                         <div class="flex gap-2 font-mono text-[11px] shrink-0">
                             <span class="text-slate-300">MV: <b>${Number(p.mv).toFixed(2)}</b></span>
