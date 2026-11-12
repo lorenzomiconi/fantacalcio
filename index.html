@@ -8,21 +8,23 @@
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
         select { background-color: #1e293b !important; color: #f8fafc !important; }
-        /* Stile Campo da Calcio */
+
+        /* --- STILE CAMPO DA CALCIO PROFESSIONALE --- */
         .football-pitch {
-            background: linear-gradient(180deg, #166534 0%, #15803d 100%);
+            background: linear-gradient(180deg, #15803d 0%, #166534 50%, #15803d 100%);
             position: relative;
-            border: 3px solid #ffffff;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+            border: 4px solid #ffffff;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
         }
-        /* Linea di centrocampo */
+        /* Linea di metà campo */
         .pitch-midline {
             position: absolute;
             top: 50%;
             left: 0;
             right: 0;
-            height: 2px;
-            background-color: rgba(255, 255, 255, 0.4);
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.6);
             pointer-events: none;
         }
         /* Cerchio di centrocampo */
@@ -31,10 +33,95 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90px;
-            height: 90px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            width: 110px;
+            height: 110px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
             border-radius: 50%;
+            pointer-events: none;
+        }
+        /* Punto del dischetto di centrocampo */
+        .pitch-center-spot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        /* Area di rigore in basso (Portiere / Difesa avversaria) */
+        .pitch-box-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 90px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-bottom: none;
+            pointer-events: none;
+        }
+        /* Area di porta in basso */
+        .pitch-goalbox-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20%;
+            height: 35px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-bottom: none;
+            pointer-events: none;
+        }
+        /* Porta in basso (Portiere) */
+        .goal-bottom {
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 15px;
+            border: 3px dashed rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+        }
+
+        /* Area di rigore in alto (Attacco) */
+        .pitch-box-top {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 90px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-top: none;
+            pointer-events: none;
+        }
+        /* Area di porta in alto */
+        .pitch-goalbox-top {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20%;
+            height: 35px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-top: none;
+            pointer-events: none;
+        }
+        /* Porta in alto */
+        .goal-top {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 15px;
+            border: 3px dashed rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.2);
             pointer-events: none;
         }
     </style>
@@ -57,12 +144,12 @@
             </div>
         </header>
 
-        <!-- SEZIONE: CAMPO DA CALCIO INTERATTIVO PER LA FORMAZIONE -->
+        <!-- SEZIONE: CAMPO DA CALCIO CON PORTE E AREE -->
         <section class="bg-slate-800 p-6 rounded-xl border-2 border-emerald-500/80 shadow-xl space-y-4">
             <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-3 gap-3">
                 <div class="flex items-center gap-4">
                     <h2 class="text-xl font-bold text-emerald-400 flex items-center gap-2">
-                        <span>⚽</span> Schiera la Tua Formazione su Campo (Cascina)
+                        <span>⚽</span> Formazione sul Campo (Cascina)
                     </h2>
                     <!-- SCELTA MODULO -->
                     <div class="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-lg border border-slate-700">
@@ -81,23 +168,33 @@
                 </div>
             </div>
 
-            <!-- IL CAMPO DA CALCIO -->
-            <div class="football-pitch rounded-2xl p-6 min-h-[550px] flex flex-col justify-between items-center relative overflow-hidden shadow-inner">
+            <!-- IL CAMPO DA CALCIO DETTAGLIATO -->
+            <div class="football-pitch rounded-2xl p-6 min-h-[600px] flex flex-col justify-between items-center relative shadow-inner">
+                <!-- Segni del campo -->
+                <div class="goal-top"></div>
+                <div class="pitch-goalbox-top"></div>
+                <div class="pitch-box-top"></div>
+
                 <div class="pitch-midline"></div>
                 <div class="pitch-center-circle"></div>
+                <div class="pitch-center-spot"></div>
 
-                <!-- I reparti disposti sul campo dal basso (Portiere) verso l'alto (Attacco) -->
-                <!-- 1. PORTIERE -->
-                <div class="w-full flex justify-center z-10 my-2" id="pitch-por"></div>
-                
-                <!-- 2. DIFESA -->
-                <div class="w-full flex justify-around z-10 my-2" id="pitch-dif"></div>
-                
-                <!-- 3. CENTROCAMPO -->
-                <div class="w-full flex justify-around z-10 my-2" id="pitch-cen"></div>
-                
-                <!-- 4. ATTACCO -->
+                <div class="pitch-box-bottom"></div>
+                <div class="pitch-goalbox-bottom"></div>
+                <div class="goal-bottom"></div>
+
+                <!-- Reparti dei giocatori posizionati dal basso (Portiere) verso l'alto (Attacco) -->
+                <!-- 1. ATTACCO (In alto) -->
                 <div class="w-full flex justify-around z-10 my-2" id="pitch-att"></div>
+
+                <!-- 2. CENTROCAMPO -->
+                <div class="w-full flex justify-around z-10 my-2" id="pitch-cen"></div>
+
+                <!-- 3. DIFESA -->
+                <div class="w-full flex justify-around z-10 my-2" id="pitch-dif"></div>
+
+                <!-- 4. PORTIERE (In basso) -->
+                <div class="w-full flex justify-center z-10 my-2" id="pitch-por"></div>
             </div>
         </section>
 
@@ -489,7 +586,7 @@
             return { avversario: "-", isHome: false };
         }
 
-        // Genera i menu direttamente sul campo da calcio in base al modulo
+        // Posizionamento sul campo con i reparti in ordine corretto (Attacco in alto, Portiere in basso)
         function initCustomLineupSelectors() {
             const moduloVal = document.getElementById('moduloSelect').value;
             const parts = moduloVal.split('-');
@@ -506,14 +603,14 @@
 
                 for (let i = 1; i <= count; i++) {
                     const wrapper = document.createElement('div');
-                    wrapper.className = "flex flex-col items-center bg-slate-900/90 p-2 rounded-lg border border-slate-700 shadow-md w-36 sm:w-40";
+                    wrapper.className = "flex flex-col items-center bg-slate-900/95 p-2 rounded-lg border border-emerald-500/40 shadow-lg w-36 sm:w-40 backdrop-blur";
 
                     const label = document.createElement('span');
-                    label.className = "text-[10px] font-bold text-amber-400 uppercase mb-1";
+                    label.className = "text-[10px] font-extrabold text-amber-400 uppercase mb-1 tracking-wider";
                     label.textContent = `${role} #${i}`;
 
                     const select = document.createElement('select');
-                    select.className = "custom-player-select w-full bg-slate-800 text-white text-xs p-1 rounded border border-slate-600 focus:outline-none focus:ring-1 focus:ring-emerald-500 text-center";
+                    select.className = "custom-player-select w-full bg-slate-800 text-white text-xs p-1 rounded border border-slate-600 focus:outline-none focus:ring-1 focus:ring-emerald-500 text-center font-semibold";
                     select.dataset.role = role;
                     select.onchange = updateCustomLineupStats;
 
@@ -536,10 +633,10 @@
                 }
             };
 
-            renderRow('pitch-por', 'POR', 1, cascina.por);
-            renderRow('pitch-dif', 'DIF', difCount, cascina.dif);
-            renderRow('pitch-cen', 'CEN', cenCount, cascina.cen);
             renderRow('pitch-att', 'ATT', attCount, cascina.att);
+            renderRow('pitch-cen', 'CEN', cenCount, cascina.cen);
+            renderRow('pitch-dif', 'DIF', difCount, cascina.dif);
+            renderRow('pitch-por', 'POR', 1, cascina.por);
 
             updateCustomLineupStats();
         }
