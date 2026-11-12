@@ -41,7 +41,7 @@
                         <tr>
                             <th class="p-3">Ruolo</th>
                             <th class="p-3">Giocatore</th>
-                            <th class="p-3">Squadra & Avversario di Giornata</th>
+                            <th class="p-3">Squadra & Partita (Casa/Fuori)</th>
                             <th class="p-3 text-center">Media Voto (MV)</th>
                             <th class="p-3 text-center">Fantamedia (FM)</th>
                         </tr>
@@ -389,7 +389,7 @@
 
             "ATALANTA_38": "Como", "COMO_38": "Atalanta", "CAGLIARI_38": "Milan", "MILAN_38": "Cagliari",
             "FROSINONE_38": "Lecce", "LECCE_38": "Frosinone", "JUVENTUS_38": "Inter", "INTER_38": "Juventus",
-            "LAZIO_38": "Roma", "ROMA_38": "Lazio", "PARMA_38": "BOLOGNA", "BOLOGNA_38": "Parma",
+            "LAZIO_38": "Roma", "ROMA_38": "Lazio", "PARMA_38": "Bologna", "BOLOGNA_38": "Parma",
             "SASSUOLO_38": "Genoa", "GENOA_38": "Sassuolo", "TORINO_38": "Napoli", "NAPOLI_38": "Torino",
             "UDINESE_38": "Monza", "MONZA_38": "Udinese", "VERONA_38": "Venezia", "VENEZIA_38": "Verona"
         };
@@ -436,24 +436,34 @@
             renderRecommendedLineup();
         }
 
-        function getOpponent(p, giornata) {
-            if (!p || !p.squadra) return "-";
+        function getMatchDetails(p, giornata) {
+            if (!p || !p.squadra) return { avversario: "-", isHome: true };
             let squadraKey = p.squadra.toUpperCase().trim();
             if (squadraKey === "JUVE") squadraKey = "JUVENTUS";
             if (squadraKey === "SASSLUOLO") squadraKey = "SASSUOLO";
             if (squadraKey === "FROSINORE") squadraKey = "FROSINONE";
             
             const matchKey = `${squadraKey}_${giornata}`;
-            return calendarioSerieA[matchKey] || "-";
+            const avversario = calendarioSerieA[matchKey] || "-";
+            
+            // Per determinare se è in casa: se la chiave del calendario inizia con la squadra, è in casa.
+            // Se nel calendario troviamo che la chiave invertita esiste o controllando la posizione:
+            // Nel nostro dizionario, le chiavi sono del tipo "INTER_1": "Monza". Quindi Inter gioca in casa.
+            const isHome = calendarioSerieA[matchKey] !== undefined;
+
+            return { avversario, isHome };
         }
 
         function getBest11(teamKey, giornata) {
             const team = leagueData[teamKey];
             if (!team) return [];
             
-            const normalize = (p, role) => ({
-                role, name: p.name, squadra: p.squadra || "N/D", mv: p.mv || 6.0, fm: p.fm || 6.0, avversario: getOpponent(p, giornata)
-            });
+            const normalize = (p, role) => {
+                const match = getMatchDetails(p, giornata);
+                return {
+                    role, name: p.name, squadra: p.squadra || "N/D", mv: p.mv || 6.0, fm: p.fm || 6.0, avversario: match.avversario, isHome: match.isHome
+                };
+            };
 
             const porList = (team.por || []).map(p => normalize(p, 'POR'));
             const difList = (team.dif || []).map(p => normalize(p, 'DIF')).sort((a,b) => b.fm - a.fm).slice(0, 4);
@@ -500,13 +510,15 @@
             categories.forEach(cat => {
                 cat.list.forEach(p => {
                     const squadra = p.squadra || "N/D";
-                    const avv = getOpponent(p, giornata);
+                    const match = getMatchDetails(p, giornata);
+                    const homeAwayBadge = match.isHome ? '<span class="text-emerald-400 font-bold" title="In Casa">🏠 Casa</span>' : '<span class="text-amber-400 font-bold" title="Fuori Casa">✈️ Fuori</span>';
+                    
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-slate-700/50 transition";
                     tr.innerHTML = `
                         <td class="p-3 ${cat.color}">${cat.role}</td>
                         <td class="p-3 font-semibold text-slate-200">${p.name}</td>
-                        <td class="p-3 text-xs"><span class="text-slate-300 font-medium">${squadra}</span> <span class="text-slate-500 mx-1">→</span> <span class="text-amber-300 font-semibold">vs ${avv}</span></td>
+                        <td class="p-3 text-xs"><span class="text-slate-300 font-medium">${squadra}</span> <span class="text-slate-500 mx-1">→</span> ${homeAwayBadge} vs <span class="text-amber-300 font-semibold">${match.avversario}</span></td>
                         <td class="p-3 text-center text-slate-300 font-mono">${Number(p.mv).toFixed(2)}</td>
                         <td class="p-3 text-center text-emerald-400 font-mono font-bold">${Number(p.fm).toFixed(2)}</td>
                     `;
@@ -542,6 +554,7 @@
                 if (!container) return;
                 container.innerHTML = '';
                 lineup.forEach(p => {
+                    const homeAwayText = p.isHome ? '🏠 Casa' : '✈️ Fuori';
                     const div = document.createElement('div');
                     div.className = "flex justify-between items-center bg-slate-800 p-2 rounded border border-slate-700 text-xs gap-2";
                     div.innerHTML = `
@@ -551,7 +564,7 @@
                             }">${p.role}</span>
                             <span class="font-semibold text-slate-200">${p.name}</span>
                             <span class="text-slate-400 text-[10px]">(${p.squadra})</span>
-                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">vs ${p.avversario}</span>
+                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">${homeAwayText} vs ${p.avversario}</span>
                         </div>
                         <div class="flex gap-2 font-mono text-[11px] shrink-0">
                             <span class="text-slate-300">MV: <b>${Number(p.mv).toFixed(2)}</b></span>
@@ -576,6 +589,7 @@
             container.innerHTML = '';
 
             best11.forEach(p => {
+                const homeAwayText = p.isHome ? '🏠 Casa' : '✈️ Fuori';
                 const card = document.createElement('div');
                 card.className = "bg-slate-900 p-3 rounded-lg border border-slate-700 space-y-1";
                 card.innerHTML = `
@@ -583,7 +597,7 @@
                         <span class="text-xs font-bold px-2 py-0.5 rounded bg-slate-800 ${
                             p.role === 'POR' ? 'text-amber-400' : p.role === 'DIF' ? 'text-blue-400' : p.role === 'CEN' ? 'text-emerald-400' : 'text-rose-400'
                         }">${p.role}</span>
-                        <span class="text-[11px] text-amber-300">vs <b>${p.avversario}</b></span>
+                        <span class="text-[11px] text-amber-300">${homeAwayText} vs <b>${p.avversario}</b></span>
                     </div>
                     <div class="font-bold text-slate-100 text-sm pt-1">${p.name} <span class="text-xs text-slate-400 font-normal">(${p.squadra})</span></div>
                     <div class="flex justify-between text-xs pt-1 border-t border-slate-800">
