@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Lega Fantacalcio - 12ª Giornata</title>
+    <title>Dashboard Lega Fantacalcio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
+        select { cursor: pointer; }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -16,13 +17,13 @@
         <header class="flex flex-col md:flex-row justify-between items-center bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg gap-4">
             <div>
                 <h1 class="text-3xl font-extrabold text-emerald-400">LEGA FANTACALCIO ⚽</h1>
-                <p class="text-slate-400 text-sm mt-1">12ª Giornata Serie A (Ripresa 21 Nov) • Modificatore Difesa (+0.25)</p>
+                <p class="text-slate-400 text-sm mt-1">Gestione Giornate Serie A • Modificatore Difesa (+0.25)</p>
             </div>
             
             <!-- SELETTORE GIORNATA SERIE A -->
             <div class="flex items-center gap-3 bg-slate-900 p-3 rounded-lg border border-slate-700">
-                <label for="giornataSelect" class="text-xs font-bold text-amber-400 uppercase">📅 Giornata Serie A:</label>
-                <select id="giornataSelect" onchange="updateAll()" class="bg-slate-800 border border-slate-600 text-white font-bold text-sm py-1.5 px-3 rounded focus:outline-none">
+                <label for="giornataSelect" class="text-xs font-bold text-amber-400 uppercase">📅 Giornata:</label>
+                <select id="giornataSelect" onchange="updateAll()" class="bg-slate-800 border border-slate-600 text-white font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </select>
             </div>
         </header>
@@ -38,7 +39,7 @@
                 <div class="flex items-center gap-4 bg-slate-900 p-3 rounded-lg border border-slate-700">
                     <span class="text-sm font-bold text-emerald-400">CASCINA</span>
                     <span class="text-xs font-black text-slate-500">VS</span>
-                    <select id="opponentSelect" onchange="renderMatchup()" class="bg-slate-800 border border-slate-600 text-amber-400 font-bold text-sm py-1.5 px-3 rounded focus:outline-none">
+                    <select id="opponentSelect" onchange="renderMatchup()" class="bg-slate-800 border border-slate-600 text-amber-400 font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
                     </select>
                 </div>
             </div>
@@ -81,7 +82,7 @@
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
                 <h2 id="teamTitle" class="text-xl font-bold text-slate-100">Rosa Squadra</h2>
-                <select id="teamSelect" onchange="renderTeam()" class="bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1.5 px-3 rounded-lg text-sm"></select>
+                <select id="teamSelect" onchange="renderTeam()" class="bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1.5 px-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
             </div>
             
             <div class="overflow-x-auto">
@@ -102,8 +103,8 @@
     </div>
 
     <script>
-        // Dati integrati di sicurezza (tutte le 10 squadre)
-        const fallbackData = {
+        // Database completo integrato
+        const leagueData = {
             "CASCINA": {
                 "por": [{"name": "OKOYE", "mv": 6.2, "fm": 5.1, "avv": {"12": "Inter", "13": "Juventus"}}, {"name": "PESSINA", "mv": 6.0, "fm": 4.8, "avv": {"12": "Lazio", "13": "Milan"}}, {"name": "SKORUPSKI", "mv": 6.3, "fm": 5.3, "avv": {"12": "Roma", "13": "Napoli"}}],
                 "dif": [{"name": "BRACAGLIA", "mv": 6.0, "fm": 6.1, "avv": {"12": "Atalanta"}}, {"name": "DEL PRATO", "mv": 6.1, "fm": 6.3, "avv": {"12": "Juventus"}}, {"name": "KEMPF", "mv": 5.9, "fm": 5.8, "avv": {"12": "Milan"}}, {"name": "LUCUMI", "mv": 6.3, "fm": 6.4, "avv": {"12": "Napoli"}}, {"name": "MANGAS", "mv": 5.8, "fm": 5.7, "avv": {"12": "Bologna"}}, {"name": "ZORTEA", "mv": 6.2, "fm": 6.6, "avv": {"12": "Fiorentina"}}, {"name": "VASQUEZ", "mv": 6.1, "fm": 6.2, "avv": {"12": "Torino"}}, {"name": "RAMON", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}],
@@ -118,28 +119,4 @@
             },
             "AS ORCA": {
                 "por": [{"name": "MARTINEZ", "mv": 6.3, "fm": 5.4, "avv": {"12": "Inter"}}, {"name": "PROVEDEL", "mv": 6.4, "fm": 5.6, "avv": {"12": "Lazio"}}, {"name": "STANKOVIC", "mv": 6.0, "fm": 4.9, "avv": {"12": "Venezia"}}],
-                "dif": [{"name": "BADIASHILE", "mv": 6.1, "fm": 6.1, "avv": {"12": "Napoli"}}, {"name": "BELLANOVA", "mv": 6.3, "fm": 6.8, "avv": {"12": "Atalanta"}}, {"name": "AUGUSTO", "mv": 6.2, "fm": 6.4, "avv": {"12": "Inter"}}, {"name": "HAINAUT", "mv": 6.0, "fm": 6.0, "avv": {"12": "Venezia"}}, {"name": "JIMENEZ", "mv": 6.1, "fm": 6.2, "avv": {"12": "Fiorentina"}}, {"name": "PROVSTGAARD", "mv": 6.0, "fm": 6.0, "avv": {"12": "Lazio"}}, {"name": "SPINAZZOLA", "mv": 6.2, "fm": 6.5, "avv": {"12": "Napoli"}}, {"name": "WEALEY", "mv": 6.0, "fm": 6.0, "avv": {"12": "Roma"}}],
-                "cen": [{"name": "CAMBIAGHI", "mv": 6.3, "fm": 6.9, "avv": {"12": "Bologna"}}, {"name": "CONCEICAO", "mv": 6.5, "fm": 7.4, "avv": {"12": "Juventus"}}, {"name": "DIOUF", "mv": 6.1, "fm": 6.2, "avv": {"12": "Inter"}}, {"name": "FAZZINI", "mv": 6.2, "fm": 6.6, "avv": {"12": "Cagliari"}}, {"name": "MODRIC", "mv": 6.6, "fm": 7.5, "avv": {"12": "Milan"}}, {"name": "PISILLI", "mv": 6.4, "fm": 7.0, "avv": {"12": "Roma"}}, {"name": "ZACCAGNI", "mv": 6.7, "fm": 7.9, "avv": {"12": "Lazio"}}, {"name": "ZHEGROVA", "mv": 6.5, "fm": 7.3, "avv": {"12": "Juventus"}}],
-                "att": [{"name": "BETO", "mv": 6.3, "fm": 7.0, "avv": {"12": "Fiorentina"}}, {"name": "BOGA", "mv": 6.2, "fm": 6.8, "avv": {"12": "Juventus"}}, {"name": "HOJLIND", "mv": 6.7, "fm": 8.1, "avv": {"12": "Napoli"}}, {"name": "LUCCA", "mv": 6.4, "fm": 7.3, "avv": {"12": "Napoli"}}, {"name": "PICCOLI", "mv": 6.3, "fm": 7.1, "avv": {"12": "Bologna"}}, {"name": "TOURE'", "mv": 6.0, "fm": 6.1, "avv": {"12": "Parma"}}]
-            },
-            "AS TRONZI": {
-                "por": [{"name": "NETO", "mv": 6.1, "fm": 5.2, "avv": {"12": "Juventus"}}, {"name": "VICARIO", "mv": 6.5, "fm": 5.8, "avv": {"12": "Juventus"}}, {"name": "TORNQVIST", "mv": 6.0, "fm": 5.0, "avv": {"12": "Monza"}}],
-                "dif": [{"name": "BERNASCONI", "mv": 6.0, "fm": 6.0, "avv": {"12": "Atalanta"}}, {"name": "DOEKHI", "mv": 6.2, "fm": 6.3, "avv": {"12": "Lazio"}}, {"name": "GALLO", "mv": 6.1, "fm": 6.2, "avv": {"12": "Lecce"}}, {"name": "GILA", "mv": 6.3, "fm": 6.5, "avv": {"12": "Milan"}}, {"name": "KRISTENSEN", "mv": 6.1, "fm": 6.2, "avv": {"12": "Atalanta"}}, {"name": "RRAHMANI", "mv": 6.4, "fm": 6.7, "avv": {"12": "Napoli"}}, {"name": "SPENCE", "mv": 6.2, "fm": 6.3, "avv": {"12": "Inter"}}, {"name": "VALERI", "mv": 6.3, "fm": 6.7, "avv": {"12": "Parma"}}],
-                "cen": [{"name": "CASADEI", "mv": 6.2, "fm": 6.6, "avv": {"12": "Torino"}}, {"name": "CISSE", "mv": 6.0, "fm": 6.1, "avv": {"12": "Milan"}}, {"name": "GONCALVES", "mv": 6.4, "fm": 7.1, "avv": {"12": "Fiorentina"}}, {"name": "MCKENNIE", "mv": 6.4, "fm": 7.0, "avv": {"12": "Juventus"}}, {"name": "MILA", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}, {"name": "NICO PAZ", "mv": 6.6, "fm": 7.8, "avv": {"12": "Como"}}, {"name": "ZANIOLO", "mv": 6.3, "fm": 7.0, "avv": {"12": "Udinese"}}, {"name": "THORSTVEDT", "mv": 6.4, "fm": 7.2, "avv": {"12": "Sassuolo"}}],
-                "att": [{"name": "BOBCEK", "mv": 6.0, "fm": 6.1, "avv": {"12": "Frosinone"}}, {"name": "CARLOS", "mv": 6.1, "fm": 6.3, "avv": {"12": "Cagliari"}}, {"name": "KRSTOVIC", "mv": 6.5, "fm": 7.4, "avv": {"12": "Atalanta"}}, {"name": "PELLEGRINO", "mv": 6.0, "fm": 6.2, "avv": {"12": "Frosinone"}}, {"name": "RAMOS", "mv": 6.2, "fm": 6.6, "avv": {"12": "Milan"}}, {"name": "YEBOAH", "mv": 6.0, "fm": 6.1, "avv": {"12": "Venezia"}}]
-            },
-            "LUCREZIA": {
-                "por": [{"name": "FALCONE", "mv": 6.3, "fm": 5.4, "avv": {"12": "Lecce"}}, {"name": "GOLLINI", "mv": 6.1, "fm": 5.1, "avv": {"12": "Roma"}}, {"name": "SVILAR", "mv": 6.6, "fm": 6.0, "avv": {"12": "Roma"}}],
-                "dif": [{"name": "ALABA", "mv": 6.5, "fm": 6.9, "avv": {"12": "Udinese"}}, {"name": "BELGHALI", "mv": 6.0, "fm": 6.1, "avv": {"12": "Torino"}}, {"name": "COUTO", "mv": 6.3, "fm": 6.7, "avv": {"12": "Como"}}, {"name": "DI MARCO", "mv": 6.8, "fm": 8.0, "avv": {"12": "Inter"}}, {"name": "MARIN", "mv": 6.1, "fm": 6.2, "avv": {"12": "Napoli"}}, {"name": "N'DIKA", "mv": 6.3, "fm": 6.6, "avv": {"12": "Roma"}}, {"name": "SUTALO", "mv": 6.2, "fm": 6.4, "avv": {"12": "Lazio"}}, {"name": "THEATE", "mv": 6.4, "fm": 6.8, "avv": {"12": "Bologna"}}],
-                "cen": [{"name": "BAKOLA", "mv": 6.0, "fm": 6.0, "avv": {"12": "Sassuolo"}}, {"name": "FABBIAN", "mv": 6.4, "fm": 7.1, "avv": {"12": "Parma"}}, {"name": "FRATTESI", "mv": 6.6, "fm": 7.7, "avv": {"12": "Lazio"}}, {"name": "RODRIGUEZ", "mv": 6.1, "fm": 6.2, "avv": {"12": "Como"}}, {"name": "ROWE", "mv": 6.3, "fm": 6.9, "avv": {"12": "Atalanta"}}, {"name": "SAELEMAEKERS", "mv": 6.4, "fm": 7.2, "avv": {"12": "Milan"}}, {"name": "VERGARA", "mv": 6.1, "fm": 6.2, "avv": {"12": "Napoli"}}, {"name": "VLASIC", "mv": 6.5, "fm": 7.4, "avv": {"12": "Torino"}}],
-                "att": [{"name": "BONNY", "mv": 6.3, "fm": 7.0, "avv": {"12": "Inter"}}, {"name": "DAVIS", "mv": 6.4, "fm": 7.2, "avv": {"12": "Udinese"}}, {"name": "DE KETELAERE", "mv": 6.7, "fm": 8.0, "avv": {"12": "Atalanta"}}, {"name": "ESPOSITO", "mv": 6.2, "fm": 6.7, "avv": {"12": "Sassuolo"}}, {"name": "SOULE'", "mv": 6.5, "fm": 7.6, "avv": {"12": "Roma"}}, {"name": "WOLTEMADE", "mv": 6.1, "fm": 6.4, "avv": {"12": "Juventus"}}]
-            },
-            "SBLOCCUSELLI": {
-                "por": [{"name": "BIJLOW", "mv": 6.2, "fm": 5.3, "avv": {"12": "Genoa"}}, {"name": "CHRISTENSEN", "mv": 6.0, "fm": 5.0, "avv": {"12": "Fiorentina"}}, {"name": "DE GEA", "mv": 6.7, "fm": 6.1, "avv": {"12": "Fiorentina"}}],
-                "dif": [{"name": "AKANJI", "mv": 6.5, "fm": 6.9, "avv": {"12": "Inter"}}, {"name": "CALVANI", "mv": 6.0, "fm": 6.0, "avv": {"12": "Frosinone"}}, {"name": "HERMOSO", "mv": 6.4, "fm": 6.8, "avv": {"12": "Roma"}}, {"name": "KAMARA", "mv": 6.2, "fm": 6.4, "avv": {"12": "Udinese"}}, {"name": "MOLINA", "mv": 6.3, "fm": 6.7, "avv": {"12": "Roma"}}, {"name": "OYONO", "mv": 6.0, "fm": 6.1, "avv": {"12": "Frosinone"}}, {"name": "RODRIGUEZ", "mv": 6.1, "fm": 6.2, "avv": {"12": "Cagliari"}}, {"name": "BISSEK", "mv": 6.3, "fm": 6.7, "avv": {"12": "Inter"}}],
-                "cen": [{"name": "BATURINA", "mv": 6.2, "fm": 6.7, "avv": {"12": "Como"}}, {"name": "CALò", "mv": 6.0, "fm": 6.1, "avv": {"12": "Frosinone"}}, {"name": "FAGIOLI", "mv": 6.3, "fm": 6.8, "avv": {"12": "Fiorentina"}}, {"name": "CHUKWUEZE", "mv": 6.4, "fm": 7.2, "avv": {"12": "Milan"}}, {"name": "MATIC", "mv": 6.2, "fm": 6.5, "avv": {"12": "Sassuolo"}}, {"name": "ORSOLINI", "mv": 6.6, "fm": 7.8, "avv": {"12": "Bologna"}}, {"name": "SCHMID", "mv": 6.1, "fm": 6.2, "avv": {"12": "Frosinone"}}, {"name": "TAYLOR", "mv": 6.0, "fm": 6.1, "avv": {"12": "Lazio"}}],
-                "att": [{"name": "ADAMS", "mv": 6.5, "fm": 7.5, "avv": {"12": "Torino"}}, {"name": "BERARDI", "mv": 6.7, "fm": 8.1, "avv": {"12": "Sassuolo"}}, {"name": "CUTRONE", "mv": 6.4, "fm": 7.2, "avv": {"12": "Monza"}}, {"name": "DOUVIKAS", "mv": 6.2, "fm": 6.8, "avv": {"12": "Como"}}, {"name": "ZEBALLOS", "mv": 6.1, "fm": 6.5, "avv": {"12": "Monza"}}, {"name": "KVERNADZE", "mv": 6.0, "fm": 6.0, "avv": {"12": "Frosinone"}}]
-            },
-            "BENEVENGO": {
-                "por": [{"name": "CAPRILE", "mv": 6.3, "fm": 5.5, "avv": {"12": "Cagliari"}}, {"name": "CORVI", "mv": 6.0, "fm": 4.8, "avv": {"12": "Parma"}}, {"name": "MILINKOVIC", "mv": 6.5, "fm": 5.8, "avv": {"12": "Napoli"}}],
-                "dif": [{"name": "BREMER", "mv
+                "dif": [{"name": "BADIASHILE", "mv": 6.1, "fm": 6.1, "avv": {"12": "Napoli"}}, {"name": "BELLANOVA", "mv": 6.3, "fm": 6.8, "avv": {"12": "Atalanta"}}, {"name": "AUGUSTO", "mv": 6.2, "fm": 6.4, "avv": {"12": "Inter"}}, {"name": "HAINAUT", "mv": 6.0, "fm": 6.0, "avv": {"12": "Venezia"}}, {"name": "JIMENEZ", "mv": 6.1, "fm": 6.2, "avv": {"12": "Fiorentina"}}, {"name": "PROVSTGAARD", "mv": 6.0, "fm": 6.0, "avv": {"1
