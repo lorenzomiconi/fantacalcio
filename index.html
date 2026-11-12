@@ -16,7 +16,7 @@
             box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
             overflow: hidden;
             width: 100%;
-            min-height: 650px;
+            min-height: 700px;
         }
         .pitch-midline { position: absolute; top: 50%; left: 0; right: 0; height: 3px; background-color: rgba(255, 255, 255, 0.6); pointer-events: none; }
         .pitch-center-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; border: 3px solid rgba(255, 255, 255, 0.6); border-radius: 50%; pointer-events: none; }
@@ -114,8 +114,196 @@
         let leagueData = {};
 
         const calendarioUfficiale = {
-            1: [{home: "INTER", away: "MONZA"}, {home: "UDINESE", away: "COMO"}],
-            12: [{home: "JUVENTUS", away: "VENEZIA"}, {home: "BOLOGNA", away: "UDINESE"}, {home: "INTER", away: "ATALANTA"}, {home: "MONZA", away: "FIORENTINA"}]
+            1: [
+                {home: "INTER", away: "MONZA"}, {home: "UDINESE", away: "COMO"}, {home: "GENOA", away: "NAPOLI"},
+                {home: "PARMA", away: "CAGLIARI"}, {home: "FROSINONE", away: "JUVENTUS"}, {home: "MILAN", away: "TORINO"},
+                {home: "BOLOGNA", away: "LAZIO"}, {home: "ROMA", away: "FIORENTINA"}, {home: "ATALANTA", away: "SASSUOLO"}, {home: "LECCE", away: "VENEZIA"}
+            ],
+            2: [
+                {home: "NAPOLI", away: "COMO"}, {home: "CAGLIARI", away: "INTER"}, {home: "LAZIO", away: "GENOA"},
+                {home: "LECCE", away: "ROMA"}, {home: "TORINO", away: "ATALANTA"}, {home: "BOLOGNA", away: "JUVENTUS"},
+                {home: "MILAN", away: "PARMA"}, {home: "MONZA", away: "FROSINONE"}, {home: "UDINESE", away: "VERONA"}, {home: "SASSUOLO", away: "VENEZIA"}
+            ],
+            3: [
+                {home: "INTER", away: "NAPOLI"}, {home: "ROMA", away: "ATALANTA"}, {home: "FROSINONE", away: "VENEZIA"},
+                {home: "PARMA", away: "MONZA"}, {home: "JUVENTUS", away: "MILAN"}, {home: "TORINO", away: "LAZIO"},
+                {home: "BOLOGNA", away: "CAGLIARI"}, {home: "UDINESE", away: "LECCE"}, {home: "FIORENTINA", away: "SASSUOLO"}, {home: "VERONA", away: "COMO"}
+            ],
+            4: [
+                {home: "LAZIO", away: "MILAN"}, {home: "ATALANTA", away: "CAGLIARI"}, {home: "LECCE", away: "MONZA"},
+                {home: "NAPOLI", away: "BOLOGNA"}, {home: "INTER", away: "TORINO"}, {home: "ROMA", away: "VERONA"},
+                {home: "FIORENTINA", away: "UDINESE"}, {home: "FROSINONE", away: "SASSUOLO"}, {home: "VENEZIA", away: "COMO"}, {home: "JUVENTUS", away: "PARMA"}
+            ],
+            5: [
+                {home: "UDINESE", away: "CAGLIARI"}, {home: "ROMA", away: "INTER"}, {home: "VENEZIA", away: "LAZIO"},
+                {home: "FIORENTINA", away: "NAPOLI"}, {home: "ATALANTA", away: "JUVENTUS"}, {home: "BOLOGNA", away: "TORINO"},
+                {home: "MILAN", away: "MONZA"}, {home: "PARMA", away: "SASSUOLO"}, {home: "FROSINONE", away: "COMO"}, {home: "VERONA", away: "LECCE"}
+            ],
+            6: [
+                {home: "INTER", away: "PARMA"}, {home: "NAPOLI", away: "FROSINONE"}, {home: "COMO", away: "ROMA"},
+                {home: "LAZIO", away: "MONZA"}, {home: "JUVENTUS", away: "VENEZIA"}, {home: "MILAN", away: "UDINESE"},
+                {home: "ATALANTA", away: "BOLOGNA"}, {home: "CAGLIARI", away: "FIORENTINA"}, {home: "TORINO", away: "SASSUOLO"}, {home: "LECCE", away: "VERONA"}
+            ],
+            7: [
+                {home: "FIORENTINA", away: "COMO"}, {home: "MILAN", away: "ATALANTA"}, {home: "JUVENTUS", away: "LAZIO"},
+                {home: "PARMA", away: "TORINO"}, {home: "INTER", away: "LECCE"}, {home: "ROMA", away: "GENOA"},
+                {home: "NAPOLI", away: "VERONA"}, {home: "BOLOGNA", away: "VENEZIA"}, {home: "CAGLIARI", away: "SASSUOLO"}, {home: "FROSINONE", away: "MONZA"}
+            ],
+            8: [
+                {home: "ATALANTA", away: "FROSINONE"}, {home: "GENOA", away: "VENEZIA"}, {home: "LECCE", away: "JUVENTUS"},
+                {home: "UDINESE", away: "MILAN"}, {home: "INTER", away: "FIORENTINA"}, {home: "ROMA", away: "CAGLIARI"},
+                {home: "LAZIO", away: "PARMA"}, {home: "NAPOLI", away: "TORINO"}, {home: "MONZA", away: "VERONA"}, {home: "SASSUOLO", away: "BOLOGNA"}
+            ],
+            9: [
+                {home: "TORINO", away: "COMO"}, {home: "MILAN", away: "BOLOGNA"}, {home: "PARMA", away: "UDINESE"},
+                {home: "VENEZIA", away: "INTER"}, {home: "MONZA", away: "NAPOLI"}, {home: "GENOA", away: "JUVENTUS"},
+                {home: "FROSINONE", away: "LECCE"}, {home: "FIORENTINA", away: "ATALANTA"}, {home: "CAGLIARI", away: "VERONA"}, {home: "ROMA", away: "LAZIO"}
+            ],
+            10: [
+                {home: "UDINESE", away: "ROMA"}, {home: "MILAN", away: "INTER"}, {home: "COMO", away: "VENEZIA"},
+                {home: "FROSINONE", away: "TORINO"}, {home: "LAZIO", away: "CAGLIARI"}, {home: "LECCE", away: "GENOA"},
+                {home: "JUVENTUS", away: "NAPOLI"}, {home: "SASSUOLO", away: "FIORENTINA"}, {home: "ATALANTA", away: "PARMA"}, {home: "BOLOGNA", away: "MONZA"}
+            ],
+            11: [
+                {home: "ROMA", away: "SASSUOLO"}, {home: "NAPOLI", away: "LAZIO"}, {home: "GENOA", away: "MILAN"},
+                {home: "MONZA", away: "ATALANTA"}, {home: "VENEZIA", away: "UDINESE"}, {home: "TORINO", away: "LECCE"},
+                {home: "CAGLIARI", away: "FROSINONE"}, {home: "PARMA", away: "BOLOGNA"}, {home: "INTER", away: "COMO"}, {home: "FIORENTINA", away: "JUVENTUS"}
+            ],
+            12: [
+                {home: "JUVENTUS", away: "VENEZIA"}, {home: "BOLOGNA", away: "UDINESE"}, {home: "SASSUOLO", away: "GENOA"},
+                {home: "MILAN", away: "FROSINONE"}, {home: "ATALANTA", away: "INTER"}, {home: "COMO", away: "CAGLIARI"},
+                {home: "LAZIO", away: "LECCE"}, {home: "PARMA", away: "ROMA"}, {home: "NAPOLI", away: "TORINO"}, {home: "MONZA", away: "FIORENTINA"}
+            ],
+            13: [
+                {home: "INTER", away: "GENOA"}, {home: "UDINESE", away: "FIORENTINA"}, {home: "SASSUOLO", away: "NAPOLI"},
+                {home: "ROMA", away: "MONZA"}, {home: "VENEZIA", away: "BOLOGNA"}, {home: "FROSINONE", away: "PARMA"},
+                {home: "CAGLIARI", away: "MILAN"}, {home: "ATALANTA", away: "LECCE"}, {home: "COMO", away: "JUVENTUS"}, {home: "TORINO", away: "LAZIO"}
+            ],
+            14: [
+                {home: "JUVENTUS", away: "UDINESE"}, {home: "MILAN", away: "PARMA"}, {home: "VENEZIA", away: "SASSUOLO"},
+                {home: "FIORENTINA", away: "CAGLIARI"}, {home: "BOLOGNA", away: "ROMA"}, {home: "MONZA", away: "COMO"},
+                {home: "NAPOLI", away: "LECCE"}, {home: "GENOA", away: "TORINO"}, {home: "LAZIO", away: "ATALANTA"}, {home: "FROSINONE", away: "INTER"}
+            ],
+            15: [
+                {home: "COMO", away: "BOLOGNA"}, {home: "LAZIO", away: "ROMA"}, {home: "INTER", away: "TORINO"},
+                {home: "PARMA", away: "FIORENTINA"}, {home: "NAPOLI", away: "MILAN"}, {home: "ATALANTA", away: "GENOA"},
+                {home: "CAGLIARI", away: "MONZA"}, {home: "LECCE", away: "SASSUOLO"}, {home: "JUVENTUS", away: "FROSINONE"}, {home: "UDINESE", away: "VENEZIA"}
+            ],
+            16: [
+                {home: "ROMA", away: "JUVENTUS"}, {home: "FIORENTINA", away: "BOLOGNA"}, {home: "TORINO", away: "CAGLIARI"},
+                {home: "VENEZIA", away: "MONZA"}, {home: "SASSUOLO", away: "PARMA"}, {home: "MILAN", away: "COMO"},
+                {home: "GENOA", away: "UDINESE"}, {home: "ATALANTA", away: "NAPOLI"}, {home: "LECCE", away: "INTER"}, {home: "FROSINONE", away: "LAZIO"}
+            ],
+            17: [
+                {home: "TORINO", away: "VENEZIA"}, {home: "ROMA", away: "FROSINONE"}, {home: "MONZA", away: "MILAN"},
+                {home: "INTER", away: "SASSUOLO"}, {home: "BOLOGNA", away: "JUVENTUS"}, {home: "COMO", away: "LECCE"},
+                {home: "FIORENTINA", away: "LAZIO"}, {home: "NAPOLI", away: "PARMA"}, {home: "ATALANTA", away: "UDINESE"}, {home: "CAGLIARI", away: "GENOA"}
+            ],
+            18: [
+                {home: "VENEZIA", away: "ROMA"}, {home: "MILAN", away: "FIORENTINA"}, {home: "JUVENTUS", away: "TORINO"},
+                {home: "FROSINONE", away: "BOLOGNA"}, {home: "LAZIO", away: "INTER"}, {home: "SASSUOLO", away: "UDINESE"},
+                {home: "MONZA", away: "CAGLIARI"}, {home: "PARMA", away: "ATALANTA"}, {home: "NAPOLI", away: "GENOA"}, {home: "LECCE", away: "COMO"}
+            ],
+            19: [
+                {home: "TORINO", away: "ATALANTA"}, {home: "INTER", away: "JUVENTUS"}, {home: "CAGLIARI", away: "SASSUOLO"},
+                {home: "UDINESE", away: "NAPOLI"}, {home: "MONZA", away: "FROSINONE"}, {home: "ROMA", away: "MILAN"},
+                {home: "BOLOGNA", away: "GENOA"}, {home: "COMO", away: "LAZIO"}, {home: "PARMA", away: "VENEZIA"}, {home: "LECCE", away: "FIORENTINA"}
+            ],
+            20: [
+                {home: "ATALANTA", away: "ROMA"}, {home: "CAGLIARI", away: "COMO"}, {home: "JUVENTUS", away: "GENOA"},
+                {home: "LAZIO", away: "TORINO"}, {home: "LECCE", away: "BOLOGNA"}, {home: "MILAN", away: "VERONA"},
+                {home: "NAPOLI", away: "INTER"}, {home: "PARMA", away: "VENEZIA"}, {home: "SASSUOLO", away: "MONZA"}, {home: "FROSINONE", away: "UDINESE"}
+            ],
+            21: [
+                {home: "BOLOGNA", away: "MILAN"}, {home: "COMO", away: "ATALANTA"}, {home: "GENOA", away: "ROMA"},
+                {home: "INTER", away: "CAGLIARI"}, {home: "JUVENTUS", away: "LECCE"}, {home: "LAZIO", away: "PARMA"},
+                {home: "NAPOLI", away: "VENEZIA"}, {home: "MONZA", away: "TORINO"}, {home: "UDINESE", away: "SASSUOLO"}, {home: "VERONA", away: "FROSINONE"}
+            ],
+            22: [
+                {home: "ATALANTA", away: "LAZIO"}, {home: "CAGLIARI", away: "JUVENTUS"}, {home: "FROSINONE", away: "NAPOLI"},
+                {home: "LECCE", away: "INTER"}, {home: "MILAN", away: "GENOA"}, {home: "PARMA", away: "COMO"},
+                {home: "ROMA", away: "BOLOGNA"}, {home: "SASSUOLO", away: "VERONA"}, {home: "TORINO", away: "UDINESE"}, {home: "VENEZIA", away: "MONZA"}
+            ],
+            23: [
+                {home: "BOLOGNA", away: "FROSINONE"}, {home: "COMO", away: "MILAN"}, {home: "GENOA", away: "ATALANTA"},
+                {home: "INTER", away: "ROMA"}, {home: "JUVENTUS", away: "PARMA"}, {home: "LAZIO", away: "SASSUOLO"},
+                {home: "NAPOLI", away: "CAGLIARI"}, {home: "MONZA", away: "LECCE"}, {home: "UDINESE", away: "VENEZIA"}, {home: "VERONA", away: "TORINO"}
+            ],
+            24: [
+                {home: "ATALANTA", away: "BOLOGNA"}, {home: "CAGLIARI", away: "LAZIO"}, {home: "FROSINONE", away: "GENOA"},
+                {home: "LECCE", away: "NAPOLI"}, {home: "MILAN", away: "JUVENTUS"}, {home: "PARMA", away: "INTER"},
+                {home: "ROMA", away: "COMO"}, {home: "SASSUOLO", away: "TORINO"}, {home: "VERONA", away: "UDINESE"}, {home: "VENEZIA", away: "MONZA"}
+            ],
+            25: [
+                {home: "BOLOGNA", away: "VERONA"}, {home: "COMO", away: "PARMA"}, {home: "GENOA", away: "CAGLIARI"},
+                {home: "INTER", away: "MILAN"}, {home: "JUVENTUS", away: "ATALANTA"}, {home: "LAZIO", away: "FROSINONE"},
+                {home: "NAPOLI", away: "ROMA"}, {home: "MONZA", away: "LECCE"}, {home: "UDINESE", away: "TORINO"}, {home: "VENEZIA", away: "SASSUOLO"}
+            ],
+            26: [
+                {home: "ATALANTA", away: "INTER"}, {home: "CAGLIARI", away: "BOLOGNA"}, {home: "FROSINONE", away: "MILAN"},
+                {home: "LECCE", away: "ROMA"}, {home: "PARMA", away: "GENOA"}, {home: "SASSUOLO", away: "NAPOLI"},
+                {home: "TORINO", away: "JUVENTUS"}, {home: "VERONA", away: "LAZIO"}, {home: "VENEZIA", away: "COMO"}, {home: "MONZA", away: "UDINESE"}
+            ],
+            27: [
+                {home: "BOLOGNA", away: "PARMA"}, {home: "COMO", away: "TORINO"}, {home: "GENOA", away: "MONZA"},
+                {home: "INTER", away: "VENEZIA"}, {home: "JUVENTUS", away: "VERONA"}, {home: "LAZIO", away: "NAPOLI"},
+                {home: "MILAN", away: "LECCE"}, {home: "ROMA", away: "ATALANTA"}, {home: "SASSUOLO", away: "CAGLIARI"}, {home: "FROSINONE", away: "UDINESE"}
+            ],
+            28: [
+                {home: "ATALANTA", away: "MILAN"}, {home: "CAGLIARI", away: "ROMA"}, {home: "FROSINONE", away: "PARMA"},
+                {home: "LECCE", away: "BOLOGNA"}, {home: "NAPOLI", away: "JUVENTUS"}, {home: "TORINO", away: "INTER"},
+                {home: "UDINESE", away: "LAZIO"}, {home: "VERONA", away: "GENOA"}, {home: "VENEZIA", away: "SASSUOLO"}, {home: "MONZA", away: "COMO"}
+            ],
+            29: [
+                {home: "BOLOGNA", away: "INTER"}, {home: "COMO", away: "FROSINONE"}, {home: "GENOA", away: "LECCE"},
+                {home: "JUVENTUS", away: "CAGLIARI"}, {home: "LAZIO", away: "VERONA"}, {home: "MILAN", away: "ROMA"},
+                {home: "PARMA", away: "NAPOLI"}, {home: "SASSUOLO", away: "ATALANTA"}, {home: "TORINO", away: "MONZA"}, {home: "VENEZIA", away: "UDINESE"}
+            ],
+            30: [
+                {home: "ATALANTA", away: "TORINO"}, {home: "CAGLIARI", away: "VENEZIA"}, {home: "FROSINONE", away: "MONZA"},
+                {home: "INTER", away: "UDINESE"}, {home: "LAZIO", away: "MILAN"}, {home: "NAPOLI", away: "BOLOGNA"},
+                {home: "ROMA", away: "PARMA"}, {home: "SASSUOLO", away: "JUVENTUS"}, {home: "VERONA", away: "LECCE"}, {home: "COMO", away: "GENOA"}
+            ],
+            31: [
+                {home: "BOLOGNA", away: "ATALANTA"}, {home: "GENOA", away: "SASSUOLO"}, {home: "JUVENTUS", away: "INTER"},
+                {home: "LECCE", away: "CAGLIARI"}, {home: "MILAN", away: "NAPOLI"}, {home: "PARMA", away: "VERONA"},
+                {home: "ROMA", away: "TORINO"}, {home: "UDINESE", away: "FROSINONE"}, {home: "VENEZIA", away: "LAZIO"}, {home: "MONZA", away: "COMO"}
+            ],
+            32: [
+                {home: "ATALANTA", away: "MONZA"}, {home: "CAGLIARI", away: "PARMA"}, {home: "COMO", away: "VERONA"},
+                {home: "FROSINONE", away: "ROMA"}, {home: "INTER", away: "LAZIO"}, {home: "JUVENTUS", away: "BOLOGNA"},
+                {home: "NAPOLI", away: "GENOA"}, {home: "SASSUOLO", away: "MILAN"}, {home: "TORINO", away: "LECCE"}, {home: "VENEZIA", away: "UDINESE"}
+            ],
+            33: [
+                {home: "BOLOGNA", away: "TORINO"}, {home: "GENOA", away: "INTER"}, {home: "LAZIO", away: "JUVENTUS"},
+                {home: "LECCE", away: "COMO"}, {home: "MILAN", away: "CAGLIARI"}, {home: "PARMA", away: "FROSINONE"},
+                {home: "ROMA", away: "NAPOLI"}, {home: "UDINESE", away: "ATALANTA"}, {home: "VERONA", away: "VENEZIA"}, {home: "MONZA", away: "SASSUOLO"}
+            ],
+            34: [
+                {home: "ATALANTA", away: "VENEZIA"}, {home: "CAGLIARI", away: "UDINESE"}, {home: "COMO", away: "INTER"},
+                {home: "FROSINONE", away: "VERONA"}, {home: "JUVENTUS", away: "ROMA"}, {home: "LAZIO", away: "BOLOGNA"},
+                {home: "NAPOLI", away: "MONZA"}, {home: "PARMA", away: "MILAN"}, {home: "SASSUOLO", away: "LECCE"}, {home: "TORINO", away: "GENOA"}
+            ],
+            35: [
+                {home: "BOLOGNA", away: "PARMA"}, {home: "GENOA", away: "FROSINONE"}, {home: "INTER", away: "ATALANTA"},
+                {home: "LECCE", away: "TORINO"}, {home: "MILAN", away: "VENEZIA"}, {home: "ROMA", away: "LAZIO"},
+                {home: "UDINESE", away: "JUVENTUS"}, {home: "VERONA", away: "SASSUOLO"}, {home: "MONZA", away: "CAGLIARI"}, {home: "COMO", away: "NAPOLI"}
+            ],
+            36: [
+                {home: "ATALANTA", away: "MILAN"}, {home: "CAGLIARI", away: "NAPOLI"}, {home: "FROSINONE", away: "INTER"},
+                {home: "JUVENTUS", away: "MONZA"}, {home: "LAZIO", away: "FIORENTINA"}, {home: "PARMA", away: "ROMA"},
+                {home: "SASSUOLO", away: "BOLOGNA"}, {home: "TORINO", away: "VERONA"}, {home: "UDINESE", away: "GENOA"}, {home: "VENEZIA", away: "LECCE"}
+            ],
+            37: [
+                {home: "BOLOGNA", away: "UDINESE"}, {home: "COMO", away: "ATALANTA"}, {home: "GENOA", away: "TORINO"},
+                {home: "INTER", away: "VERONA"}, {home: "LECCE", away: "FROSINONE"}, {home: "MILAN", away: "MONZA"},
+                {home: "NAPOLI", away: "JUVENTUS"}, {home: "ROMA", away: "CAGLIARI"}, {home: "SASSUOLO", away: "LAZIO"}, {home: "VENEZIA", away: "PARMA"}
+            ],
+            38: [
+                {home: "ATALANTA", away: "COMO"}, {home: "CAGLIARI", away: "MILAN"}, {home: "FROSINONE", away: "LECCE"},
+                {home: "JUVENTUS", away: "INTER"}, {home: "LAZIO", away: "ROMA"}, {home: "PARMA", away: "BOLOGNA"},
+                {home: "SASSUOLO", away: "GENOA"}, {home: "TORINO", away: "NAPOLI"}, {home: "UDINESE", away: "MONZA"}, {home: "VERONA", away: "VENEZIA"}
+            ]
         };
 
         async function loadData() {
@@ -149,7 +337,6 @@
                 });
             }
 
-            // Carica modulo salvato se esiste
             const savedModulo = localStorage.getItem('cascina_modulo');
             if (savedModulo) {
                 document.getElementById('moduloSelect').value = savedModulo;
@@ -162,6 +349,8 @@
         function updateAll() {
             renderTeam();
             updateCustomLineupStats();
+            // Aggiorna anche le etichette delle partite sul campo se cambia giornata
+            initCustomLineupSelectors();
         }
 
         function getMatchDetails(p, giornata) {
@@ -188,9 +377,8 @@
             const cenCount = parseInt(parts[1]);
             const attCount = parseInt(parts[2]);
 
+            const giornata = document.getElementById('giornataSelect') ? document.getElementById('giornataSelect').value : 12;
             const cascina = leagueData["CASCINA"] || {};
-
-            // Recupera formazione salvata dal browser
             let savedLineup = JSON.parse(localStorage.getItem('cascina_formazione') || "{}");
 
             const renderRow = (containerId, role, count, list) => {
@@ -203,8 +391,13 @@
                     wrapper.className = "flex flex-col items-center bg-slate-900/95 p-2 rounded-lg border border-emerald-500/40 shadow-lg w-36 sm:w-40 backdrop-blur";
 
                     const label = document.createElement('span');
-                    label.className = "text-[10px] font-extrabold text-amber-400 uppercase mb-1 tracking-wider";
+                    label.className = "text-[10px] font-extrabold text-amber-400 uppercase tracking-wider";
                     label.textContent = `${role} #${i}`;
+
+                    // Sottoetichetta per la partita (Casa/Fuori vs Avversario)
+                    const matchInfo = document.createElement('span');
+                    matchInfo.className = "match-info text-[9px] text-slate-400 mb-1 font-medium";
+                    matchInfo.textContent = "-";
 
                     const select = document.createElement('select');
                     select.className = "custom-player-select w-full bg-slate-800 text-white text-xs p-1 rounded border border-slate-600 focus:outline-none text-center font-semibold";
@@ -213,6 +406,7 @@
                     select.onchange = () => {
                         salvaFormazione();
                         aggiornaTuttiISelettori();
+                        aggiornaInfoPartiteCampo();
                     };
 
                     const emptyOpt = document.createElement('option');
@@ -227,13 +421,20 @@
                         select.appendChild(opt);
                     });
 
-                    // Ripristina valore salvato se presente
                     const key = `${role}_${i}`;
                     if (savedLineup[key]) {
                         select.value = savedLineup[key];
+                        // Calcola subito la partita se c'è un giocatore selezionato
+                        let playerObj = (list || []).find(p => p.name === savedLineup[key]);
+                        if (playerObj) {
+                            const match = getMatchDetails(playerObj, giornata);
+                            matchInfo.innerHTML = match.isHome ? `🏠 vs ${match.avversario}` : `✈️ @ ${match.avversario}`;
+                            matchInfo.className = `match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-emerald-400' : 'text-amber-300'}`;
+                        }
                     }
 
                     wrapper.appendChild(label);
+                    wrapper.appendChild(matchInfo);
                     wrapper.appendChild(select);
                     container.appendChild(wrapper);
                 }
@@ -247,18 +448,43 @@
             aggiornaTuttiISelettori();
         }
 
-        // Funzione per salvare la formazione nel browser
+        function aggiornaInfoPartiteCampo() {
+            const giornata = document.getElementById('giornataSelect').value || 12;
+            const cascina = leagueData["CASCINA"] || {};
+            
+            document.querySelectorAll('.custom-player-select').forEach(sel => {
+                const wrapper = sel.parentElement;
+                const matchInfo = wrapper.querySelector('.match-info');
+                if (!sel.value) {
+                    matchInfo.textContent = "-";
+                    matchInfo.className = "match-info text-[9px] text-slate-400 mb-1 font-medium";
+                    return;
+                }
+                let roleKey = sel.dataset.role.toLowerCase();
+                if(roleKey === 'por') roleKey = 'por';
+                else if(roleKey === 'dif') roleKey = 'dif';
+                else if(roleKey === 'cen') roleKey = 'cen';
+                else if(roleKey === 'att') roleKey = 'att';
+
+                let playerObj = (cascina[roleKey] || []).find(p => p.name === sel.value);
+                if (playerObj) {
+                    const match = getMatchDetails(playerObj, giornata);
+                    matchInfo.innerHTML = match.isHome ? `🏠 vs ${match.avversario}` : `✈️ @ ${match.avversario}`;
+                    matchInfo.className = `match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-emerald-400' : 'text-amber-300'}`;
+                }
+            });
+        }
+
         function salvaFormazione() {
             const selects = document.querySelectorAll('.custom-player-select');
             let lineupToSave = {};
-            selects.forEach((sel, idx) => {
+            selects.forEach((sel) => {
                 lineupToSave[`${sel.dataset.role}_${sel.dataset.index}`] = sel.value;
             });
             localStorage.setItem('cascina_formazione', JSON.stringify(lineupToSave));
             updateCustomLineupStats();
         }
 
-        // Impedisce di selezionare lo stesso giocatore due volte
         function aggiornaTuttiISelettori() {
             const selects = document.querySelectorAll('.custom-player-select');
             let scelti = [];
@@ -271,7 +497,6 @@
                 const valoreCorrente = sel.value;
                 for (let opt of sel.options) {
                     if (opt.value === "") continue;
-                    // Se il giocatore è già scelto in un altro menu e non è quello corrente di questo menu, lo disabilitiamo
                     if (scelti.includes(opt.value) && opt.value !== valoreCorrente) {
                         opt.disabled = true;
                         opt.style.color = "#64748b";
@@ -337,20 +562,23 @@
             categories.forEach(cat => {
                 cat.list.forEach(p => {
                     const match = getMatchDetails(p, giornata);
-                    const homeAwayBadge = match.isHome ? '🏠 Casa' : '✈️ Fuori';
+                    const homeAwayBadge = match.isHome ? '<span class="text-emerald-400 font-bold">🏠 Casa</span>' : '<span class="text-amber-400 font-bold">✈️ Fuori</span>';
                     
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-slate-700/50 transition";
                     tr.innerHTML = `
                         <td class="p-3 ${cat.color}">${cat.role}</td>
                         <td class="p-3 font-semibold text-slate-200">${p.name}</td>
-                        <td class="p-3 text-xs">${p.squadra} → ${homeAwayBadge} vs ${match.avversario}</td>
+                        <td class="p-3 text-xs"><span class="text-slate-300 font-medium">${p.squadra}</span> <span class="text-slate-500 mx-1">→</span> ${homeAwayBadge} vs <span class="text-amber-300 font-semibold">${match.avversario}</span></td>
                         <td class="p-3 text-center text-slate-300 font-mono">${Number(p.mv).toFixed(2)}</td>
                         <td class="p-3 text-center text-emerald-400 font-mono font-bold">${Number(p.fm).toFixed(2)}</td>
                     `;
                     tbody.appendChild(tr);
                 });
             });
+
+            // Aggiorna anche le etichette sul campo
+            aggiornaInfoPartiteCampo();
         }
 
         loadData();
