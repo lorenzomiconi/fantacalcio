@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Lega Fantacalcio - Selettore Giornate</title>
+    <title>Dashboard Lega Fantacalcio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
@@ -16,24 +16,16 @@
         <header class="flex flex-col md:flex-row justify-between items-center bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg gap-4">
             <div>
                 <h1 class="text-3xl font-extrabold text-emerald-400">LEGA FANTACALCIO ⚽</h1>
-                <p class="text-slate-400 text-sm mt-1">Gestione Giornate Serie A • Modificatore Difesa (+0.25)</p>
-            </div>
-            
-            <!-- SELETTORE GIORNATA SERIE A -->
-            <div class="flex items-center gap-3 bg-slate-900 p-3 rounded-lg border border-slate-700">
-                <label for="giornataSelect" class="text-xs font-bold text-amber-400 uppercase">📅 Giornata Serie A:</label>
-                <select id="giornataSelect" onchange="updateAll()" class="bg-slate-800 border border-slate-600 text-white font-bold text-sm py-1.5 px-3 rounded focus:outline-none">
-                    <!-- Popolato da 1 a 38 -->
-                </select>
+                <p class="text-slate-400 text-sm mt-1">Dashboard Privata • Statistiche & Matchup</p>
             </div>
         </header>
 
-        <!-- SEZIONE SCONTRO & MEDIE -->
+        <!-- SEZIONE SCONTRO -->
         <section class="bg-slate-800 p-6 rounded-xl border-2 border-emerald-500/50 shadow-2xl">
             <div class="flex flex-col md:flex-row justify-between items-center mb-6 pb-4 border-b border-slate-700 gap-4">
                 <div class="flex items-center gap-3">
                     <span class="text-2xl">⚔️</span>
-                    <h2 class="text-2xl font-black text-amber-400 uppercase tracking-wide">Scontro & Medie per Giornata</h2>
+                    <h2 class="text-2xl font-black text-amber-400 uppercase tracking-wide">Scontro & Medie</h2>
                 </div>
                 
                 <div class="flex items-center gap-4 bg-slate-900 p-3 rounded-lg border border-slate-700">
@@ -45,7 +37,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- CASCINA -->
                 <div class="bg-slate-900/90 p-5 rounded-lg border border-emerald-500/30 space-y-3">
                     <div class="flex justify-between items-center border-b border-slate-800 pb-2">
                         <h3 class="text-lg font-bold text-emerald-400">🛡️ CASCINA</h3>
@@ -54,7 +45,6 @@
                     <div id="cascinaMatchupLineup" class="space-y-2"></div>
                 </div>
 
-                <!-- AVVERSARIO -->
                 <div class="bg-slate-900/90 p-5 rounded-lg border border-amber-500/30 space-y-3">
                     <div class="flex justify-between items-center border-b border-slate-800 pb-2">
                         <h3 id="opponentMatchupTitle" class="text-lg font-bold text-amber-400">⚔️ AVVERSARIO</h3>
@@ -65,7 +55,7 @@
             </div>
         </section>
 
-        <!-- VISUALIZZATORE ROSE COMPLETE -->
+        <!-- VISUALIZZATORE ROSE -->
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
                 <h2 id="teamTitle" class="text-xl font-bold text-slate-100">Rosa Squadra</h2>
@@ -78,7 +68,7 @@
                         <tr>
                             <th class="p-3">Ruolo</th>
                             <th class="p-3">Giocatore</th>
-                            <th class="p-3">Avversario Giornata</th>
+                            <th class="p-3">Avversario</th>
                             <th class="p-3 text-center">Media Voto (MV)</th>
                             <th class="p-3 text-center">Fantamedia (FM)</th>
                         </tr>
@@ -97,16 +87,6 @@
                 const response = await fetch('data.json');
                 leagueData = await response.json();
                 
-                // Popola selettore giornate (1 a 38)
-                const giornataSelect = document.getElementById('giornataSelect');
-                for (let i = 1; i <= 38; i++) {
-                    const opt = document.createElement('option');
-                    opt.value = i;
-                    opt.textContent = `${i}ª Giornata`;
-                    if (i === 12) opt.selected = true; // Default 12ª giornata (21 novembre)
-                    giornataSelect.appendChild(opt);
-                }
-
                 const teamSelect = document.getElementById('teamSelect');
                 const opponentSelect = document.getElementById('opponentSelect');
 
@@ -122,29 +102,28 @@
                     }
                 });
 
-                updateAll();
+                renderMatchup();
+                renderTeam();
             } catch (e) {
                 console.error("Errore caricamento dati:", e);
             }
         }
 
-        function updateAll() {
-            renderMatchup();
-            renderTeam();
-        }
-
-        function getBest11(teamKey, giornata) {
+        function getBest11(teamKey) {
             const team = leagueData[teamKey];
             if (!team) return [];
             
-            const getAvv = (p) => p.avversarie && p.avversarie[giornata] ? p.avversarie[giornata] : "Riposo";
+            const por = team.por[0] || {name: "N/D", mv: 6.0, fm: 5.0, avv: "-"};
+            const dif = [...team.dif].sort((a,b) => b.fm - a.fm).slice(0, 4);
+            const cen = [...team.cen].sort((a,b) => b.fm - a.fm).slice(0, 3);
+            const att = [...team.att].sort((a,b) => b.fm - a.fm).slice(0, 3);
 
-            const por = team.por[0] ? { ...team.por[0], avversario: getAvv(team.por[0]) } : {name: "N/D", mv: 6.0, fm: 5.0, avversario: "-"};
-            const dif = [...team.dif].sort((a,b) => b.fm - a.fm).slice(0, 4).map(p => ({ ...p, avversario: getAvv(p) }));
-            const cen = [...team.cen].sort((a,b) => b.fm - a.fm).slice(0, 3).map(p => ({ ...p, avversario: getAvv(p) }));
-            const att = [...team.att].sort((a,b) => b.fm - a.fm).slice(0, 3).map(p => ({ ...p, avversario: getAvv(p) }));
-
-            return [{ role: 'POR', ...por }, ...dif, ...cen, ...att];
+            return [
+                { role: 'POR', ...por },
+                ...dif.map(p => ({ role: 'DIF', ...p })),
+                ...cen.map(p => ({ role: 'CEN', ...p })),
+                ...att.map(p => ({ role: 'ATT', ...p }))
+            ];
         }
 
         function calculateAverages(lineup) {
@@ -158,12 +137,11 @@
         }
 
         function renderMatchup() {
-            const giornata = document.getElementById('giornataSelect').value;
             const oppName = document.getElementById('opponentSelect').value;
             document.getElementById('opponentMatchupTitle').textContent = `⚔️ ${oppName}`;
 
-            const cascinaLineup = getBest11("CASCINA", giornata);
-            const opponentLineup = getBest11(oppName, giornata);
+            const cascinaLineup = getBest11("CASCINA");
+            const opponentLineup = getBest11(oppName);
 
             const cAvg = calculateAverages(cascinaLineup);
             const oAvg = calculateAverages(opponentLineup);
@@ -183,11 +161,11 @@
                                 p.role === 'POR' ? 'text-amber-400' : p.role === 'DIF' ? 'text-blue-400' : p.role === 'CEN' ? 'text-emerald-400' : 'text-rose-400'
                             }">${p.role}</span>
                             <span class="font-semibold text-slate-200">${p.name}</span>
-                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">vs ${p.avversario}</span>
+                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">vs ${p.avv || '-'}</span>
                         </div>
                         <div class="flex gap-2 font-mono text-[11px]">
-                            <span class="text-slate-300">MV: <b>${p.mv}</b></span>
-                            <span class="text-emerald-400">FM: <b>${p.fm}</b></span>
+                            <span class="text-slate-300">MV: <b>${p.mv || 6.0}</b></span>
+                            <span class="text-emerald-400">FM: <b>${p.fm || 6.0}</b></span>
                         </div>
                     `;
                     container.appendChild(div);
@@ -199,7 +177,6 @@
         }
 
         function renderTeam() {
-            const giornata = document.getElementById('giornataSelect').value;
             const teamName = document.getElementById('teamSelect').value;
             const team = leagueData[teamName];
             if (!team) return;
@@ -217,15 +194,14 @@
 
             categories.forEach(cat => {
                 cat.list.forEach(player => {
-                    const avv = player.avversarie && player.avversarie[giornata] ? player.avversarie[giornata] : "Riposo";
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-slate-700/50 transition";
                     tr.innerHTML = `
                         <td class="p-3 ${cat.color}">${cat.role}</td>
                         <td class="p-3 font-semibold text-slate-200">${player.name}</td>
-                        <td class="p-3 text-amber-300 text-xs font-semibold">vs ${avv}</td>
-                        <td class="p-3 text-center text-slate-300 font-mono">${player.mv}</td>
-                        <td class="p-3 text-center text-emerald-400 font-mono font-bold">${player.fm}</td>
+                        <td class="p-3 text-amber-300 text-xs font-semibold">vs ${player.avv || '-'}</td>
+                        <td class="p-3 text-center text-slate-300 font-mono">${player.mv || 6.0}</td>
+                        <td class="p-3 text-center text-emerald-400 font-mono font-bold">${player.fm || 6.0}</td>
                     `;
                     tbody.appendChild(tr);
                 });
