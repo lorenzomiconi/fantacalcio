@@ -88,7 +88,7 @@
             </div>
         </section>
 
-        <!-- SEZIONE FORMAZIONE CONSIGLIATA (SECONDA COME RICHIESTO) -->
+        <!-- 2. SEZIONE FORMAZIONE CONSIGLIATA (SECONDA COME RICHIESTO) -->
         <section class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
             <div class="flex justify-between items-center border-b border-slate-700 pb-3">
                 <h2 class="text-xl font-bold text-emerald-400 flex items-center gap-2">
@@ -103,17 +103,17 @@
     </div>
 
     <script>
-        // Calendario delle partite reali di Serie A per squadra
+        // Mappatura delle partite di Serie A per il controllo incrociato dei turni
         const avversariSerieA = {
-            "Udinese": "Milan", "Monza": "Torino", "Bologna": "Lazio", "Frosinone": "Inter",
-            "Parma": "Atalanta", "Como": "Fiorentina", "Cagliari": "Genoa", "Empoli": "Napoli",
-            "Inter": "Verona", "Juventus": "Roma", "Milan": "Udinese", "Lazio": "Bologna",
-            "Atalanta": "Parma", "Fiorentina": "Como", "Genoa": "Cagliari", "Napoli": "Empoli",
-            "Roma": "Juventus", "Torino": "Monza", "Verona": "Inter", "Lecce": "Empoli",
-            "Sassuolo": "Modena", "Venezia": "Lecce", "Spezia": "Pisa"
+            "UDINESE": "Milan", "MONZA": "Torino", "BOLOGNA": "Lazio", "FROSINONE": "Inter",
+            "PARMA": "Atalanta", "COMO": "Fiorentina", "CAGLIARI": "Genoa", "GENOA": "Cagliari",
+            "EMPOLI": "Napoli", "INTER": "Verona", "JUVENTUS": "Roma", "MILAN": "Udinese",
+            "LAZIO": "Bologna", "ATALANTA": "Parma", "FIORENTINA": "Como", "NAPOLI": "Empoli",
+            "ROMA": "Juventus", "TORINO": "Monza", "VERONA": "Inter", "LECCE": "Empoli",
+            "SASSUOLO": "Modena", "VENEZIA": "Lecce", "JUVE": "Roma", "SASSLUOLO": "Modena"
         };
 
-        // Rose complete estratte direttamente dal file fc.xlsx
+        // Rose complete estratte direttamente ed esattamente dal file fc.xlsx
         const leagueData = {
             "CASCINA": {
                 "por": [
