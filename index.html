@@ -105,239 +105,60 @@
     <script>
         const leagueData = {
             "CASCINA": {
-                "por": [{"name": "OKOYE", "squadra": "Udinese", "mv": 6.2, "fm": 5.1, "avv": {"12": "Inter", "13": "Juventus"}}, {"name": "PESSINA", "squadra": "Monza", "mv": 6.0, "fm": 4.8, "avv": {"12": "Lazio", "13": "Milan"}}, {"name": "SKORUPSKI", "squadra": "Bologna", "mv": 6.3, "fm": 5.3, "avv": {"12": "Roma", "13": "Napoli"}}],
-                "dif": [{"name": "BRACAGLIA", "squadra": "Frosinone", "mv": 6.0, "fm": 6.1, "avv": {"12": "Atalanta"}}, {"name": "DEL PRATO", "squadra": "Parma", "mv": 6.1, "fm": 6.3, "avv": {"12": "Juventus"}}, {"name": "KEMPF", "squadra": "Como", "mv": 5.9, "fm": 5.8, "avv": {"12": "Milan"}}, {"name": "LUCUMI", "squadra": "Bologna", "mv": 6.3, "fm": 6.4, "avv": {"12": "Napoli"}}, {"name": "MANGAS", "squadra": "Udinese", "mv": 5.8, "fm": 5.7, "avv": {"12": "Bologna"}}, {"name": "ZORTEA", "squadra": "Cagliari", "mv": 6.2, "fm": 6.6, "avv": {"12": "Fiorentina"}}, {"name": "VASQUEZ", "squadra": "Empoli", "mv": 6.1, "fm": 6.2, "avv": {"12": "Torino"}}, {"name": "RAMON", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}],
-                "cen": [{"name": "COLOMBO", "squadra": "Monza", "mv": 6.0, "fm": 6.1, "avv": {"12": "Genoa"}}, {"name": "BERNARDESCHI", "squadra": "Juventus", "mv": 6.5, "fm": 7.0, "avv": {"12": "Bologna"}}, {"name": "CACCIAMANI", "squadra": "Torino", "mv": 6.0, "fm": 6.0, "avv": {"12": "Torino"}}, {"name": "CALHANOGLU", "squadra": "Inter", "mv": 6.7, "fm": 7.8, "avv": {"12": "Inter"}}, {"name": "DOUGLAS", "squadra": "Juventus", "mv": 6.2, "fm": 6.4, "avv": {"12": "Juventus"}}, {"name": "MOREIRA", "squadra": "Milan", "mv": 6.1, "fm": 6.2, "avv": {"12": "Milan"}}, {"name": "PULISIC", "squadra": "Milan", "mv": 6.8, "fm": 8.2, "avv": {"12": "Milan"}}, {"name": "WINKS", "squadra": "Cagliari", "mv": 6.1, "fm": 6.1, "avv": {"12": "Cagliari"}}],
-                "att": [{"name": "PIO", "squadra": "Inter", "mv": 6.0, "fm": 6.5, "avv": {"12": "Inter"}}, {"name": "COLOMBO", "squadra": "Genoa", "mv": 6.1, "fm": 6.6, "avv": {"12": "Genoa"}}, {"name": "MOTA", "squadra": "Monza", "mv": 6.3, "fm": 6.9, "avv": {"12": "Monza"}}, {"name": "GEUBBELS", "squadra": "Lecce", "mv": 6.0, "fm": 6.2, "avv": {"12": "Lecce"}}, {"name": "NOSLIN", "squadra": "Lazio", "mv": 6.2, "fm": 6.8, "avv": {"12": "Lazio"}}, {"name": "SCAMACCA", "squadra": "Atalanta", "mv": 6.6, "fm": 8.0, "avv": {"12": "Atalanta"}}]
+                "por": [{"name": "OKOYE", "squadra": "Udinese", "mv": 6.2, "fm": 5.1, "avv": {"12": "Milan", "13": "Juventus"}}, {"name": "PESSINA", "squadra": "Monza", "mv": 6.0, "fm": 4.8, "avv": {"12": "Torino", "13": "Milan"}}, {"name": "SKORUPSKI", "squadra": "Bologna", "mv": 6.3, "fm": 5.3, "avv": {"12": "Lazio", "13": "Napoli"}}],
+                "dif": [{"name": "BRACAGLIA", "squadra": "Frosinone", "mv": 6.0, "fm": 6.1, "avv": {"12": "Inter"}}, {"name": "DEL PRATO", "squadra": "Parma", "mv": 6.1, "fm": 6.3, "avv": {"12": "Atalanta"}}, {"name": "KEMPF", "squadra": "Como", "mv": 5.9, "fm": 5.8, "avv": {"12": "Fiorentina"}}, {"name": "LUCUMI", "squadra": "Bologna", "mv": 6.3, "fm": 6.4, "avv": {"12": "Lazio"}}, {"name": "MANGAS", "squadra": "Udinese", "mv": 5.8, "fm": 5.7, "avv": {"12": "Milan"}}, {"name": "ZORTEA", "squadra": "Cagliari", "mv": 6.2, "fm": 6.6, "avv": {"12": "Genoa"}}, {"name": "VASQUEZ", "squadra": "Empoli", "mv": 6.1, "fm": 6.2, "avv": {"12": "Napoli"}}, {"name": "RAMON", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Fiorentina"}}],
+                "cen": [{"name": "COLOMBO", "squadra": "Monza", "mv": 6.0, "fm": 6.1, "avv": {"12": "Torino"}}, {"name": "BERNARDESCHI", "squadra": "Juventus", "mv": 6.5, "fm": 7.0, "avv": {"12": "Roma"}}, {"name": "CACCIAMANI", "squadra": "Torino", "mv": 6.0, "fm": 6.0, "avv": {"12": "Monza"}}, {"name": "CALHANOGLU", "squadra": "Inter", "mv": 6.7, "fm": 7.8, "avv": {"12": "Verona"}}, {"name": "DOUGLAS", "squadra": "Juventus", "mv": 6.2, "fm": 6.4, "avv": {"12": "Roma"}}, {"name": "MOREIRA", "squadra": "Milan", "mv": 6.1, "fm": 6.2, "avv": {"12": "Udinese"}}, {"name": "PULISIC", "squadra": "Milan", "mv": 6.8, "fm": 8.2, "avv": {"12": "Udinese"}}, {"name": "WINKS", "squadra": "Cagliari", "mv": 6.1, "fm": 6.1, "avv": {"12": "Genoa"}}],
+                "att": [{"name": "PIO", "squadra": "Inter", "mv": 6.0, "fm": 6.5, "avv": {"12": "Verona"}}, {"name": "COLOMBO", "squadra": "Genoa", "mv": 6.1, "fm": 6.6, "avv": {"12": "Cagliari"}}, {"name": "MOTA", "squadra": "Monza", "mv": 6.3, "fm": 6.9, "avv": {"12": "Torino"}}, {"name": "GEUBBELS", "squadra": "Lecce", "mv": 6.0, "fm": 6.2, "avv": {"12": "Empoli"}}, {"name": "NOSLIN", "squadra": "Lazio", "mv": 6.2, "fm": 6.8, "avv": {"12": "Bologna"}}, {"name": "SCAMACCA", "squadra": "Atalanta", "mv": 6.6, "fm": 8.0, "avv": {"12": "Parma"}}]
             },
             "AC PICCHIA": {
-                "por": [{"name": "MAIGNAN", "squadra": "Milan", "mv": 6.5, "fm": 5.5, "avv": {"12": "Milan"}}, {"name": "PERRI", "squadra": "Torino", "mv": 6.0, "fm": 5.0, "avv": {"12": "Torino"}}, {"name": "TORRIANI", "squadra": "Milan", "mv": 6.0, "fm": 5.0, "avv": {"12": "Milan"}}],
-                "dif": [{"name": "CINQUEGRANO", "squadra": "Sassuolo", "mv": 6.0, "fm": 6.0, "avv": {"12": "Sassuolo"}}, {"name": "GHILARDI", "squadra": "Verona", "mv": 6.1, "fm": 6.1, "avv": {"12": "Roma"}}, {"name": "MANCINI", "squadra": "Roma", "mv": 6.3, "fm": 6.5, "avv": {"12": "Roma"}}, {"name": "MIRANDA", "squadra": "Bologna", "mv": 6.2, "fm": 6.3, "avv": {"12": "Bologna"}}, {"name": "PEDRAZA", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Lazio"}}, {"name": "SCALVINI", "squadra": "Atalanta", "mv": 6.4, "fm": 6.8, "avv": {"12": "Atalanta"}}, {"name": "TAVARES", "squadra": "Lazio", "mv": 6.6, "fm": 7.4, "avv": {"12": "Lazio"}}, {"name": "VALLE", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}],
-                "cen": [{"name": "ATTA", "squadra": "Udinese", "mv": 6.1, "fm": 6.2, "avv": {"12": "Fiorentina"}}, {"name": "COLPANI", "squadra": "Fiorentina", "mv": 6.4, "fm": 7.1, "avv": {"12": "Monza"}}, {"name": "JONES", "squadra": "Inter", "mv": 6.0, "fm": 6.0, "avv": {"12": "Inter"}}, {"name": "MBANGULA", "squadra": "Juventus", "mv": 6.3, "fm": 6.9, "avv": {"12": "Bologna"}}, {"name": "MCTOMINAY", "squadra": "Napoli", "mv": 6.7, "fm": 7.6, "avv": {"12": "Napoli"}}, {"name": "RABIOT", "squadra": "Milan", "mv": 6.5, "fm": 7.2, "avv": {"12": "Milan"}}, {"name": "ROMANO", "squadra": "Cagliari", "mv": 6.0, "fm": 6.0, "avv": {"12": "Cagliari"}}, {"name": "SAMARDZIC", "squadra": "Atalanta", "mv": 6.4, "fm": 7.3, "avv": {"12": "Atalanta"}}],
-                "att": [{"name": "CAMARDA", "squadra": "Milan", "mv": 6.2, "fm": 6.8, "avv": {"12": "Milan"}}, {"name": "CASTRO", "squadra": "Bologna", "mv": 6.5, "fm": 7.5, "avv": {"12": "Roma"}}, {"name": "DIAO", "squadra": "Como", "mv": 6.1, "fm": 6.5, "avv": {"12": "Como"}}, {"name": "KOLO", "squadra": "Juventus", "mv": 6.4, "fm": 7.2, "avv": {"12": "Juventus"}}, {"name": "LAURIENTE'", "squadra": "Sassuolo", "mv": 6.5, "fm": 7.7, "avv": {"12": "Sassuolo"}}, {"name": "VARELA", "squadra": "Monza", "mv": 6.0, "fm": 6.2, "avv": {"12": "Monza"}}]
+                "por": [{"name": "MAIGNAN", "squadra": "Milan", "mv": 6.5, "fm": 5.5, "avv": {"12": "Udinese"}}, {"name": "PERRI", "squadra": "Torino", "mv": 6.0, "fm": 5.0, "avv": {"12": "Monza"}}, {"name": "TORRIANI", "squadra": "Milan", "mv": 6.0, "fm": 5.0, "avv": {"12": "Udinese"}}],
+                "dif": [{"name": "CINQUEGRANO", "squadra": "Sassuolo", "mv": 6.0, "fm": 6.0, "avv": {"12": "Modena"}}, {"name": "GHILARDI", "squadra": "Verona", "mv": 6.1, "fm": 6.1, "avv": {"12": "Inter"}}, {"name": "MANCINI", "squadra": "Roma", "mv": 6.3, "fm": 6.5, "avv": {"12": "Juventus"}}, {"name": "MIRANDA", "squadra": "Bologna", "mv": 6.2, "fm": 6.3, "avv": {"12": "Lazio"}}, {"name": "PEDRAZA", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Bologna"}}, {"name": "SCALVINI", "squadra": "Atalanta", "mv": 6.4, "fm": 6.8, "avv": {"12": "Parma"}}, {"name": "TAVARES", "squadra": "Lazio", "mv": 6.6, "fm": 7.4, "avv": {"12": "Bologna"}}, {"name": "VALLE", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Fiorentina"}}],
+                "cen": [{"name": "ATTA", "squadra": "Udinese", "mv": 6.1, "fm": 6.2, "avv": {"12": "Milan"}}, {"name": "COLPANI", "squadra": "Fiorentina", "mv": 6.4, "fm": 7.1, "avv": {"12": "Como"}}, {"name": "JONES", "squadra": "Inter", "mv": 6.0, "fm": 6.0, "avv": {"12": "Verona"}}, {"name": "MBANGULA", "squadra": "Juventus", "mv": 6.3, "fm": 6.9, "avv": {"12": "Roma"}}, {"name": "MCTOMINAY", "squadra": "Napoli", "mv": 6.7, "fm": 7.6, "avv": {"12": "Empoli"}}, {"name": "RABIOT", "squadra": "Milan", "mv": 6.5, "fm": 7.2, "avv": {"12": "Udinese"}}, {"name": "ROMANO", "squadra": "Cagliari", "mv": 6.0, "fm": 6.0, "avv": {"12": "Genoa"}}, {"name": "SAMARDZIC", "squadra": "Atalanta", "mv": 6.4, "fm": 7.3, "avv": {"12": "Parma"}}],
+                "att": [{"name": "CAMARDA", "squadra": "Milan", "mv": 6.2, "fm": 6.8, "avv": {"12": "Udinese"}}, {"name": "CASTRO", "squadra": "Bologna", "mv": 6.5, "fm": 7.5, "avv": {"12": "Lazio"}}, {"name": "DIAO", "squadra": "Como", "mv": 6.1, "fm": 6.5, "avv": {"12": "Fiorentina"}}, {"name": "KOLO", "squadra": "Juventus", "mv": 6.4, "fm": 7.2, "avv": {"12": "Roma"}}, {"name": "LAURIENTE'", "squadra": "Sassuolo", "mv": 6.5, "fm": 7.7, "avv": {"12": "Pisa"}}, {"name": "VARELA", "squadra": "Monza", "mv": 6.0, "fm": 6.2, "avv": {"12": "Torino"}}]
             },
             "AS ORCA": {
-                "por": [{"name": "MARTINEZ", "squadra": "Inter", "mv": 6.3, "fm": 5.4, "avv": {"12": "Inter"}}, {"name": "PROVEDEL", "squadra": "Lazio", "mv": 6.4, "fm": 5.6, "avv": {"12": "Lazio"}}, {"name": "STANKOVIC", "squadra": "Venezia", "mv": 6.0, "fm": 4.9, "avv": {"12": "Venezia"}}],
-                "dif": [{"name": "BADIASHILE", "squadra": "Napoli", "mv": 6.1, "fm": 6.1, "avv": {"12": "Napoli"}}, {"name": "BELLANOVA", "squadra": "Atalanta", "mv": 6.3, "fm": 6.8, "avv": {"12": "Atalanta"}}, {"name": "AUGUSTO", "squadra": "Inter", "mv": 6.2, "fm": 6.4, "avv": {"12": "Inter"}}, {"name": "HAINAUT", "squadra": "Parma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Venezia"}}, {"name": "JIMENEZ", "squadra": "Milan", "mv": 6.1, "fm": 6.2, "avv": {"12": "Fiorentina"}}, {"name": "PROVSTGAARD", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Lazio"}}, {"name": "SPINAZZOLA", "squadra": "Napoli", "mv": 6.2, "fm": 6.5, "avv": {"12": "Napoli"}}, {"name": "WEALEY", "squadra": "Roma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Roma"}}],
-                "cen": [{"name": "CAMBIAGHI", "squadra": "Bologna", "mv": 6.3, "fm": 6.9, "avv": {"12": "Bologna"}}, {"name": "CONCEICAO", "squadra": "Juventus", "mv": 6.5, "fm": 7.4, "avv": {"12": "Juventus"}}, {"name": "DIOUF", "squadra": "Inter", "mv": 6.1, "fm": 6.2, "avv": {"12": "Inter"}}, {"name": "FAZZINI", "squadra": "Empoli", "mv": 6.2, "fm": 6.6, "avv": {"12": "Cagliari"}}, {"name": "MODRIC", "squadra": "Milan", "mv": 6.6, "fm": 7.5, "avv": {"12": "Milan"}}, {"name": "PISILLI", "squadra": "Roma", "mv": 6.4, "fm": 7.0, "avv": {"12": "Roma"}}, {"name": "ZACCAGNI", "squadra": "Lazio", "mv": 6.7, "fm": 7.9, "avv": {"12": "Lazio"}}, {"name": "ZHEGROVA", "squadra": "Juventus", "mv": 6.5, "fm": 7.3, "avv": {"12": "Juventus"}}],
-                "att": [{"name": "BETO", "squadra": "Udinese", "mv": 6.3, "fm": 7.0, "avv": {"12": "Fiorentina"}}, {"name": "BOGA", "squadra": "Atalanta", "mv": 6.2, "fm": 6.8, "avv": {"12": "Juventus"}}, {"name": "HOJLIND", "squadra": "Atalanta", "mv": 6.7, "fm": 8.1, "avv": {"12": "Napoli"}}, {"name": "LUCCA", "squadra": "Udinese", "mv": 6.4, "fm": 7.3, "avv": {"12": "Napoli"}}, {"name": "PICCOLI", "squadra": "Lecce", "mv": 6.3, "fm": 7.1, "avv": {"12": "Bologna"}}, {"name": "TOURE'", "squadra": "Atalanta", "mv": 6.0, "fm": 6.1, "avv": {"12": "Parma"}}]
+                "por": [{"name": "MARTINEZ", "squadra": "Inter", "mv": 6.3, "fm": 5.4, "avv": {"12": "Verona"}}, {"name": "PROVEDEL", "squadra": "Lazio", "mv": 6.4, "fm": 5.6, "avv": {"12": "Bologna"}}, {"name": "STANKOVIC", "squadra": "Venezia", "mv": 6.0, "fm": 4.9, "avv": {"12": "Lecce"}}],
+                "dif": [{"name": "BADIASHILE", "squadra": "Napoli", "mv": 6.1, "fm": 6.1, "avv": {"12": "Empoli"}}, {"name": "BELLANOVA", "squadra": "Atalanta", "mv": 6.3, "fm": 6.8, "avv": {"12": "Parma"}}, {"name": "AUGUSTO", "squadra": "Inter", "mv": 6.2, "fm": 6.4, "avv": {"12": "Verona"}}, {"name": "HAINAUT", "squadra": "Parma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Atalanta"}}, {"name": "JIMENEZ", "squadra": "Milan", "mv": 6.1, "fm": 6.2, "avv": {"12": "Udinese"}}, {"name": "PROVSTGAARD", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Bologna"}}, {"name": "SPINAZZOLA", "squadra": "Napoli", "mv": 6.2, "fm": 6.5, "avv": {"12": "Empoli"}}, {"name": "WEALEY", "squadra": "Roma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Juventus"}}],
+                "cen": [{"name": "CAMBIAGHI", "squadra": "Bologna", "mv": 6.3, "fm": 6.9, "avv": {"12": "Lazio"}}, {"name": "CONCEICAO", "squadra": "Juventus", "mv": 6.5, "fm": 7.4, "avv": {"12": "Roma"}}, {"name": "DIOUF", "squadra": "Inter", "mv": 6.1, "fm": 6.2, "avv": {"12": "Verona"}}, {"name": "FAZZINI", "squadra": "Empoli", "mv": 6.2, "fm": 6.6, "avv": {"12": "Napoli"}}, {"name": "MODRIC", "squadra": "Milan", "mv": 6.6, "fm": 7.5, "avv": {"12": "Udinese"}}, {"name": "PISILLI", "squadra": "Roma", "mv": 6.4, "fm": 7.0, "avv": {"12": "Juventus"}}, {"name": "ZACCAGNI", "squadra": "Lazio", "mv": 6.7, "fm": 7.9, "avv": {"12": "Bologna"}}, {"name": "ZHEGROVA", "squadra": "Juventus", "mv": 6.5, "fm": 7.3, "avv": {"12": "Roma"}}],
+                "att": [{"name": "BETO", "squadra": "Udinese", "mv": 6.3, "fm": 7.0, "avv": {"12": "Milan"}}, {"name": "BOGA", "squadra": "Atalanta", "mv": 6.2, "fm": 6.8, "avv": {"12": "Parma"}}, {"name": "HOJLIND", "squadra": "Atalanta", "mv": 6.7, "fm": 8.1, "avv": {"12": "Parma"}}, {"name": "LUCCA", "squadra": "Udinese", "mv": 6.4, "fm": 7.3, "avv": {"12": "Milan"}}, {"name": "PICCOLI", "squadra": "Lecce", "mv": 6.3, "fm": 7.1, "avv": {"12": "Empoli"}}, {"name": "TOURE'", "squadra": "Atalanta", "mv": 6.0, "fm": 6.1, "avv": {"12": "Parma"}}]
             },
             "AS TRONZI": {
-                "por": [{"name": "NETO", "squadra": "Bournemouth", "mv": 6.1, "fm": 5.2, "avv": {"12": "Juventus"}}, {"name": "VICARIO", "squadra": "Tottenham", "mv": 6.5, "fm": 5.8, "avv": {"12": "Juventus"}}, {"name": "TORNQVIST", "squadra": "Monza", "mv": 6.0, "fm": 5.0, "avv": {"12": "Monza"}}],
-                "dif": [{"name": "BERNASCONI", "squadra": "Atalanta", "mv": 6.0, "fm": 6.0, "avv": {"12": "Atalanta"}}, {"name": "DOEKHI", "squadra": "Union Berlin", "mv": 6.2, "fm": 6.3, "avv": {"12": "Lazio"}}, {"name": "GALLO", "squadra": "Lecce", "mv": 6.1, "fm": 6.2, "avv": {"12": "Lecce"}}, {"name": "GILA", "squadra": "Lazio", "mv": 6.3, "fm": 6.5, "avv": {"12": "Milan"}}, {"name": "KRISTENSEN", "squadra": "Roma", "mv": 6.1, "fm": 6.2, "avv": {"12": "Atalanta"}}, {"name": "RRAHMANI", "squadra": "Napoli", "mv": 6.4, "fm": 6.7, "avv": {"12": "Napoli"}}, {"name": "SPENCE", "squadra": "Genoa", "mv": 6.2, "fm": 6.3, "avv": {"12": "Inter"}}, {"name": "VALERI", "squadra": "Parma", "mv": 6.3, "fm": 6.7, "avv": {"12": "Parma"}}],
-                "cen": [{"name": "CASADEI", "squadra": "Chelsea", "mv": 6.2, "fm": 6.6, "avv": {"12": "Torino"}}, {"name": "CISSE", "squadra": "Atalanta", "mv": 6.0, "fm": 6.1, "avv": {"12": "Milan"}}, {"name": "GONCALVES", "squadra": "Sporting", "mv": 6.4, "fm": 7.1, "avv": {"12": "Fiorentina"}}, {"name": "MCKENNIE", "squadra": "Juventus", "mv": 6.4, "fm": 7.0, "avv": {"12": "Juventus"}}, {"name": "MILA", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}, {"name": "NICO PAZ", "squadra": "Como", "mv": 6.6, "fm": 7.8, "avv": {"12": "Como"}}, {"name": "ZANIOLO", "squadra": "Atalanta", "mv": 6.3, "fm": 7.0, "avv": {"12": "Udinese"}}, {"name": "THORSTVEDT", "squadra": "Sassuolo", "mv": 6.4, "fm": 7.2, "avv": {"12": "Sassuolo"}}],
-                "att": [{"name": "BOBCEK", "squadra": "Frosinone", "mv": 6.0, "fm": 6.1, "avv": {"12": "Frosinone"}}, {"name": "CARLOS", "squadra": "Cagliari", "mv": 6.1, "fm": 6.3, "avv": {"12": "Cagliari"}}, {"name": "KRSTOVIC", "squadra": "Lecce", "mv": 6.5, "fm": 7.4, "avv": {"12": "Atalanta"}}, {"name": "PELLEGRINO", "squadra": "Milan", "mv": 6.0, "fm": 6.2, "avv": {"12": "Frosinone"}}, {"name": "RAMOS", "squadra": "Paris", "mv": 6.2, "fm": 6.6, "avv": {"12": "Milan"}}, {"name": "YEBOAH", "squadra": "Venezia", "mv": 6.0, "fm": 6.1, "avv": {"12": "Venezia"}}]
+                "por": [{"name": "NETO", "squadra": "Bournemouth", "mv": 6.1, "fm": 5.2, "avv": {"12": "Arsenal"}}, {"name": "VICARIO", "squadra": "Tottenham", "mv": 6.5, "fm": 5.8, "avv": {"12": "Chelsea"}}, {"name": "TORNQVIST", "squadra": "Monza", "mv": 6.0, "fm": 5.0, "avv": {"12": "Torino"}}],
+                "dif": [{"name": "BERNASCONI", "squadra": "Atalanta", "mv": 6.0, "fm": 6.0, "avv": {"12": "Parma"}}, {"name": "DOEKHI", "squadra": "Union Berlin", "mv": 6.2, "fm": 6.3, "avv": {"12": "Bayern"}}, {"name": "GALLO", "squadra": "Lecce", "mv": 6.1, "fm": 6.2, "avv": {"12": "Empoli"}}, {"name": "GILA", "squadra": "Lazio", "mv": 6.3, "fm": 6.5, "avv": {"12": "Bologna"}}, {"name": "KRISTENSEN", "squadra": "Roma", "mv": 6.1, "fm": 6.2, "avv": {"12": "Juventus"}}, {"name": "RRAHMANI", "squadra": "Napoli", "mv": 6.4, "fm": 6.7, "avv": {"12": "Empoli"}}, {"name": "SPENCE", "squadra": "Genoa", "mv": 6.2, "fm": 6.3, "avv": {"12": "Cagliari"}}, {"name": "VALERI", "squadra": "Parma", "mv": 6.3, "fm": 6.7, "avv": {"12": "Atalanta"}}],
+                "cen": [{"name": "CASADEI", "squadra": "Chelsea", "mv": 6.2, "fm": 6.6, "avv": {"12": "Tottenham"}}, {"name": "CISSE", "squadra": "Atalanta", "mv": 6.0, "fm": 6.1, "avv": {"12": "Parma"}}, {"name": "GONCALVES", "squadra": "Sporting", "mv": 6.4, "fm": 7.1, "avv": {"12": "Porto"}}, {"name": "MCKENNIE", "squadra": "Juventus", "mv": 6.4, "fm": 7.0, "avv": {"12": "Roma"}}, {"name": "MILA", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Fiorentina"}}, {"name": "NICO PAZ", "squadra": "Como", "mv": 6.6, "fm": 7.8, "avv": {"12": "Fiorentina"}}, {"name": "ZANIOLO", "squadra": "Atalanta", "mv": 6.3, "fm": 7.0, "avv": {"12": "Parma"}}, {"name": "THORSTVEDT", "squadra": "Sassuolo", "mv": 6.4, "fm": 7.2, "avv": {"12": "Modena"}}],
+                "att": [{"name": "BOBCEK", "squadra": "Frosinone", "mv": 6.0, "fm": 6.1, "avv": {"12": "Inter"}}, {"name": "CARLOS", "squadra": "Cagliari", "mv": 6.1, "fm": 6.3, "avv": {"12": "Genoa"}}, {"name": "KRSTOVIC", "squadra": "Lecce", "mv": 6.5, "fm": 7.4, "avv": {"12": "Empoli"}}, {"name": "PELLEGRINO", "squadra": "Milan", "mv": 6.0, "fm": 6.2, "avv": {"12": "Udinese"}}, {"name": "RAMOS", "squadra": "Paris", "mv": 6.2, "fm": 6.6, "avv": {"12": "Marseille"}}, {"name": "YEBOAH", "squadra": "Venezia", "mv": 6.0, "fm": 6.1, "avv": {"12": "Lecce"}}]
             },
             "LUCREZIA": {
-                "por": [{"name": "FALCONE", "squadra": "Lecce", "mv": 6.3, "fm": 5.4, "avv": {"12": "Lecce"}}, {"name": "GOLLINI", "squadra": "Genoa", "mv": 6.1, "fm": 5.1, "avv": {"12": "Roma"}}, {"name": "SVILAR", "squadra": "Roma", "mv": 6.6, "fm": 6.0, "avv": {"12": "Roma"}}],
-                "dif": [{"name": "ALABA", "squadra": "Real Madrid", "mv": 6.5, "fm": 6.9, "avv": {"12": "Udinese"}}, {"name": "BELGHALI", "squadra": "Verona", "mv": 6.0, "fm": 6.1, "avv": {"12": "Torino"}}, {"name": "COUTO", "squadra": "Borussia Dortmund", "mv": 6.3, "fm": 6.7, "avv": {"12": "Como"}}, {"name": "DI MARCO", "squadra": "Inter", "mv": 6.8, "fm": 8.0, "avv": {"12": "Inter"}}, {"name": "MARIN", "squadra": "Cagliari", "mv": 6.1, "fm": 6.2, "avv": {"12": "Napoli"}}, {"name": "N'DIKA", "squadra": "Roma", "mv": 6.3, "fm": 6.6, "avv": {"12": "Roma"}}, {"name": "SUTALO", "squadra": "Ajax", "mv": 6.2, "fm": 6.4, "avv": {"12": "Lazio"}}, {"name": "THEATE", "squadra": "Eintracht", "mv": 6.4, "fm": 6.8, "avv": {"12": "Bologna"}}],
-                "cen": [{"name": "BAKOLA", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Sassuolo"}}, {"name": "FABBIAN", "squadra": "Bologna", "mv": 6.4, "fm": 7.1, "avv": {"12": "Parma"}}, {"name": "FRATTESI", "squadra": "Inter", "mv": 6.6, "fm": 7.7, "avv": {"12": "Lazio"}}, {"name": "RODRIGUEZ", "squadra": "Como", "mv": 6.1, "fm": 6.2, "avv": {"12": "Como"}}, {"name": "ROWE", "squadra": "Marsiglia", "mv": 6.3, "fm": 6.9, "avv": {"12": "Atalanta"}}, {"name": "SAELEMAEKERS", "squadra": "Roma", "mv": 6.4, "fm": 7.2, "avv": {"12": "Milan"}}, {"name": "VERGARA", "squadra": "Napoli", "mv": 6.1, "fm": 6.2, "avv": {"12": "Napoli"}}, {"name": "VLASIC", "squadra": "Torino", "mv": 6.5, "fm": 7.4, "avv": {"12": "Torino"}}],
-                "att": [{"name": "BONNY", "squadra": "Parma", "mv": 6.3, "fm": 7.0, "avv": {"12": "Inter"}}, {"name": "DAVIS", "squadra": "Udinese", "mv": 6.4, "fm": 7.2, "avv": {"12": "Udinese"}}, {"name": "DE KETELAERE", "squadra": "Atalanta", "mv": 6.7, "fm": 8.0, "avv": {"12": "Atalanta"}}, {"name": "ESPOSITO", "squadra": "Spezia", "mv": 6.2, "fm": 6.7, "avv": {"12": "Sassuolo"}}, {"name": "SOULE'", "squadra": "Roma", "mv": 6.5, "fm": 7.6, "avv": {"12": "Roma"}}, {"name": "WOLTEMADE", "squadra": "Stoccarda", "mv": 6.1, "fm": 6.4, "avv": {"12": "Juventus"}}]
+                "por": [{"name": "FALCONE", "squadra": "Lecce", "mv": 6.3, "fm": 5.4, "avv": {"12": "Empoli"}}, {"name": "GOLLINI", "squadra": "Genoa", "mv": 6.1, "fm": 5.1, "avv": {"12": "Cagliari"}}, {"name": "SVILAR", "squadra": "Roma", "mv": 6.6, "fm": 6.0, "avv": {"12": "Juventus"}}],
+                "dif": [{"name": "ALABA", "squadra": "Real Madrid", "mv": 6.5, "fm": 6.9, "avv": {"12": "Barcelona"}}, {"name": "BELGHALI", "squadra": "Verona", "mv": 6.0, "fm": 6.1, "avv": {"12": "Inter"}}, {"name": "COUTO", "squadra": "Borussia Dortmund", "mv": 6.3, "fm": 6.7, "avv": {"12": "Bayern"}}, {"name": "DI MARCO", "squadra": "Inter", "mv": 6.8, "fm": 8.0, "avv": {"12": "Verona"}}, {"name": "MARIN", "squadra": "Cagliari", "mv": 6.1, "fm": 6.2, "avv": {"12": "Genoa"}}, {"name": "N'DIKA", "squadra": "Roma", "mv": 6.3, "fm": 6.6, "avv": {"12": "Juventus"}}, {"name": "SUTALO", "squadra": "Ajax", "mv": 6.2, "fm": 6.4, "avv": {"12": "PSV"}}, {"name": "THEATE", "squadra": "Eintracht", "mv": 6.4, "fm": 6.8, "avv": {"12": "Leverkusen"}}],
+                "cen": [{"name": "BAKOLA", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Bologna"}}, {"name": "FABBIAN", "squadra": "Bologna", "mv": 6.4, "fm": 7.1, "avv": {"12": "Lazio"}}, {"name": "FRATTESI", "squadra": "Inter", "mv": 6.6, "fm": 7.7, "avv": {"12": "Verona"}}, {"name": "RODRIGUEZ", "squadra": "Como", "mv": 6.1, "fm": 6.2, "avv": {"12": "Fiorentina"}}, {"name": "ROWE", "squadra": "Marsiglia", "mv": 6.3, "fm": 6.9, "avv": {"12": "PSG"}}, {"name": "SAELEMAEKERS", "squadra": "Roma", "mv": 6.4, "fm": 7.2, "avv": {"12": "Juventus"}}, {"name": "VERGARA", "squadra": "Napoli", "mv": 6.1, "fm": 6.2, "avv": {"12": "Empoli"}}, {"name": "VLASIC", "squadra": "Torino", "mv": 6.5, "fm": 7.4, "avv": {"12": "Monza"}}],
+                "att": [{"name": "BONNY", "squadra": "Parma", "mv": 6.3, "fm": 7.0, "avv": {"12": "Atalanta"}}, {"name": "DAVIS", "squadra": "Udinese", "mv": 6.4, "fm": 7.2, "avv": {"12": "Milan"}}, {"name": "DE KETELAERE", "squadra": "Atalanta", "mv": 6.7, "fm": 8.0, "avv": {"12": "Parma"}}, {"name": "ESPOSITO", "squadra": "Spezia", "mv": 6.2, "fm": 6.7, "avv": {"12": "Pisa"}}, {"name": "SOULE'", "squadra": "Roma", "mv": 6.5, "fm": 7.6, "avv": {"12": "Juventus"}}, {"name": "WOLTEMADE", "squadra": "Stoccarda", "mv": 6.1, "fm": 6.4, "avv": {"12": "Dortmund"}}]
             },
             "SBLOCCUSELLI": {
-                "por": [{"name": "BIJLOW", "squadra": "Feyenoord", "mv": 6.2, "fm": 5.3, "avv": {"12": "Genoa"}}, {"name": "CHRISTENSEN", "squadra": "Fiorentina", "mv": 6.0, "fm": 5.0, "avv": {"12": "Fiorentina"}}, {"name": "DE GEA", "squadra": "Fiorentina", "mv": 6.7, "fm": 6.1, "avv": {"12": "Fiorentina"}}],
-                "dif": [{"name": "AKANJI", "squadra": "Manchester City", "mv": 6.5, "fm": 6.9, "avv": {"12": "Inter"}}, {"name": "CALVANI", "squadra": "Frosinone", "mv": 6.0, "fm": 6.0, "avv": {"12": "Frosinone"}}, {"name": "HERMOSO", "squadra": "Roma", "mv": 6.4, "fm": 6.8, "avv": {"12": "Roma"}}, {"name": "KAMARA", "squadra": "Udinese", "mv": 6.2, "fm": 6.4, "avv": {"12": "Udinese"}}, {"name": "MOLINA", "squadra": "Atletico Madrid", "mv": 6.3, "fm": 6.7, "avv": {"12": "Roma"}}, {"name": "OYONO", "squadra": "Frosinone", "mv": 6.0, "fm": 6.1, "avv": {"12": "Frosinone"}}, {"name": "RODRIGUEZ", "squadra": "Torino", "mv": 6.1, "fm": 6.2, "avv": {"12": "Cagliari"}}, {"name": "BISSEK", "squadra": "Inter", "mv": 6.3, "fm": 6.7, "avv": {"12": "Inter"}}],
-                "cen": [{"name": "BATURINA", "squadra": "Dinamo Zagabria", "mv": 6.2, "fm": 6.7, "avv": {"12": "Como"}}, {"name": "CALò", "squadra": "Cesena", "mv": 6.0, "fm": 6.1, "avv": {"12": "Frosinone"}}, {"name": "FAGIOLI", "squadra": "Juventus", "mv": 6.3, "fm": 6.8, "avv": {"12": "Fiorentina"}}, {"name": "CHUKWUEZE", "squadra": "Milan", "mv": 6.4, "fm": 7.2, "avv": {"12": "Milan"}}, {"name": "MATIC", "squadra": "Lione", "mv": 6.2, "fm": 6.5, "avv": {"12": "Sassuolo"}}, {"name": "ORSOLINI", "squadra": "Bologna", "mv": 6.6, "fm": 7.8, "avv": {"12": "Bologna"}}, {"name": "SCHMID", "squadra": "Werder Brema", "mv": 6.1, "fm": 6.2, "avv": {"12": "Frosinone"}}, {"name": "TAYLOR", "squadra": "Ajax", "mv": 6.0, "fm": 6.1, "avv": {"12": "Lazio"}}],
-                "att": [{"name": "ADAMS", "squadra": "Torino", "mv": 6.5, "fm": 7.5, "avv": {"12": "Torino"}}, {"name": "BERARDI", "squadra": "Sassuolo", "mv": 6.7, "fm": 8.1, "avv": {"12": "Sassuolo"}}, {"name": "CUTRONE", "squadra": "Como", "mv": 6.4, "fm": 7.2, "avv": {"12": "Monza"}}, {"name": "DOUVIKAS", "squadra": "Celta Vigo", "mv": 6.2, "fm": 6.8, "avv": {"12": "Como"}}, {"name": "ZEBALLOS", "squadra": "Boca Juniors", "mv": 6.1, "fm": 6.5, "avv": {"12": "Monza"}}, {"name": "KVERNADZE", "squadra": "Frosinone", "mv": 6.0, "fm": 6.0, "avv": {"12": "Frosinone"}}]
+                "por": [{"name": "BIJLOW", "squadra": "Feyenoord", "mv": 6.2, "fm": 5.3, "avv": {"12": "PSV"}}, {"name": "CHRISTENSEN", "squadra": "Fiorentina", "mv": 6.0, "fm": 5.0, "avv": {"12": "Como"}}, {"name": "DE GEA", "squadra": "Fiorentina", "mv": 6.7, "fm": 6.1, "avv": {"12": "Como"}}],
+                "dif": [{"name": "AKANJI", "squadra": "Manchester City", "mv": 6.5, "fm": 6.9, "avv": {"12": "Arsenal"}}, {"name": "CALVANI", "squadra": "Frosinone", "mv": 6.0, "fm": 6.0, "avv": {"12": "Inter"}}, {"name": "HERMOSO", "squadra": "Roma", "mv": 6.4, "fm": 6.8, "avv": {"12": "Juventus"}}, {"name": "KAMARA", "squadra": "Udinese", "mv": 6.2, "fm": 6.4, "avv": {"12": "Milan"}}, {"name": "MOLINA", "squadra": "Atletico Madrid", "mv": 6.3, "fm": 6.7, "avv": {"12": "Real Madrid"}}, {"name": "OYONO", "squadra": "Frosinone", "mv": 6.0, "fm": 6.1, "avv": {"12": "Inter"}}, {"name": "RODRIGUEZ", "squadra": "Torino", "mv": 6.1, "fm": 6.2, "avv": {"12": "Monza"}}, {"name": "BISSEK", "squadra": "Inter", "mv": 6.3, "fm": 6.7, "avv": {"12": "Verona"}}],
+                "cen": [{"name": "BATURINA", "squadra": "Dinamo Zagabria", "mv": 6.2, "fm": 6.7, "avv": {"12": "Hajduk"}}, {"name": "CALò", "squadra": "Cesena", "mv": 6.0, "fm": 6.1, "avv": {"12": "Modena"}}, {"name": "FAGIOLI", "squadra": "Juventus", "mv": 6.3, "fm": 6.8, "avv": {"12": "Roma"}}, {"name": "CHUKWUEZE", "squadra": "Milan", "mv": 6.4, "fm": 7.2, "avv": {"12": "Udinese"}}, {"name": "MATIC", "squadra": "Lione", "mv": 6.2, "fm": 6.5, "avv": {"12": "PSG"}}, {"name": "ORSOLINI", "squadra": "Bologna", "mv": 6.6, "fm": 7.8, "avv": {"12": "Lazio"}}, {"name": "SCHMID", "squadra": "Werder Brema", "mv": 6.1, "fm": 6.2, "avv": {"12": "Bayern"}}, {"name": "TAYLOR", "squadra": "Ajax", "mv": 6.0, "fm": 6.1, "avv": {"12": "Feyenoord"}}],
+                "att": [{"name": "ADAMS", "squadra": "Torino", "mv": 6.5, "fm": 7.5, "avv": {"12": "Monza"}}, {"name": "BERARDI", "squadra": "Sassuolo", "mv": 6.7, "fm": 8.1, "avv": {"12": "Modena"}}, {"name": "CUTRONE", "squadra": "Como", "mv": 6.4, "fm": 7.2, "avv": {"12": "Fiorentina"}}, {"name": "DOUVIKAS", "squadra": "Celta Vigo", "mv": 6.2, "fm": 6.8, "avv": {"12": "Real Madrid"}}, {"name": "ZEBALLOS", "squadra": "Boca Juniors", "mv": 6.1, "fm": 6.5, "avv": {"12": "River"}}, {"name": "KVERNADZE", "squadra": "Frosinone", "mv": 6.0, "fm": 6.0, "avv": {"12": "Inter"}}]
             },
             "BENEVENGO": {
-                "por": [{"name": "CAPRILE", "squadra": "Cagliari", "mv": 6.3, "fm": 5.5, "avv": {"12": "Cagliari"}}, {"name": "CORVI", "squadra": "Parma", "mv": 6.0, "fm": 4.8, "avv": {"12": "Parma"}}, {"name": "MILINKOVIC", "squadra": "Torino", "mv": 6.5, "fm": 5.8, "avv": {"12": "Napoli"}}],
-                "dif": [{"name": "BREMER", "squadra": "Juventus", "mv": 6.6, "fm": 7.1, "avv": {"12": "Juventus"}}, {"name": "CELIK", "squadra": "Roma", "mv": 6.2, "fm": 6.4, "avv": {"12": "Juventus"}}, {"name": "GRAGUSIN", "squadra": "Tottenham", "mv": 6.3, "fm": 6.6, "avv": {"12": "Fiorentina"}}, {"name": "FORTINI", "squadra": "Fiorentina", "mv": 6.0, "fm": 6.0, "avv": {"12": "Torino"}}, {"name": "GATTI", "squadra": "Juventus", "mv": 6.4, "fm": 6.8, "avv": {"12": "Juventus"}}, {"name": "LULLI", "squadra": "Roma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Roma"}}, {"name": "SOLET", "squadra": "Udinese", "mv": 6.1, "fm": 6.2, "avv": {"12": "Udinese"}}, {"name": "STONES", "squadra": "Manchester City", "mv": 6.5, "fm": 7.0, "avv": {"12": "Inter"}}],
-                "cen": [{"name": "ADZIC", "squadra": "Juventus", "mv": 6.1, "fm": 6.3, "avv": {"12": "Sassuolo"}}, {"name": "BARELLA", "squadra": "Inter", "mv": 6.7, "fm": 7.8, "avv": {"12": "Inter"}}, {"name": "GONZALEZ", "squadra": "Porto", "mv": 6.5, "fm": 7.4, "avv": {"12": "Juventus"}}, {"name": "MANDRAGORA", "squadra": "Fiorentina", "mv": 6.3, "fm": 6.8, "avv": {"12": "Torino"}}, {"name": "MORA", "squadra": "Roma", "mv": 6.0, "fm": 6.1, "avv": {"12": "Roma"}}, {"name": "PELLEGRINI", "squadra": "Roma", "mv": 6.4, "fm": 7.2, "avv": {"12": "Roma"}}, {"name": "SUCIC", "squadra": "Real Sociedad", "mv": 6.2, "fm": 6.6, "avv": {"12": "Inter"}}, {"name": "ANGUISSA", "squadra": "Napoli", "mv": 6.5, "fm": 7.3, "avv": {"12": "Napoli"}}],
-                "att": [{"name": "LONTANI", "squadra": "Parma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Parma"}}, {"name": "MARTINEZ", "squadra": "Inter", "mv": 6.8, "fm": 8.5, "avv": {"12": "Inter"}}, {"name": "OSMAJIC", "squadra": "Preston", "mv": 6.2, "fm": 6.8, "avv": {"12": "Genoa"}}, {"name": "RASPADORI", "squadra": "Napoli", "mv": 6.4, "fm": 7.3, "avv": {"12": "Napoli"}}, {"name": "ROBINSON", "squadra": "Monza", "mv": 6.1, "fm": 6.3, "avv": {"12": "Monza"}}, {"name": "SANTOS", "squadra": "Santos", "mv": 6.0, "fm": 6.1, "avv": {"12": "Napoli"}}]
+                "por": [{"name": "CAPRILE", "squadra": "Cagliari", "mv": 6.3, "fm": 5.5, "avv": {"12": "Genoa"}}, {"name": "CORVI", "squadra": "Parma", "mv": 6.0, "fm": 4.8, "avv": {"12": "Atalanta"}}, {"name": "MILINKOVIC", "squadra": "Torino", "mv": 6.5, "fm": 5.8, "avv": {"12": "Monza"}}],
+                "dif": [{"name": "BREMER", "squadra": "Juventus", "mv": 6.6, "fm": 7.1, "avv": {"12": "Roma"}}, {"name": "CELIK", "squadra": "Roma", "mv": 6.2, "fm": 6.4, "avv": {"12": "Juventus"}}, {"name": "GRAGUSIN", "squadra": "Tottenham", "mv": 6.3, "fm": 6.6, "avv": {"12": "Chelsea"}}, {"name": "FORTINI", "squadra": "Fiorentina", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}, {"name": "GATTI", "squadra": "Juventus", "mv": 6.4, "fm": 6.8, "avv": {"12": "Roma"}}, {"name": "LULLI", "squadra": "Roma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Juventus"}}, {"name": "SOLET", "squadra": "Udinese", "mv": 6.1, "fm": 6.2, "avv": {"12": "Milan"}}, {"name": "STONES", "squadra": "Manchester City", "mv": 6.5, "fm": 7.0, "avv": {"12": "Arsenal"}}],
+                "cen": [{"name": "ADZIC", "squadra": "Juventus", "mv": 6.1, "fm": 6.3, "avv": {"12": "Roma"}}, {"name": "BARELLA", "squadra": "Inter", "mv": 6.7, "fm": 7.8, "avv": {"12": "Verona"}}, {"name": "GONZALEZ", "squadra": "Porto", "mv": 6.5, "fm": 7.4, "avv": {"12": "Benfica"}}, {"name": "MANDRAGORA", "squadra": "Fiorentina", "mv": 6.3, "fm": 6.8, "avv": {"12": "Como"}}, {"name": "MORA", "squadra": "Roma", "mv": 6.0, "fm": 6.1, "avv": {"12": "Juventus"}}, {"name": "PELLEGRINI", "squadra": "Roma", "mv": 6.4, "fm": 7.2, "avv": {"12": "Juventus"}}, {"name": "SUCIC", "squadra": "Real Sociedad", "mv": 6.2, "fm": 6.6, "avv": {"12": "Athletic"}}, {"name": "ANGUISSA", "squadra": "Napoli", "mv": 6.5, "fm": 7.3, "avv": {"12": "Empoli"}}],
+                "att": [{"name": "LONTANI", "squadra": "Parma", "mv": 6.0, "fm": 6.0, "avv": {"12": "Atalanta"}}, {"name": "MARTINEZ", "squadra": "Inter", "mv": 6.8, "fm": 8.5, "avv": {"12": "Verona"}}, {"name": "OSMAJIC", "squadra": "Preston", "mv": 6.2, "fm": 6.8, "avv": {"12": "Blackburn"}}, {"name": "RASPADORI", "squadra": "Napoli", "mv": 6.4, "fm": 7.3, "avv": {"12": "Empoli"}}, {"name": "ROBINSON", "squadra": "Monza", "mv": 6.1, "fm": 6.3, "avv": {"12": "Torino"}}, {"name": "SANTOS", "squadra": "Santos", "mv": 6.0, "fm": 6.1, "avv": {"12": "Palmeiras"}}]
             },
             "SILVIO": {
-                "por": [{"name": "CARNESECCHI", "squadra": "Atalanta", "mv": 6.5, "fm": 5.7, "avv": {"12": "Atalanta"}}, {"name": "MURIC", "squadra": "Burnley", "mv": 6.1, "fm": 5.1, "avv": {"12": "Sassuolo"}}, {"name": "SPORTIELLO", "squadra": "Milan", "mv": 6.2, "fm": 5.3, "avv": {"12": "Atalanta"}}],
-                "dif": [{"name": "CHALOBAH", "squadra": "Crystal Palace", "mv": 6.2, "fm": 6.4, "avv": {"12": "Como"}}, {"name": "COMUZZO", "squadra": "Fiorentina", "mv": 6.1, "fm": 6.2, "avv": {"12": "Torino"}}, {"name": "DE WINTER", "squadra": "Genoa", "mv": 6.2, "fm": 6.5, "avv": {"12": "Milan"}}, {"name": "DOIG", "squadra": "Sassuolo", "mv": 6.3, "fm": 6.7, "avv": {"12": "Sassuolo"}}, {"name": "KALULU", "squadra": "Juventus", "mv": 6.4, "fm": 6.8, "avv": {"12": "Juventus"}}, {"name": "GABRIEL", "squadra": "Arsenal", "mv": 6.0, "fm": 6.0, "avv": {"12": "Lecce"}}, {"name": "VOJVODA", "squadra": "Torino", "mv": 6.1, "fm": 6.2, "avv": {"12": "Udinese"}}, {"name": "ZE PEDRO", "squadra": "Porto", "mv": 6.0, "fm": 6.0, "avv": {"12": "Cagliari"}}],
-                "cen": [{"name": "BALDANZI", "squadra": "Roma", "mv": 6.3, "fm": 6.9, "avv": {"12": "Genoa"}}, {"name": "BUSIO", "squadra": "Venezia", "mv": 6.2, "fm": 6.6, "avv": {"12": "Venezia"}}, {"name": "DA CUNHA", "squadra": "Como", "mv": 6.3, "fm": 6.8, "avv": {"12": "Como"}}, {"name": "EKKELENKAMP", "mv": 6.1, "fm": 6.3, "avv": {"12": "Udinese"}}, {"name": "FITZ-JIM", "mv": 6.0, "fm": 6.1, "avv": {"12": "Torino"}}, {"name": "GAETANO", "squadra": "Cagliari", "mv": 6.2, "fm": 6.6, "avv": {"12": "Atalanta"}}, {"name": "LOBOTKA", "squadra": "Napoli", "mv": 6.4, "fm": 6.9, "avv": {"12": "Napoli"}}, {"name": "MASTANTUONO", "squadra": "River Plate", "mv": 6.3, "fm": 7.0, "avv": {"12": "Fiorentina"}}],
-                "att": [{"name": "EKHATOR", "squadra": "Genoa", "mv": 6.1, "fm": 6.3, "avv": {"12": "Juventus"}}, {"name": "NERES", "squadra": "Napoli", "mv": 6.6, "fm": 7.7, "avv": {"12": "Napoli"}}, {"name": "PINAMONTI", "squadra": "Sassuolo", "mv": 6.4, "fm": 7.3, "avv": {"12": "Lazio"}}, {"name": "ROMERO", "squadra": "Atalanta", "mv": 6.0, "fm": 6.1, "avv": {"12": "Parma"}}, {"name": "SIMEONE", "squadra": "Napoli", "mv": 6.3, "fm": 7.0, "avv": {"12": "Torino"}}, {"name": "THURAM", "squadra": "Inter", "mv": 6.8, "fm": 8.2, "avv": {"12": "Inter"}}]
+                "por": [{"name": "CARNESECCHI", "squadra": "Atalanta", "mv": 6.5, "fm": 5.7, "avv": {"12": "Parma"}}, {"name": "MURIC", "squadra": "Burnley", "mv": 6.1, "fm": 5.1, "avv": {"12": "Leeds"}}, {"name": "SPORTIELLO", "squadra": "Milan", "mv": 6.2, "fm": 5.3, "avv": {"12": "Udinese"}}],
+                "dif": [{"name": "CHALOBAH", "squadra": "Crystal Palace", "mv": 6.2, "fm": 6.4, "avv": {"12": "Brighton"}}, {"name": "COMUZZO", "squadra": "Fiorentina", "mv": 6.1, "fm": 6.2, "avv": {"12": "Como"}}, {"name": "DE WINTER", "squadra": "Genoa", "mv": 6.2, "fm": 6.5, "avv": {"12": "Cagliari"}}, {"name": "DOIG", "squadra": "Sassuolo", "mv": 6.3, "fm": 6.7, "avv": {"12": "Modena"}}, {"name": "KALULU", "squadra": "Juventus", "mv": 6.4, "fm": 6.8, "avv": {"12": "Roma"}}, {"name": "GABRIEL", "squadra": "Arsenal", "mv": 6.0, "fm": 6.0, "avv": {"12": "Manchester City"}}, {"name": "VOJVODA", "squadra": "Torino", "mv": 6.1, "fm": 6.2, "avv": {"12": "Monza"}}, {"name": "ZE PEDRO", "squadra": "Porto", "mv": 6.0, "fm": 6.0, "avv": {"12": "Benfica"}}],
+                "cen": [{"name": "BALDANZI", "squadra": "Roma", "mv": 6.3, "fm": 6.9, "avv": {"12": "Juventus"}}, {"name": "BUSIO", "squadra": "Venezia", "mv": 6.2, "fm": 6.6, "avv": {"12": "Lecce"}}, {"name": "DA CUNHA", "squadra": "Como", "mv": 6.3, "fm": 6.8, "avv": {"12": "Fiorentina"}}, {"name": "EKKELENKAMP", "squadra": "Udinese", "mv": 6.1, "fm": 6.3, "avv": {"12": "Milan"}}, {"name": "FITZ-JIM", "squadra": "Torino", "mv": 6.0, "fm": 6.1, "avv": {"12": "Monza"}}, {"name": "GAETANO", "squadra": "Cagliari", "mv": 6.2, "fm": 6.6, "avv": {"12": "Genoa"}}, {"name": "LOBOTKA", "squadra": "Napoli", "mv": 6.4, "fm": 6.9, "avv": {"12": "Empoli"}}, {"name": "MASTANTUONO", "squadra": "River Plate", "mv": 6.3, "fm": 7.0, "avv": {"12": "Boca"}}],
+                "att": [{"name": "EKHATOR", "squadra": "Genoa", "mv": 6.1, "fm": 6.3, "avv": {"12": "Cagliari"}}, {"name": "NERES", "squadra": "Napoli", "mv": 6.6, "fm": 7.7, "avv": {"12": "Empoli"}}, {"name": "PINAMONTI", "squadra": "Sassuolo", "mv": 6.4, "fm": 7.3, "avv": {"12": "Modena"}}, {"name": "ROMERO", "squadra": "Atalanta", "mv": 6.0, "fm": 6.1, "avv": {"12": "Parma"}}, {"name": "SIMEONE", "squadra": "Napoli", "mv": 6.3, "fm": 7.0, "avv": {"12": "Empoli"}}, {"name": "THURAM", "squadra": "Inter", "mv": 6.8, "fm": 8.2, "avv": {"12": "Verona"}}]
             },
             "LISBONA": {
-                "por": [{"name": "BUTEZ", "squadra": "Anversa", "mv": 6.1, "fm": 5.1, "avv": {"12": "Como"}}, {"name": "MERET", "squadra": "Napoli", "mv": 6.5, "fm": 5.8, "avv": {"12": "Napoli"}}, {"name": "SANCHEZ", "squadra": "Ajax", "mv": 6.0, "fm": 4.9, "avv": {"12": "Como"}}],
-                "dif": [{"name": "BASTONI", "squadra": "Inter", "mv": 6.6, "fm": 7.2, "avv": {"12": "Inter"}}, {"name": "COCO", "squadra": "Torino", "mv": 6.3, "fm": 6.6, "avv": {"12": "Torino"}}, {"name": "DI LORENZO", "squadra": "Napoli", "mv": 6.7, "fm": 7.5, "avv": {"12": "Napoli"}}, {"name": "FAVASULI", "squadra": "Fiorentina", "mv": 6.0, "fm": 6.1, "avv": {"12": "Napoli"}}, {"name": "FLORIANI", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Lazio"}}, {"name": "HEHHEM", "squadra": "Bologna", "mv": 6.0, "fm": 6.0, "avv": {"12": "Bologna"}}, {"name": "MINA", "squadra": "Cagliari", "mv": 6.2, "fm": 6.5, "avv": {"12": "Cagliari"}}, {"name": "OSTIGARD", "squadra": "Rennes", "mv": 6.1, "fm": 6.3, "avv": {"12": "Genoa"}}],
-                "cen": [{"name": "ALAJBEGOVIC", "squadra": "Leverkusen", "mv": 6.0, "fm": 6.0, "avv": {"12": "Juventus"}}, {"name": "CANCELLIERI", "squadra": "Lazio", "mv": 6.3, "fm": 6.9, "avv": {"12": "Lazio"}}, {"name": "DE BRUYNE", "squadra": "Manchester City", "mv": 6.9, "fm": 8.8, "avv": {"12": "Napoli"}}, {"name": "KARLSTROM", "squadra": "Udinese", "mv": 6.2, "fm": 6.5, "avv": {"12": "Udinese"}}, {"name": "KESSIE", "squadra": "Al-Ahli", "mv": 6.5, "fm": 7.4, "avv": {"12": "Atalanta"}}, {"name": "NJIE", "squadra": "Torino", "mv": 6.1, "fm": 6.3, "avv": {"12": "Fiorentina"}}, {"name": "PERRONE", "squadra": "Como", "mv": 6.2, "fm": 6.6, "avv": {"12": "Como"}}, {"name": "POLITANO", "squadra": "Napoli", "mv": 6.5, "fm": 7.4, "avv": {"12": "Napoli"}}],
-                "att": [{"name": "ADAMAS", "squadra": "Venezia", "mv": 6.0, "fm": 6.1, "avv": {"12": "Venezia"}}, {"name": "BOWIE", "squadra": "Hibernian", "mv": 6.1, "fm": 6.3, "avv": {"12": "Sassuolo"}}, {"name": "DOVBYK", "squadra": "Roma", "mv": 6.7, "fm": 7.9, "avv": {"12": "Bologna"}}, {"name": "GHEDJEMIS", "squadra": "Frosinone", "mv": 6.0, "fm": 6.0, "avv": {"12": "Frosinone"}}, {"name": "MALEN", "squadra": "Borussia Dortmund", "mv": 6.4, "fm": 7.2, "avv": {"12": "Roma"}}, {"name": "MENDY", "squadra": "Cagliari", "mv": 6.0, "fm": 6.1, "avv": {"12": "Cagliari"}}]
+                "por": [{"name": "BUTEZ", "squadra": "Anversa", "mv": 6.1, "fm": 5.1, "avv": {"12": "Club Brugge"}}, {"name": "MERET", "squadra": "Napoli", "mv": 6.5, "fm": 5.8, "avv": {"12": "Empoli"}}, {"name": "SANCHEZ", "squadra": "Ajax", "mv": 6.0, "fm": 4.9, "avv": {"12": "PSV"}}],
+                "dif": [{"name": "BASTONI", "squadra": "Inter", "mv": 6.6, "fm": 7.2, "avv": {"12": "Verona"}}, {"name": "COCO", "squadra": "Torino", "mv": 6.3, "fm": 6.6, "avv": {"12": "Monza"}}, {"name": "DI LORENZO", "squadra": "Napoli", "mv": 6.7, "fm": 7.5, "avv": {"12": "Empoli"}}, {"name": "FAVASULI", "squadra": "Fiorentina", "mv": 6.0, "fm": 6.1, "avv": {"12": "Como"}}, {"name": "FLORIANI", "squadra": "Lazio", "mv": 6.0, "fm": 6.0, "avv": {"12": "Bologna"}}, {"name": "HEHHEM", "squadra": "Bologna", "mv": 6.0, "fm": 6.0, "avv": {"12": "Lazio"}}, {"name": "MINA", "squadra": "Cagliari", "mv": 6.2, "fm": 6.5, "avv": {"12": "Genoa"}}, {"name": "OSTIGARD", "squadra": "Rennes", "mv": 6.1, "fm": 6.3, "avv": {"12": "Nantes"}}],
+                "cen": [{"name": "ALAJBEGOVIC", "squadra": "Leverkusen", "mv": 6.0, "fm": 6.0, "avv": {"12": "Bayern"}}, {"name": "CANCELLIERI", "squadra": "Lazio", "mv": 6.3, "fm": 6.9, "avv": {"12": "Bologna"}}, {"name": "DE BRUYNE", "squadra": "Manchester City", "mv": 6.9, "fm": 8.8, "avv": {"12": "Arsenal"}}, {"name": "KARLSTROM", "squadra": "Udinese", "mv": 6.2, "fm": 6.5, "avv": {"12": "Milan"}}, {"name": "KESSIE", "squadra": "Al-Ahli", "mv": 6.5, "fm": 7.4, "avv": {"12": "Al-Hilal"}}, {"name": "NJIE", "squadra": "Torino", "mv": 6.1, "fm": 6.3, "avv": {"12": "Monza"}}, {"name": "PERRONE", "squadra": "Como", "mv": 6.2, "fm": 6.6, "avv": {"12": "Fiorentina"}}, {"name": "POLITANO", "squadra": "Napoli", "mv": 6.5, "fm": 7.4, "avv": {"12": "Empoli"}}],
+                "att": [{"name": "ADAMAS", "squadra": "Venezia", "mv": 6.0, "fm": 6.1, "avv": {"12": "Lecce"}}, {"name": "BOWIE", "squadra": "Hibernian", "mv": 6.1, "fm": 6.3, "avv": {"12": "Hearts"}}, {"name": "DOVBYK", "squadra": "Roma", "mv": 6.7, "fm": 7.9, "avv": {"12": "Juventus"}}, {"name": "GHEDJEMIS", "squadra": "Frosinone", "mv": 6.0, "fm": 6.0, "avv": {"12": "Inter"}}, {"name": "MALEN", "squadra": "Borussia Dortmund", "mv": 6.4, "fm": 7.2, "avv": {"12": "Bayern"}}, {"name": "MENDY", "squadra": "Cagliari", "mv": 6.0, "fm": 6.1, "avv": {"12": "Genoa"}}]
             },
             "EMOIVECI": {
-                "por": [{"name": "MANDAS", "squadra": "Lazio", "mv": 6.2, "fm": 5.3, "avv": {"12": "Lazio"}}, {"name": "MOTTA", "squadra": "Spezia", "mv": 6.0, "fm": 4.9, "avv": {"12": "Lazio"}}, {"name": "PALMISANI", "squadra": "Frosinone", "mv": 6.0, "fm": 4.8, "avv": {"12": "Frosinone"}}],
-                "dif": [{"name": "BALERDI", "squadra": "Marsiglia", "mv": 6.3, "fm": 6.6, "avv": {"12": "Roma"}}, {"name": "BARTESAGHI", "squadra": "Milan", "mv": 6.1, "fm": 6.2, "avv": {"12": "Milan"}}, {"name": "CAMBIASO", "squadra": "Juventus", "mv": 6.6, "fm": 7.3, "avv": {"12": "Juventus"}}, {"name": "KAIKI", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}, {"name": "OBRADOR", "squadra": "Real Madrid", "mv": 6.0, "fm": 6.0, "avv": {"12": "Sassuolo"}}, {"name": "PAVLOVIC", "squadra": "Milan", "mv": 6.4, "fm": 6.8, "avv": {"12": "Milan"}}, {"name": "VALDEPENAS", "squadra": "Fiorentina", "mv": 6.0, "fm": 6.0, "avv": {"12": "Fiorentina"}}, {"name": "ZAPPACOSTA", "squadra": "Atalanta", "mv": 6.3, "fm": 6.8, "avv": {"12": "Atalanta"}}],
-                "cen": [{"name": "BERNABè", "squadra": "Parma", "mv": 6.2, "fm": 6.7, "avv": {"12": "Parma"}}, {"name": "CRISTANTE", "squadra": "Roma", "mv": 6.3, "fm": 6.8, "avv": {"12": "Roma"}}, {"name": "EDERSON", "squadra": "Atalanta", "mv": 6.5, "fm": 7.4, "avv": {"12": "Atalanta"}}, {"name": "GUDMUNSSON", "squadra": "Fiorentina", "mv": 6.6, "fm": 7.8, "avv": {"12": "Lazio"}}, {"name": "KONè", "squadra": "Roma", "mv": 6.4, "fm": 7.0, "avv": {"12": "Roma"}}, {"name": "PESSINA", "squadra": "Monza", "mv": 6.3, "fm": 6.8, "avv": {"12": "Monza"}}, {"name": "POBEGA", "squadra": "Bologna", "mv": 6.2, "fm": 6.6, "avv": {"12": "Bologna"}}, {"name": "ZIELISKI", "squadra": "Inter", "mv": 6.4, "fm": 7.1, "avv": {"12": "Inter"}}],
-                "att": [{"name": "DYBALA", "squadra": "Roma", "mv": 6.9, "fm": 8.5, "avv": {"12": "Roma"}}, {"name": "KEAN", "squadra": "Fiorentina", "mv": 6.7, "fm": 7.9, "avv": {"12": "Como"}}, {"name": "RAIMONDO", "squadra": "Ternana", "mv": 6.1, "fm": 6.4, "avv": {"12": "Frosinone"}}, {"name": "VITINHA", "squadra": "Genoa", "mv": 6.3, "fm": 6.9, "avv": {"12": "Genoa"}}, {"name": "YILDIZ", "squadra": "Juventus", "mv": 6.6, "fm": 7.7, "avv": {"12": "Juventus"}}, {"name": "MALDINI", "squadra": "Monza", "mv": 6.4, "fm": 7.1, "avv": {"12": "Cagliari"}}]
-            }
-        };
-
-        function initDashboard() {
-            const giornataSelect = document.getElementById('giornataSelect');
-            giornataSelect.innerHTML = '';
-            for (let i = 1; i <= 38; i++) {
-                const opt = document.createElement('option');
-                opt.value = i;
-                opt.textContent = `${i}ª Giornata`;
-                if (i === 12) opt.selected = true;
-                giornataSelect.appendChild(opt);
-            }
-
-            const teamSelect = document.getElementById('teamSelect');
-            const opponentSelect = document.getElementById('opponentSelect');
-            teamSelect.innerHTML = '';
-            opponentSelect.innerHTML = '';
-
-            Object.keys(leagueData).forEach(team => {
-                const opt1 = document.createElement('option');
-                opt1.value = team; opt1.textContent = team;
-                teamSelect.appendChild(opt1);
-
-                if (team !== "CASCINA") {
-                    const opt2 = document.createElement('option');
-                    opt2.value = team; opt2.textContent = team;
-                    opponentSelect.appendChild(opt2);
-                }
-            });
-
-            updateAll();
-        }
-
-        function updateAll() {
-            renderMatchup();
-            renderRecommendedLineup();
-            renderTeam();
-        }
-
-        function getOpponent(p, giornata) {
-            if (!p || !p.avv) return "-";
-            return p.avv[giornata] || p.avv["12"] || "-";
-        }
-
-        function getBest11(teamKey, giornata) {
-            const team = leagueData[teamKey];
-            if (!team) return [];
-            
-            const normalize = (p, role) => ({
-                role, name: p.name, squadra: p.squadra || "N/D", mv: p.mv || 6.0, fm: p.fm || 6.0, avversario: getOpponent(p, giornata)
-            });
-
-            const porList = team.por.map(p => normalize(p, 'POR'));
-            const difList = team.dif.map(p => normalize(p, 'DIF')).sort((a,b) => b.fm - a.fm).slice(0, 4);
-            const cenList = team.cen.map(p => normalize(p, 'CEN')).sort((a,b) => b.fm - a.fm).slice(0, 3);
-            const attList = team.att.map(p => normalize(p, 'ATT')).sort((a,b) => b.fm - a.fm).slice(0, 3);
-
-            return [porList[0], ...difList, ...cenList, ...attList].filter(Boolean);
-        }
-
-        function calculateAverages(lineup) {
-            if (lineup.length === 0) return { mv: "0.00", fm: "0.00" };
-            let totalMv = lineup.reduce((acc, p) => acc + Number(p.mv), 0);
-            let totalFm = lineup.reduce((acc, p) => acc + Number(p.fm), 0);
-            return {
-                mv: (totalMv / lineup.length).toFixed(2),
-                fm: (totalFm / lineup.length).toFixed(2)
-            };
-        }
-
-        function renderMatchup() {
-            const giornata = document.getElementById('giornataSelect').value;
-            const oppName = document.getElementById('opponentSelect').value;
-            document.getElementById('opponentMatchupTitle').textContent = `⚔️ ${oppName}`;
-
-            const cascinaLineup = getBest11("CASCINA", giornata);
-            const opponentLineup = getBest11(oppName, giornata);
-
-            const cAvg = calculateAverages(cascinaLineup);
-            const oAvg = calculateAverages(opponentLineup);
-
-            document.getElementById('cascinaAverages').textContent = `Media Voto: ${cAvg.mv} | Fantamedia: ${cAvg.fm}`;
-            document.getElementById('opponentAverages').textContent = `Media Voto: ${oAvg.mv} | Fantamedia: ${oAvg.fm}`;
-
-            const renderLineupList = (containerId, lineup) => {
-                const container = document.getElementById(containerId);
-                container.innerHTML = '';
-                lineup.forEach(p => {
-                    const div = document.createElement('div');
-                    div.className = "flex justify-between items-center bg-slate-800 p-2 rounded border border-slate-700 text-xs gap-2";
-                    div.innerHTML = `
-                        <div class="flex items-center gap-2 overflow-hidden flex-wrap">
-                            <span class="font-bold px-1.5 py-0.5 rounded bg-slate-900 shrink-0 ${
-                                p.role === 'POR' ? 'text-amber-400' : p.role === 'DIF' ? 'text-blue-400' : p.role === 'CEN' ? 'text-emerald-400' : 'text-rose-400'
-                            }">${p.role}</span>
-                            <span class="font-semibold text-slate-200">${p.name}</span>
-                            <span class="text-slate-400 text-[10px]">(${p.squadra})</span>
-                            <span class="text-amber-300 text-[10px] bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">vs ${p.avversario}</span>
-                        </div>
-                        <div class="flex gap-2 font-mono text-[11px] shrink-0">
-                            <span class="text-slate-300">MV: <b>${Number(p.mv).toFixed(2)}</b></span>
-                            <span class="text-emerald-400">FM: <b>${Number(p.fm).toFixed(2)}</b></span>
-                        </div>
-                    `;
-                    container.appendChild(div);
-                });
-            };
-
-            renderLineupList('cascinaMatchupLineup', cascinaLineup);
-            renderLineupList('opponentMatchupLineup', opponentLineup);
-        }
-
-        function renderRecommendedLineup() {
-            const giornata = document.getElementById('giornataSelect').value;
-            const best11 = getBest11("CASCINA", giornata);
-            const container = document.getElementById('recommendedLineup');
-            container.innerHTML = '';
-
-            best11.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "bg-slate-900 p-3 rounded-lg border border-slate-700 space-y-1";
-                card.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-slate-800 ${
-                            p.role === 'POR' ? 'text-amber-400' : p.role === 'DIF' ? 'text-blue-400' : p.role === 'CEN' ? 'text-emerald-400' : 'text-rose-400'
-                        }">${p.role}</span>
-                        <span class="text-[11px] text-amber-300">vs <b>${p.avversario}</b></span>
-                    </div>
-                    <div class="font-bold text-slate-100 text-sm pt-1">${p.name} <span class="text-xs text-slate-400 font-normal">(${p.squadra})</span></div>
-                    <div class="flex justify-between text-xs pt-1 border-t border-slate-800">
-                        <span class="text-slate-400">MV: ${Number(p.mv).toFixed(2)}</span>
-                        <span class="text-emerald-400 font-bold">FM: ${Number(p.fm).toFixed(2)}</span>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function renderTeam() {
-            const giornata = document.getElementById('giornataSelect').value;
-            const teamName = document.getElementById('teamSelect').value;
-            const team = leagueData[teamName];
-            if (!team) return;
-            document.getElementById('teamTitle').textContent = `Rosa Completa: ${teamName}`;
-
-            const tbody = document.getElementById('rosterTable');
-            tbody.innerHTML = '';
-
-            const categories = [
-                { role: 'POR', list: team.por, color: 'text-amber-400 font-bold' },
-                { role: 'DIF', list: team.dif, color: 'text-blue-400 font-bold' },
-                { role: 'CEN', list: team.cen, color: 'text-emerald-400 font-bold' },
-                { role: 'ATT', list: team.att, color: 'text-rose-400 font-bold' }
-            ];
-
-            categories.forEach(cat => {
-                cat.list.forEach(p => {
-                    const squadra = p.squadra || "N/D";
-                    const avv = getOpponent(p, giornata);
-                    const tr = document.createElement('tr');
-                    tr.className = "hover:bg-slate-700/50 transition";
-                    tr.innerHTML = `
-                        <td class="p-3 ${cat.color}">${cat.role}</td>
-                        <td class="p-3 font-semibold text-slate-200">${p.name}</td>
-                        <td class="p-3 text-xs"><span class="text-slate-300 font-medium">${squadra}</span> <span class="text-slate-500 mx-1">→</span> <span class="text-amber-300 font-semibold">vs ${avv}</span></td>
-                        <td class="p-3 text-center text-slate-300 font-mono">${Number(p.mv).toFixed(2)}</td>
-                        <td class="p-3 text-center text-emerald-400 font-mono font-bold">${Number(p.fm).toFixed(2)}</td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', initDashboard);
-    </script>
-</body>
-</html>
+                "por": [{"name": "MANDAS", "squadra": "Lazio", "mv": 6.2, "fm": 5.3, "avv": {"12": "Bologna"}}, {"name": "MOTTA", "squadra": "Spezia", "mv": 6.0, "fm": 4.9, "avv": {"12": "Pisa"}}, {"name": "PALMISANI", "squadra": "Frosinone", "mv": 6.0, "fm": 4.8, "avv": {"12": "Inter"}}],
+                "dif": [{"name": "BALERDI", "squadra": "Marsiglia", "mv": 6.3, "fm": 6.6, "avv": {"12": "PSG"}}, {"name": "BARTESAGHI", "squadra": "Milan", "mv": 6.1, "fm": 6.2, "avv": {"12": "Udinese"}}, {"name": "CAMBIASO", "squadra": "Juventus", "mv": 6.6, "fm": 7.3, "avv": {"12": "Roma"}}, {"name": "KAIKI", "squadra": "Como", "mv": 6.0, "fm": 6.0, "avv": {"12": "Fiorentina"}}, {"name": "OBRADOR", "squadra": "Real Madrid", "mv": 6.0, "fm": 6.0, "avv": {"12": "Barcelona"}}, {"name": "PAVLOVIC", "squadra": "Milan", "mv": 6.4, "fm": 6.8, "avv": {"12": "Udinese"}}, {"name": "VALDEPENAS", "squadra": "Fiorentina", "mv": 6.0, "fm": 6.0, "avv": {"12": "Como"}}, {"name": "ZAPPACOSTA", "squadra": "Atalanta", "mv": 6.3, "fm": 6.8, "avv": {"12": "Parma"}}],
+                "cen": [{"name": "BERNABè", "squadra": "Parma", "mv": 6.2, "fm": 6.7, "avv": {"12": "Atalanta"}}, {"name": "CRISTANTE", "squadra": "Roma", "mv": 6.3, "fm": 6.8, "avv": {"12": "Juventus"}}, {"name": "EDERSON", "squadra": "Atal
