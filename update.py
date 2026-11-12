@@ -1,19 +1,14 @@
 import json
 import datetime
-import urllib.request
-import urllib.error
 
 def fetch_latest_fantamedia_data():
     """
-    Funzione che simula il recupero dei voti aggiornati dalle piattaforme ufficiali 
-    o da endpoint di statistiche aperte per la Serie A.
+    Funzione per il recupero o la simulazione dei voti aggiornati.
     """
     print("Connessione alle fonti di statistiche per il recupero delle fantamedie...")
     
-    # In un'implementazione avanzata, qui puoi inserire il link a un feed JSON 
-    # o a un parser che estrae i dati aggiornati dopo ogni turno di campionato.
+    # Esempio di aggiornamento fantamedia/voti per alcuni giocatori
     updated_stats = {
-        # Esempio di aggiornamento dinamico per alcuni giocatori chiave
         "CALHANOGLU": {"mv": 6.8, "fm": 7.9},
         "PULISIC": {"mv": 6.9, "fm": 8.4},
         "DYBALA": {"mv": 7.0, "fm": 8.7},
@@ -28,7 +23,7 @@ def main():
         # 1. Carica il file JSON esistente con le rose
         with open('data.json', 'r', encoding='utf-8') as f:
             league_data = json.load(f)
-            
+             
         # 2. Ottiene i nuovi dati statistici aggiornati
         latest_stats = fetch_latest_fantamedia_data()
         
@@ -46,7 +41,7 @@ def main():
         # 4. Salva il file data.json con i valori aggiornati
         with open('data.json', 'w', encoding='utf-8') as f:
             json.dump(league_data, f, ensure_ascii=False, indent=4)
-            
+             
         print(f"Aggiornamento completato con successo! Modificati i voti di {updates_count} calciatori.")
         
     except Exception as e:
