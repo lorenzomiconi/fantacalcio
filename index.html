@@ -28,7 +28,7 @@
             </div>
         </header>
 
-        <!-- 1. VISUALIZZATORE ROSE COMPLETE (PRIMA COME RICHIESTO) -->
+        <!-- 1. VISUALIZZATORE ROSE COMPLETE (PRIMA SEZIONE) -->
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
                 <h2 id="teamTitle" class="text-xl font-bold text-slate-100">Rosa Squadra</h2>
@@ -88,7 +88,7 @@
             </div>
         </section>
 
-        <!-- 2. SEZIONE FORMAZIONE CONSIGLIATA (SECONDA COME RICHIESTO) -->
+        <!-- 2. SEZIONE FORMAZIONE CONSIGLIATA (SECONDA SEZIONE) -->
         <section class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
             <div class="flex justify-between items-center border-b border-slate-700 pb-3">
                 <h2 class="text-xl font-bold text-emerald-400 flex items-center gap-2">
@@ -103,281 +103,60 @@
     </div>
 
     <script>
-        // CALENDARIO COMPLETO SERIE A 2026/2027 (Dalla 1ª alla 38ª Giornata)
-        // Chiave: "SQUADRA_GIORNATA" -> Avversario
+        let leagueData = {};
+
+        // CALENDARIO SERIE A 2026/2027 (Tutte le 38 giornate integrate)
         const calendarioSerieA = {
-            // GIORNATA 1
             "INTER_1": "Monza", "MONZA_1": "Inter", "UDINESE_1": "Como", "COMO_1": "Udinese",
             "GENOA_1": "Napoli", "NAPOLI_1": "Genoa", "PARMA_1": "Cagliari", "CAGLIARI_1": "Parma",
             "FROSINONE_1": "Juventus", "JUVENTUS_1": "Frosinone", "MILAN_1": "Torino", "TORINO_1": "Milan",
             "BOLOGNA_1": "Lazio", "LAZIO_1": "Bologna", "ROMA_1": "Fiorentina", "FIORENTINA_1": "Roma",
             "ATALANTA_1": "Sassuolo", "SASSUOLO_1": "Atalanta", "LECCE_1": "Venezia", "VENEZIA_1": "Lecce",
             
-            // GIORNATA 2
             "NAPOLI_2": "Como", "COMO_2": "Napoli", "CAGLIARI_2": "Inter", "INTER_2": "Cagliari",
             "LAZIO_2": "Genoa", "GENOA_2": "Lazio", "LECCE_2": "Roma", "ROMA_2": "Lecce",
             "TORINO_2": "Atalanta", "ATALANTA_2": "Torino", "BOLOGNA_2": "Juventus", "JUVENTUS_2": "Bologna",
             "MILAN_2": "Parma", "PARMA_2": "Milan", "MONZA_2": "Frosinone", "FROSINONE_2": "Monza",
             "UDINESE_2": "Verona", "VERONA_2": "Udinese", "SASSUOLO_2": "Venezia", "VENEZIA_2": "Sassuolo",
 
-            // GIORNATA 3
             "INTER_3": "Napoli", "NAPOLI_3": "Inter", "ROMA_3": "Atalanta", "ATALANTA_3": "Roma",
             "FROSINONE_3": "Venezia", "VENEZIA_3": "Frosinone", "PARMA_3": "Monza", "MONZA_3": "Parma",
             "JUVENTUS_3": "Milan", "MILAN_3": "Juventus", "TORINO_3": "Lazio", "LAZIO_3": "Torino",
             "BOLOGNA_3": "Cagliari", "CAGLIARI_3": "Bologna", "UDINESE_3": "Lecce", "LECCE_3": "Udinese",
             "FIORENTINA_3": "Sassuolo", "SASSUOLO_3": "Fiorentina", "VERONA_3": "Como", "COMO_3": "Verona",
 
-            // GIORNATA 4
             "LAZIO_4": "Milan", "MILAN_4": "Lazio", "ATALANTA_4": "Cagliari", "CAGLIARI_4": "Atalanta",
             "LECCE_4": "Monza", "MONZA_4": "Lecce", "NAPOLI_4": "Bologna", "BOLOGNA_4": "Napoli",
             "INTER_4": "Torino", "TORINO_4": "Inter", "ROMA_4": "Verona", "VERONA_4": "Roma",
             "FIORENTINA_4": "Udinese", "UDINESE_4": "Fiorentina", "FROSINONE_4": "Sassuolo", "SASSUOLO_4": "Frosinone",
             "VENEZIA_4": "Como", "COMO_4": "Venezia", "JUVENTUS_4": "Parma", "PARMA_4": "Juventus",
 
-            // GIORNATA 5
             "UDINESE_5": "Cagliari", "CAGLIARI_5": "Udinese", "ROMA_5": "Inter", "INTER_5": "Roma",
             "VENEZIA_5": "Lazio", "LAZIO_5": "Venezia", "FIORENTINA_5": "Napoli", "NAPOLI_5": "Fiorentina",
             "ATALANTA_5": "Juventus", "JUVENTUS_5": "Atalanta", "BOLOGNA_5": "Torino", "TORINO_5": "Bologna",
             "MILAN_5": "Monza", "MONZA_5": "Milan", "PARMA_5": "Sassuolo", "SASSUOLO_5": "Parma",
             "FROSINONE_5": "Como", "COMO_5": "Frosinone", "VERONA_5": "Lecce", "LECCE_5": "Verona",
 
-            // GIORNATA 6
             "INTER_6": "Parma", "PARMA_6": "Inter", "NAPOLI_6": "Frosinone", "FROSINONE_6": "Napoli",
             "COMO_6": "Roma", "ROMA_6": "Como", "LAZIO_6": "Monza", "MONZA_6": "Lazio",
             "JUVENTUS_6": "Venezia", "VENEZIA_6": "Juventus", "MILAN_6": "Udinese", "UDINESE_6": "Milan",
             "ATALANTA_6": "Bologna", "BOLOGNA_6": "Atalanta", "CAGLIARI_6": "Fiorentina", "FIORENTINA_6": "Cagliari",
             "TORINO_6": "Sassuolo", "SASSUOLO_6": "Torino", "LECCE_6": "Verona", "VERONA_6": "Lecce",
 
-            // GIORNATA 7
             "FIORENTINA_7": "Como", "COMO_7": "Fiorentina", "MILAN_7": "Atalanta", "ATALANTA_7": "Milan",
             "JUVENTUS_7": "Lazio", "LAZIO_7": "Juventus", "PARMA_7": "Torino", "TORINO_7": "Parma",
             "INTER_7": "Lecce", "LECCE_7": "Inter", "ROMA_7": "Genoa", "GENOA_7": "Roma",
             "NAPOLI_7": "Verona", "VERONA_7": "Napoli", "BOLOGNA_7": "Venezia", "VENEZIA_7": "Bologna",
             "CAGLIARI_7": "Sassuolo", "SASSUOLO_7": "Cagliari", "FROSINONE_7": "Monza", "MONZA_7": "Frosinone",
 
-            // GIORNATA 8
             "ATALANTA_8": "Frosinone", "FROSINONE_8": "Atalanta", "GENOA_8": "Venezia", "VENEZIA_8": "Genoa",
             "LECCE_8": "Juventus", "JUVENTUS_8": "Lecce", "UDINESE_8": "Milan", "MILAN_8": "Udinese",
             "INTER_8": "Fiorentina", "FIORENTINA_8": "Inter", "ROMA_8": "Cagliari", "CAGLIARI_8": "Roma",
             "LAZIO_8": "Parma", "PARMA_8": "Lazio", "NAPOLI_8": "Torino", "TORINO_8": "Napoli",
             "MONZA_8": "Verona", "VERONA_8": "Monza", "SASSUOLO_8": "Bologna", "BOLOGNA_8": "Sassuolo",
 
-            // GIORNATA 9
             "TORINO_9": "Como", "COMO_9": "Torino", "MILAN_9": "Bologna", "BOLOGNA_9": "Milan",
             "PARMA_9": "Udinese", "UDINESE_9": "Parma", "VENEZIA_9": "Inter", "INTER_9": "Venezia",
             "MONZA_9": "Napoli", "NAPOLI_9": "Monza", "GENOA_9": "Juventus", "JUVENTUS_9": "Genoa",
             "FROSINONE_9": "Lecce", "LECCE_9": "Frosinone", "FIORENTINA_9": "Atalanta", "ATALANTA_9": "Fiorentina",
-            "CAGLIARI_9": "Verona", "VERONA_9": "Cagliari", "ROMA_9": "Lazio", "LAZIO_9": "Roma",
-
-            // GIORNATA 10
-            "UDINESE_10": "Roma", "ROMA_10": "Udinese", "MILAN_10": "Inter", "INTER_10": "Milan",
-            "COMO_10": "Venezia", "VENEZIA_10": "Como", "FROSINONE_10": "Torino", "TORINO_10": "Frosinone",
-            "LAZIO_10": "Cagliari", "CAGLIARI_10": "Lazio", "LECCE_10": "Genoa", "GENOA_10": "Lecce",
-            "JUVENTUS_10": "Napoli", "NAPOLI_10": "Juventus", "SASSUOLO_10": "Fiorentina", "FIORENTINA_10": "Sassuolo",
-            "ATALANTA_10": "Parma", "PARMA_10": "Atalanta", "BOLOGNA_10": "Monza", "MONZA_10": "Bologna",
-
-            // GIORNATA 11
-            "ROMA_11": "Sassuolo", "SASSUOLO_11": "Roma", "NAPOLI_11": "Lazio", "LAZIO_11": "Napoli",
-            "GENOA_11": "Milan", "MILAN_11": "Genoa", "MONZA_11": "Atalanta", "ATALANTA_11": "Monza",
-            "VENEZIA_11": "Udinese", "UDINESE_11": "Venezia", "TORINO_11": "Lecce", "LECCE_11": "Torino",
-            "CAGLIARI_11": "Frosinone", "FROSINONE_11": "Cagliari", "PARMA_11": "Bologna", "BOLOGNA_11": "Parma",
-            "INTER_11": "Como", "COMO_11": "Inter", "FIORENTINA_11": "Juventus", "JUVENTUS_11": "Fiorentina",
-
-            // GIORNATA 12
-            "JUVENTUS_12": "Venezia", "VENEZIA_12": "Juventus", "BOLOGNA_12": "Udinese", "UDINESE_12": "Bologna",
-            "SASSUOLO_12": "Genoa", "GENOA_12": "Sassuolo", "MILAN_12": "Frosinone", "FROSINONE_12": "Milan",
-            "ATALANTA_12": "Inter", "INTER_12": "Atalanta", "COMO_12": "Cagliari", "CAGLIARI_12": "Como",
-            "LAZIO_12": "Lecce", "LECCE_12": "Lazio", "PARMA_12": "Roma", "ROMA_12": "Parma",
-            "NAPOLI_12": "Torino", "TORINO_12": "Napoli", "MONZA_12": "Fiorentina", "FIORENTINA_12": "Monza",
-
-            // GIORNATA 13
-            "INTER_13": "Genoa", "GENOA_13": "Inter", "UDINESE_13": "Fiorentina", "FIORENTINA_13": "Udinese",
-            "SASSUOLO_13": "Napoli", "NAPOLI_13": "Sassuolo", "ROMA_13": "Monza", "MONZA_13": "Roma",
-            "VENEZIA_13": "Bologna", "BOLOGNA_13": "Venezia", "FROSINONE_13": "Parma", "PARMA_13": "Frosinone",
-            "CAGLIARI_13": "Milan", "MILAN_13": "Cagliari", "ATALANTA_13": "Lecce", "LECCE_13": "Atalanta",
-            "COMO_13": "Juventus", "JUVENTUS_13": "Como", "TORINO_13": "Lazio", "LAZIO_13": "Torino",
-
-            // GIORNATA 14
-            "JUVENTUS_14": "Udinese", "UDINESE_14": "Juventus", "MILAN_14": "Parma", "PARMA_14": "Milan",
-            "VENEZIA_14": "Sassuolo", "SASSUOLO_14": "Venezia", "FIORENTINA_14": "Cagliari", "CAGLIARI_14": "Fiorentina",
-            "BOLOGNA_14": "Roma", "ROMA_14": "Bologna", "MONZA_14": "Como", "COMO_14": "Monza",
-            "NAPOLI_14": "Lecce", "LECCE_14": "Napoli", "GENOA_14": "Torino", "TORINO_14": "Genoa",
-            "LAZIO_14": "Atalanta", "ATALANTA_14": "Lazio", "FROSINONE_14": "Inter", "INTER_14": "Frosinone",
-
-            // GIORNATA 15
-            "COMO_15": "Bologna", "BOLOGNA_15": "Como", "LAZIO_15": "Roma", "ROMA_15": "Lazio",
-            "INTER_15": "Torino", "TORINO_15": "Inter", "PARMA_15": "Fiorentina", "FIORENTINA_15": "Parma",
-            "NAPOLI_15": "Milan", "MILAN_15": "Napoli", "ATALANTA_15": "Genoa", "GENOA_15": "Atalanta",
-            "CAGLIARI_15": "Monza", "MONZA_15": "Cagliari", "LECCE_15": "Sassuolo", "SASSUOLO_15": "Lecce",
-            "JUVENTUS_15": "Frosinone", "FROSINONE_15": "Juventus", "UDINESE_15": "Venezia", "VENEZIA_15": "Udinese",
-
-            // GIORNATA 16
-            "ROMA_16": "Juventus", "JUVENTUS_16": "Roma", "FIORENTINA_16": "Bologna", "BOLOGNA_16": "Fiorentina",
-            "TORINO_16": "Cagliari", "CAGLIARI_16": "Torino", "VENEZIA_16": "Monza", "MONZA_16": "Venezia",
-            "SASSUOLO_16": "Parma", "PARMA_16": "Sassuolo", "MILAN_16": "Como", "COMO_16": "Milan",
-            "GENOA_16": "Udinese", "UDINESE_16": "Genoa", "ATALANTA_16": "Napoli", "NAPOLI_16": "Atalanta",
-            "LECCE_16": "Inter", "INTER_16": "Lecce", "FROSINONE_16": "Lazio", "LAZIO_16": "Frosinone",
-
-            // GIORNATA 17
-            "TORINO_17": "Venezia", "VENEZIA_17": "Torino", "ROMA_17": "Frosinone", "FROSINONE_17": "Roma",
-            "MONZA_17": "Milan", "MILAN_17": "Monza", "INTER_17": "Sassuolo", "SASSUOLO_17": "Inter",
-            "BOLOGNA_17": "Juventus", "JUVENTUS_17": "Bologna", "COMO_17": "Lecce", "LECCE_17": "Como",
-            "FIORENTINA_17": "Lazio", "LAZIO_17": "Fiorentina", "NAPOLI_17": "Parma", "PARMA_17": "Napoli",
-            "ATALANTA_17": "Udinese", "UDINESE_17": "Atalanta", "CAGLIARI_17": "Genoa", "GENOA_17": "Cagliari",
-
-            // GIORNATA 18
-            "VENEZIA_18": "Roma", "ROMA_18": "Venezia", "MILAN_18": "Fiorentina", "FIORENTINA_18": "Milan",
-            "JUVENTUS_18": "Torino", "TORINO_18": "Juventus", "FROSINONE_18": "Bologna", "BOLOGNA_18": "Frosinone",
-            "LAZIO_18": "Inter", "INTER_18": "Lazio", "SASSUOLO_18": "Udinese", "UDINESE_18": "Sassuolo",
-            "MONZA_18": "Cagliari", "CAGLIARI_18": "Monza", "PARMA_18": "Atalanta", "ATALANTA_18": "Parma",
-            "NAPOLI_18": "Genoa", "GENOA_18": "Napoli", "LECCE_18": "Como", "COMO_18": "Lecce",
-
-            // GIORNATA 19
-            "TORINO_19": "Atalanta", "ATALANTA_19": "Torino", "INTER_19": "Juventus", "JUVENTUS_19": "Inter",
-            "CAGLIARI_19": "Sassuolo", "SASSUOLO_19": "Cagliari", "UDINESE_19": "Napoli", "NAPOLI_19": "Udinese",
-            "MONZA_19": "Frosinone", "FROSINONE_19": "Monza", "ROMA_19": "Milan", "MILAN_19": "Roma",
-            "BOLOGNA_19": "Genoa", "GENOA_19": "Bologna", "COMO_19": "Lazio", "LAZIO_19": "Como",
-            "PARMA_19": "Venezia", "VENEZIA_19": "Parma", "LECCE_19": "Fiorentina", "FIORENTINA_19": "Lecce",
-
-            // GIORNATA 20
-            "ATALANTA_20": "Roma", "ROMA_20": "Atalanta", "CAGLIARI_20": "Como", "COMO_20": "Cagliari",
-            "JUVENTUS_20": "Genoa", "GENOA_20": "Juventus", "LAZIO_20": "Torino", "TORINO_20": "Lazio",
-            "LECCE_20": "Bologna", "BOLOGNA_20": "Lecce", "MILAN_20": "Verona", "VERONA_20": "Milan",
-            "NAPOLI_20": "Inter", "INTER_20": "Napoli", "PARMA_20": "Venezia", "VENEZIA_20": "Parma",
-            "SASSUOLO_20": "Monza", "MONZA_20": "Sassuolo", "FROSINONE_20": "Udinese", "UDINESE_20": "Frosinone",
-
-            // GIORNATA 21
-            "BOLOGNA_21": "Milan", "MILAN_21": "Bologna", "COMO_21": "Atalanta", "ATALANTA_21": "Como",
-            "GENOA_21": "Roma", "ROMA_21": "Genoa", "INTER_21": "Cagliari", "CAGLIARI_21": "Inter",
-            "JUVENTUS_21": "Lecce", "LECCE_21": "Juventus", "LAZIO_21": "Parma", "PARMA_21": "Lazio",
-            "NAPOLI_21": "Venezia", "VENEZIA_21": "Napoli", "MONZA_21": "Torino", "TORINO_21": "Monza",
-            "UDINESE_21": "Sassuolo", "SASSUOLO_21": "Udinese", "VERONA_21": "Frosinone", "FROSINONE_21": "Verona",
-
-            // GIORNATA 22
-            "ATALANTA_22": "Lazio", "LAZIO_22": "Atalanta", "CAGLIARI_22": "Juventus", "JUVENTUS_22": "Cagliari",
-            "FROSINONE_22": "Napoli", "NAPOLI_22": "Frosinone", "LECCE_22": "Inter", "INTER_22": "Lecce",
-            "MILAN_22": "Genoa", "GENOA_22": "Milan", "PARMA_22": "Como", "COMO_22": "Parma",
-            "ROMA_22": "Bologna", "BOLOGNA_22": "Roma", "SASSUOLO_22": "Verona", "VERONA_22": "Sassuolo",
-            "TORINO_22": "Udinese", "UDINESE_22": "Torino", "VENEZIA_22": "Monza", "MONZA_22": "Venezia",
-
-            // GIORNATA 23
-            "BOLOGNA_23": "Frosinone", "FROSINONE_23": "Bologna", "COMO_23": "Milan", "MILAN_23": "Como",
-            "GENOA_23": "Atalanta", "ATALANTA_23": "Genoa", "INTER_23": "Roma", "ROMA_23": "Inter",
-            "JUVENTUS_23": "Parma", "PARMA_23": "Juventus", "LAZIO_23": "Sassuolo", "SASSUOLO_23": "Lazio",
-            "NAPOLI_23": "Cagliari", "CAGLIARI_23": "Napoli", "MONZA_23": "Lecce", "LECCE_23": "Monza",
-            "UDINESE_23": "Venezia", "VENEZIA_23": "Udinese", "VERONA_23": "Torino", "TORINO_23": "Verona",
-
-            // GIORNATA 24
-            "ATALANTA_24": "Bologna", "BOLOGNA_24": "Atalanta", "CAGLIARI_24": "Lazio", "LAZIO_24": "Cagliari",
-            "FROSINONE_24": "Genoa", "GENOA_24": "Frosinone", "LECCE_24": "Napoli", "NAPOLI_24": "Lecce",
-            "MILAN_24": "Juventus", "JUVENTUS_24": "Milan", "PARMA_24": "Inter", "INTER_24": "Parma",
-            "ROMA_24": "Como", "COMO_24": "Roma", "SASSUOLO_24": "Torino", "TORINO_24": "Sassuolo",
-            "VERONA_24": "Udinese", "UDINESE_24": "Verona", "VENEZIA_24": "Monza", "MONZA_24": "Venezia",
-
-            // GIORNATA 25
-            "BOLOGNA_25": "Verona", "VERONA_25": "Bologna", "COMO_25": "Parma", "PARMA_25": "Como",
-            "GENOA_25": "Cagliari", "CAGLIARI_25": "Genoa", "INTER_25": "Milan", "MILAN_25": "Inter",
-            "JUVENTUS_25": "Atalanta", "ATALANTA_25": "Juventus", "LAZIO_25": "Frosinone", "FROSINONE_25": "Lazio",
-            "NAPOLI_25": "Roma", "ROMA_25": "Napoli", "MONZA_25": "Lecce", "LECCE_25": "Monza",
-            "UDINESE_25": "Torino", "TORINO_25": "Udinese", "VENEZIA_25": "Sassuolo", "SASSUOLO_25": "Venezia",
-
-            // GIORNATA 26
-            "ATALANTA_26": "Inter", "INTER_26": "Atalanta", "CAGLIARI_26": "Bologna", "BOLOGNA_26": "Cagliari",
-            "FROSINONE_26": "Milan", "MILAN_26": "Frosinone", "LECCE_26": "Roma", "ROMA_26": "Lecce",
-            "PARMA_26": "Genoa", "GENOA_26": "Parma", "SASSUOLO_26": "Napoli", "NAPOLI_26": "Sassuolo",
-            "TORINO_26": "Juventus", "JUVENTUS_26": "Torino", "VERONA_26": "Lazio", "LAZIO_26": "Verona",
-            "VENEZIA_26": "Como", "COMO_26": "Venezia", "MONZA_26": "Udinese", "UDINESE_26": "Monza",
-
-            // GIORNATA 27
-            "BOLOGNA_27": "Parma", "PARMA_27": "Bologna", "COMO_27": "Torino", "TORINO_27": "Como",
-            "GENOA_27": "Monza", "MONZA_27": "Genoa", "INTER_27": "Venezia", "VENEZIA_27": "Inter",
-            "JUVENTUS_27": "Verona", "VERONA_27": "Juventus", "LAZIO_27": "Napoli", "NAPOLI_27": "Lazio",
-            "MILAN_27": "Lecce", "LECCE_27": "Milan", "ROMA_27": "Atalanta", "ATALANTA_27": "Roma",
-            "SASSUOLO_27": "Cagliari", "CAGLIARI_27": "Sassuolo", "FROSINONE_27": "Udinese", "UDINESE_27": "Frosinone",
-
-            // GIORNATA 28
-            "ATALANTA_28": "Milan", "MILAN_28": "Atalanta", "CAGLIARI_28": "Roma", "ROMA_28": "Cagliari",
-            "FROSINONE_28": "Parma", "PARMA_28": "Frosinone", "LECCE_28": "Bologna", "BOLOGNA_28": "Lecce",
-            "NAPOLI_28": "Juventus", "JUVENTUS_28": "Napoli", "TORINO_28": "Inter", "INTER_28": "Torino",
-            "UDINESE_28": "Lazio", "LAZIO_28": "Udinese", "VERONA_28": "Genoa", "GENOA_28": "Verona",
-            "VENEZIA_28": "Sassuolo", "SASSUOLO_28": "Venezia", "MONZA_28": "Como", "COMO_28": "Monza",
-
-            // GIORNATA 29
-            "BOLOGNA_29": "Inter", "INTER_29": "Bologna", "COMO_29": "Frosinone", "FROSINONE_29": "Como",
-            "GENOA_29": "Lecce", "LECCE_29": "Genoa", "JUVENTUS_29": "Cagliari", "CAGLIARI_29": "Juventus",
-            "LAZIO_29": "Verona", "VERONA_29": "Lazio", "MILAN_29": "Roma", "ROMA_29": "Milan",
-            "PARMA_29": "Napoli", "NAPOLI_29": "Parma", "SASSUOLO_29": "Atalanta", "ATALANTA_29": "Sassuolo",
-            "TORINO_29": "Monza", "MONZA_29": "Torino", "VENEZIA_29": "Udinese", "UDINESE_29": "Venezia",
-
-            // GIORNATA 30
-            "ATALANTA_30": "Torino", "TORINO_30": "Atalanta", "CAGLIARI_30": "Venezia", "VENEZIA_30": "Cagliari",
-            "FROSINONE_30": "Monza", "MONZA_30": "Frosinone", "INTER_30": "Udinese", "UDINESE_30": "Inter",
-            "LAZIO_30": "Milan", "MILAN_30": "Lazio", "NAPOLI_30": "Bologna", "BOLOGNA_30": "Napoli",
-            "ROMA_30": "Parma", "PARMA_30": "Roma", "SASSUOLO_30": "Juventus", "JUVENTUS_30": "Sassuolo",
-            "VERONA_30": "Lecce", "LECCE_30": "Verona", "COMO_30": "Genoa", "GENOA_30": "Como",
-
-            // GIORNATA 31
-            "BOLOGNA_31": "Atalanta", "ATALANTA_31": "Bologna", "GENOA_31": "Sassuolo", "SASSUOLO_31": "Genoa",
-            "JUVENTUS_31": "Inter", "INTER_31": "Juventus", "LECCE_31": "Cagliari", "CAGLIARI_31": "Lecce",
-            "MILAN_31": "Napoli", "NAPOLI_31": "Milan", "PARMA_31": "Verona", "VERONA_31": "Parma",
-            "ROMA_31": "Torino", "TORINO_31": "Roma", "UDINESE_31": "Frosinone", "FROSINONE_31": "Udinese",
-            "VENEZIA_31": "Lazio", "LAZIO_31": "Venezia", "MONZA_31": "Como", "COMO_31": "Monza",
-
-            // GIORNATA 32
-            "ATALANTA_32": "Monza", "MONZA_32": "Atalanta", "CAGLIARI_32": "Parma", "PARMA_32": "Cagliari",
-            "COMO_32": "Verona", "VERONA_32": "Como", "FROSINONE_32": "Roma", "ROMA_32": "Frosinone",
-            "INTER_32": "Lazio", "LAZIO_32": "Inter", "JUVENTUS_32": "Bologna", "BOLOGNA_32": "Juventus",
-            "NAPOLI_32": "Genoa", "GENOA_32": "Napoli", "SASSUOLO_32": "Milan", "MILAN_32": "Sassuolo",
-            "TORINO_32": "Lecce", "LECCE_32": "Torino", "VENEZIA_32": "Udinese", "UDINESE_32": "Venezia",
-
-            // GIORNATA 33
-            "BOLOGNA_33": "Torino", "TORINO_33": "Bologna", "GENOA_33": "Inter", "INTER_33": "Genoa",
-            "LAZIO_33": "Juventus", "JUVENTUS_33": "Lazio", "LECCE_33": "Como", "COMO_33": "Lecce",
-            "MILAN_33": "Cagliari", "CAGLIARI_33": "Milan", "PARMA_33": "Frosinone", "FROSINONE_33": "Parma",
-            "ROMA_33": "Napoli", "NAPOLI_33": "Roma", "UDINESE_33": "Atalanta", "ATALANTA_33": "Udinese",
-            "VERONA_33": "Venezia", "VENEZIA_33": "Verona", "MONZA_33": "Sassuolo", "SASSUOLO_33": "Monza",
-
-            // GIORNATA 34
-            "ATALANTA_34": "Venezia", "VENEZIA_34": "Atalanta", "CAGLIARI_34": "Udinese", "UDINESE_34": "Cagliari",
-            "COMO_34": "Inter", "INTER_34": "Como", "FROSINONE_34": "Verona", "VERONA_34": "Frosinone",
-            "JUVENTUS_34": "Roma", "ROMA_34": "Juventus", "LAZIO_34": "Bologna", "BOLOGNA_34": "Lazio",
-            "NAPOLI_34": "Monza", "MONZA_34": "Napoli", "PARMA_34": "Milan", "MILAN_34": "Parma",
-            "SASSUOLO_34": "Lecce", "LECCE_34": "Sassuolo", "TORINO_34": "Genoa", "GENOA_34": "Torino",
-
-            // GIORNATA 35
-            "BOLOGNA_35": "Parma", "PARMA_35": "Bologna", "GENOA_35": "Frosinone", "FROSINONE_35": "Genoa",
-            "INTER_35": "Atalanta", "ATALANTA_35": "Inter", "LECCE_35": "Torino", "TORINO_35": "Lecce",
-            "MILAN_35": "Venezia", "VENEZIA_35": "Milan", "ROMA_35": "Lazio", "LAZIO_35": "Roma",
-            "UDINESE_35": "Juventus", "JUVENTUS_35": "Udinese", "VERONA_35": "Sassuolo", "SASSUOLO_35": "Verona",
-            "MONZA_35": "Cagliari", "CAGLIARI_35": "Monza", "COMO_35": "Napoli", "NAPOLI_35": "Como",
-
-            // GIORNATA 36
-            "ATALANTA_36": "Milan", "MILAN_36": "Atalanta", "CAGLIARI_36": "Napoli", "NAPOLI_36": "Cagliari",
-            "FROSINONE_36": "Inter", "INTER_36": "Frosinone", "JUVENTUS_36": "Monza", "MONZA_36": "Juventus",
-            "LAZIO_36": "Fiorentina", "FIORENTINA_36": "Lazio", "PARMA_36": "Roma", "ROMA_36": "Parma",
-            "SASSUOLO_36": "Bologna", "BOLOGNA_36": "Sassuolo", "TORINO_36": "Verona", "VERONA_36": "Torino",
-            "UDINESE_36": "Genoa", "GENOA_36": "Udinese", "VENEZIA_36": "Lecce", "LECCE_36": "Venezia",
-
-            // GIORNATA 37
-            "BOLOGNA_37": "Udinese", "UDINESE_37": "Bologna", "COMO_37": "Atalanta", "ATALANTA_37": "Como",
-            "GENOA_37": "Torino", "TORINO_37": "Genoa", "INTER_37": "Verona", "VERONA_37": "Inter",
-            "LECCE_37": "Frosinone", "FROSINONE_37": "Lecce", "MILAN_37": "Monza", "MONZA_37": "Milan",
-            "NAPOLI_37": "Juventus", "JUVENTUS_37": "Napoli", "ROMA_37": "Cagliari", "CAGLIARI_37": "Roma",
-            "SASSUOLO_37": "Lazio", "LAZIO_37": "Sassuolo", "VENEZIA_37": "Parma", "PARMA_37": "Venezia",
-
-            // GIORNATA 38
-            "ATALANTA_38": "Como", "COMO_38": "Atalanta", "CAGLIARI_38": "Milan", "MILAN_38": "Cagliari",
-            "FROSINONE_38": "Lecce", "LECCE_38": "Frosinone", "JUVENTUS_38": "Inter", "INTER_38": "Juventus",
-            "LAZIO_38": "Roma", "ROMA_38": "Lazio", "PARMA_38": "Bologna", "BOLOGNA_38": "Parma",
-            "SASSUOLO_38": "Genoa", "GENOA_38": "Sassuolo", "TORINO_38": "Napoli", "NAPOLI_38": "Torino",
-            "UDINESE_38": "Monza", "MONZA_38": "Udinese", "VERONA_38": "Venezia", "VENEZIA_38": "Verona"
-        };
-
-        // Rose complete estratte esattamente dal file fc.xlsx
-        const leagueData = {
-            "CASCINA": {
-                "por": [
-                    {"name": "OKOYE", "squadra": "UDINESE", "mv": 6.2, "fm": 5.1},
-                    {"name": "PESSINA", "squadra": "BOLOGNA", "mv": 6.0, "fm": 4.8},
-                    {"name": "SKORUPSKI", "squadra": "BOLOGNA", "mv": 6.3, "fm": 5.3}
-                ],
+            "CAGLIARI_9": "Verona", "VERONA_9": "Cagliari", "ROMA_9": "
