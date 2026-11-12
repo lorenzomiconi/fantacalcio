@@ -1,58 +1,57 @@
 import json
-import datetime
-import os
 
-def fetch_latest_fantamedia_data():
-    """
-    Funzione per il recupero o la simulazione dei voti aggiornati.
-    Qui puoi inserire i voti della giornata appena conclusa.
-    """
-    print("Connessione alle fonti di statistiche per il recupero delle fantamedie...")
-    
-    # Esempio di dizionario con i voti aggiornati da inserire dopo ogni giornata
-    updated_stats = {
-        "CALHANOGLU": {"mv": 6.8, "fm": 7.9},
-        "PULISIC": {"mv": 6.9, "fm": 8.4},
-        "DYBALA": {"mv": 7.0, "fm": 8.7},
-        "THURAM": {"mv": 6.9, "fm": 8.4}
-    }
-    return updated_stats
+# Nome del file JSON dove sono salvate le rose e le medie
+FILE_DATI = "data.json"
 
-def main():
-    print(f"[{datetime.datetime.now()}] Avvio script di aggiornamento automatico delle medie voti...")
-    
+def aggiorna_fantamedia():
     try:
-        # 1. Controlla se il file data.json esiste
-        if not os.path.exists('data.json'):
-            print("Errore: Il file data.json non è stato trovato nella cartella.")
-            return
+        with open(FILE_DATI, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print(f"Errore: Il file {FILE_DATI} non esiste nella cartella.")
+        return
 
-        # 2. Carica il file JSON esistente con le rose
-        with open('data.json', 'r', encoding='utf-8') as f:
-            league_data = json.load(f)
-             
-        # 3. Ottiene i nuovi dati statistici aggiornati
-        latest_stats = fetch_latest_fantamedia_data()
-        
-        # 4. Aggiorna i voti dei giocatori presenti nelle rose della lega
-        updates_count = 0
-        for team_name, team_roles in league_data.items():
-            for role, players_list in team_roles.items():
-                for player in players_list:
-                    p_name = player["name"].upper().strip()
-                    if p_name in latest_stats:
-                        player["mv"] = latest_stats[p_name]["mv"]
-                        player["fm"] = latest_stats[p_name]["fm"]
-                        updates_count += 1
+    print("--- AGGIORNAMENTO FANTAMEDIA ---")
+     squadra_scelta = input("Nome della squadra (es. CASCINA): ").strip().upper()
+    
+    if squadra_scelta not in data:
+        print(f"Squadra '{squadra_scelta}' non trovata!")
+        return
 
-        # 5. Salva il file data.json con i valori aggiornati
-        with open('data.json', 'w', encoding='utf-8') as f:
-            json.dump(league_data, f, ensure_ascii=False, indent=4)
-             
-        print(f"Aggiornamento completato con successo! Modificati i voti di {updates_count} calciatori.")
-        
-    except Exception as e:
-        print(f"Errore durante l'aggiornamento automatico: {e}")
+    ruolo = input("Ruolo del giocatore (por, dif, cen, att): ").strip().lower()
+    if ruolo not in data[squadra_scelta]:
+        print("Ruolo non valido!")
+        return
+
+    nome_giocatore = input("Nome del giocatore da aggiornare: ").strip().upper()
+    
+    # Cerca il giocatore nella rosa
+    giocatore_trovato = None
+    for p in data[squadra_scelta][ruolo]:
+        if p["name"].upper() == nome_giocatore:
+            giocatore_trovato = p
+            break
+
+    if not giocatore_trovato:
+        print(f"Giocatore {nome_giocatore} non trovato in {squadra_scelta} nel ruolo {ruolo}.")
+        return
+
+    try:
+        nuova_mv = float(input(f"Inserisci nuova Media Voto (attuale {giocatore_trovato['mv']}): ") or giocatore_trovato['mv'])
+        nuova_fm = float(input(f"Inserisci nuova Fantamedia (attuale {giocatore_trovato['fm']}): ") or giocatore_trovato['fm'])
+    except ValueError:
+        print("Valori non validi. Inserisci numeri decimali (es. 6.5).")
+        return
+
+    # Aggiorna i dati
+    giocatore_trovato['mv'] = nuova_mv
+    giocatore_trovato['fm'] = nuova_fm
+
+    # Salva il file JSON aggiornato
+    with open(FILE_DATI, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+    print(f"✅ Successo! {giocatore_giocatore_nome if 'giocatore_giocatore_nome' in locals() else nome_giocatore} aggiornato: MV={nuova_mv}, FM={nuova_fm}")
 
 if __name__ == "__main__":
-    main()
+    aggiorna_fantamedia()
