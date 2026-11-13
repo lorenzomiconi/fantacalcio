@@ -149,6 +149,10 @@
                             <th class="p-3">Giocatore</th>
                             <th class="p-3">Squadra & Partita</th>
                             <th class="p-3 text-center">Difficoltà</th>
+                            <th class="p-3 text-center">Gol (⚽)</th>
+                            <th class="p-3 text-center">Assist (🎯)</th>
+                            <th class="p-3 text-center">Gialli (🟨)</th>
+                            <th class="p-3 text-center">Rossi (🟥)</th>
                             <th class="p-3 text-center">Media Voto (MV)</th>
                             <th class="p-3 text-center">Fantamedia (FM)</th>
                         </tr>
@@ -641,7 +645,6 @@
             updateCustomLineupStats();
         }
 
-        // GESTIONE PANCHINA LIBERA CON AGGIUNTA, RIMOZIONE E SALVATAGGIO
         function initBenchSelectors() {
             const container = document.getElementById('benchContainer');
             if (!container) return;
@@ -650,7 +653,6 @@
             const giornata = document.getElementById('giornataSelect') ? document.getElementById('giornataSelect').value : 12;
             const cascina = leagueData["CASCINA"] || {};
             
-            // Uniamo tutti i giocatori disponibili (POR, DIF, CEN, ATT) sani
             let tuttiGiocatori = [
                 ...(cascina.por || []),
                 ...(cascina.dif || []),
@@ -660,7 +662,6 @@
 
             let savedBench = JSON.parse(localStorage.getItem('cascina_panchina_libera') || "[]");
 
-            // Se è la prima volta e non c'è nulla salvato, creiamo 1 slot di default vuoto
             if (savedBench.length === 0) {
                 savedBench = [""];
             }
@@ -669,7 +670,6 @@
                 const wrapper = document.createElement('div');
                 wrapper.className = "flex flex-col items-center bg-slate-900/95 p-2 rounded-lg border border-sky-500/40 shadow-lg w-36 sm:w-40 backdrop-blur relative";
 
-                // Tasto X per cancellare lo slot
                 const deleteBtn = document.createElement('button');
                 deleteBtn.className = "absolute top-1 right-1 bg-rose-950 hover:bg-rose-800 text-rose-400 font-bold text-[10px] w-5 h-5 rounded flex items-center justify-center cursor-pointer border border-rose-700/60";
                 deleteBtn.textContent = "✕";
@@ -936,6 +936,10 @@
                         <td class="p-3 font-semibold text-white">${p.name} ${statusBadges}</td>
                         <td class="p-3 text-slate-300">${p.squadra} <span class="text-xs text-slate-400">(${match.isHome ? '🏠 Casa vs' : '✈️ Fuori vs'} ${match.avversario})</span></td>
                         <td class="p-3 text-center"><span class="px-2 py-1 rounded text-xs font-semibold ${diff.badgeClass}">${diff.label}</span></td>
+                        <td class="p-3 text-center font-mono text-emerald-400 font-bold">${p.gol || 0}</td>
+                        <td class="p-3 text-center font-mono text-sky-400 font-bold">${p.assist || 0}</td>
+                        <td class="p-3 text-center font-mono text-amber-400 font-bold">${p.gialli || 0}</td>
+                        <td class="p-3 text-center font-mono text-rose-400 font-bold">${p.rossi || 0}</td>
                         <td class="p-3 text-center font-mono text-emerald-400 font-bold">${(p.mv || 0).toFixed(2)}</td>
                         <td class="p-3 text-center font-mono text-amber-400 font-bold">${(p.fm || 0).toFixed(2)}</td>
                     `;
@@ -1029,7 +1033,6 @@
                 att: parseInt(parts[2])
             };
 
-            const tbody = document.getElementById('schieraciTableBlock') || document.getElementById('schieraciTableBody');
             const targetTbody = document.getElementById('schieraciTableBody');
             targetTbody.innerHTML = '';
 
