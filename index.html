@@ -40,7 +40,7 @@
             
             <div class="flex items-center gap-3 bg-slate-900 p-3 rounded-lg border border-slate-700 z-50">
                 <label for="giornataSelect" class="text-xs font-bold text-amber-400 uppercase">📅 Giornata:</label>
-                <select id="giornataSelect" onchange="updateAll()" class="cursor-pointer bg-slate-800 border border-slate-600 text-white font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <select id="giornataSelect" onchange="onGiornataChange()" class="cursor-pointer bg-slate-800 border border-slate-600 text-white font-bold text-sm py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </select>
             </div>
         </header>
@@ -119,7 +119,7 @@
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
                 <h2 id="teamTitle" class="text-xl font-bold text-slate-100">Rosa Squadra</h2>
-                <select id="teamSelect" onchange="renderTeam()" class="cursor-pointer bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1.5 px-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
+                <select id="teamSelect" onchange="onTeamSelectChange()" class="cursor-pointer bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1.5 px-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
             </div>
             
             <div class="overflow-x-auto">
@@ -148,14 +148,14 @@
                     </h2>
                     <p class="text-slate-400 text-xs mt-1">Esclude automaticamente infortunati e diffidati, scegliendo i migliori per fantamedia</p>
                 </div>
-                <div class="flex items-center gap-3">
+                <div class="flex flex-wrap items-center gap-3">
                     <div>
                         <label class="text-xs font-bold text-slate-400 uppercase mr-2">Squadra:</label>
-                        <select id="schieraciTeamSelect" class="bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1 px-2 rounded text-sm focus:outline-none"></select>
+                        <select id="schieraciTeamSelect" onchange="salvaStatoSchieraci()" class="bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1 px-2 rounded text-sm focus:outline-none"></select>
                     </div>
                     <div>
                         <label class="text-xs font-bold text-slate-400 uppercase mr-2">Modulo:</label>
-                        <select id="schieraciModulo" class="bg-slate-900 border border-amber-500 text-amber-400 font-bold py-1 px-2 rounded text-sm focus:outline-none">
+                        <select id="schieraciModulo" onchange="salvaStatoSchieraci()" class="bg-slate-900 border border-amber-500 text-amber-400 font-bold py-1 px-2 rounded text-sm focus:outline-none">
                             <option value="3-5-2">3-5-2</option>
                             <option value="4-3-3" selected>4-3-3</option>
                             <option value="4-4-2">4-4-2</option>
@@ -163,7 +163,7 @@
                             <option value="5-4-1">5-4-1</option>
                         </select>
                     </div>
-                    <button onclick="eseguiSchieraci()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs px-4 py-2 rounded shadow transition-colors cursor-pointer uppercase">
+                    <button onclick="eseguiSchieraci(true)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs px-4 py-2 rounded shadow transition-colors cursor-pointer uppercase">
                         ⚡ Schiera Top 11
                     </button>
                 </div>
@@ -418,12 +418,17 @@
 
         function initDashboard() {
             const giornataSelect = document.getElementById('giornataSelect');
+            const savedGiornata = localStorage.getItem('fanta_giornata');
             if (giornataSelect && giornataSelect.options.length === 0) {
                 for (let i = 1; i <= 38; i++) {
                     const opt = document.createElement('option');
                     opt.value = i;
                     opt.textContent = `${i}ª Giornata`;
-                    if (i === 12) opt.selected = true;
+                    if (savedGiornata && parseInt(savedGiornata) === i) {
+                        opt.selected = true;
+                    } else if (!savedGiornata && i === 12) {
+                        opt.selected = true;
+                    }
                     giornataSelect.appendChild(opt);
                 }
             }
@@ -442,8 +447,24 @@
                     team2Select.appendChild(new Option(team, team));
                     schieraciTeamSelect.appendChild(new Option(team, team));
                 });
-                if (teamNames.length > 1) {
+
+                // Ripristina le scelte salvate
+                const savedTeam = localStorage.getItem('fanta_teamSelect');
+                if (savedTeam && teamNames.includes(savedTeam)) teamSelect.value = savedTeam;
+
+                const savedTeam1 = localStorage.getItem('fanta_team1');
+                if (savedTeam1 && teamNames.includes(savedTeam1)) team1Select.value = savedTeam1;
+
+                const savedTeam2 = localStorage.getItem('fanta_team2');
+                if (savedTeam2 && teamNames.includes(savedTeam2)) {
+                    team2Select.value = savedTeam2;
+                } else if (teamNames.length > 1) {
                     team2Select.selectedIndex = 1;
+                }
+
+                const savedSchieraciTeam = localStorage.getItem('fanta_schieraciTeam');
+                if (savedSchieraciTeam && teamNames.includes(savedSchieraciTeam)) {
+                    schieraciTeamSelect.value = savedSchieraciTeam;
                 }
             }
 
@@ -452,8 +473,38 @@
                 document.getElementById('moduloSelect').value = savedModulo;
             }
 
+            const savedSchieraciModulo = localStorage.getItem('fanta_schieraciModulo');
+            if (savedSchieraciModulo) {
+                document.getElementById('schieraciModulo').value = savedSchieraciModulo;
+            }
+
             initCustomLineupSelectors();
             updateAll();
+
+            // Se era già stato premuto "Schiera Top 11" in precedenza, rigenera la tabella
+            if (localStorage.getItem('fanta_schieraciActive') === 'true') {
+                eseguiSchieraci(false);
+            }
+        }
+
+        function onGiornataChange() {
+            const val = document.getElementById('giornataSelect').value;
+            localStorage.setItem('fanta_giornata', val);
+            updateAll();
+        }
+
+        function onTeamSelectChange() {
+            const val = document.getElementById('teamSelect').value;
+            localStorage.setItem('fanta_teamSelect', val);
+            renderTeam();
+        }
+
+        function salvaStatoSchieraci() {
+            localStorage.setItem('fanta_schieraciTeam', document.getElementById('schieraciTeamSelect').value);
+            localStorage.setItem('fanta_schieraciModulo', document.getElementById('schieraciModulo').value);
+            if (localStorage.getItem('fanta_schieraciActive') === 'true') {
+                eseguiSchieraci(false);
+            }
         }
 
         function updateAll() {
@@ -461,6 +512,9 @@
             updateCustomLineupStats();
             initCustomLineupSelectors();
             aggiornaConfronto();
+            if (localStorage.getItem('fanta_schieraciActive') === 'true') {
+                eseguiSchieraci(false);
+            }
         }
 
         function getMatchDetails(p, giornata) {
@@ -621,7 +675,7 @@
 
         function salvaFormazione() {
             const selectors = document.querySelectorAll('.custom-player-select');
-            let lineup = {};
+            let lineup = JSON.parse(localStorage.getItem('cascina_formazione') || "{}");
             selectors.forEach(s => {
                 const key = `${s.dataset.role}_${s.dataset.index}`;
                 lineup[key] = s.value;
@@ -736,6 +790,10 @@
             const t2 = document.getElementById('team2Select').value;
             if (!t1 || !t2) return;
 
+            // Salva la selezione del confronto
+            localStorage.setItem('fanta_team1', t1);
+            localStorage.setItem('fanta_team2', t2);
+
             document.getElementById('thTeam1Name').textContent = t1;
             document.getElementById('thTeam2Name').textContent = t2;
 
@@ -767,12 +825,18 @@
             `;
         }
 
-        // LOGICA DEL CONSIGLIERE AUTOMATICO (SCHIERACI) - FILTRA INFORTUNATI E DIFFIDATI
-        function eseguiSchieraci() {
+        // LOGICA DEL CONSIGLIERE AUTOMATICO (SCHIERACI) - FILTRA INFORTUNATI E DIFFIDATI E SALVA LO STATO
+        function eseguiSchieraci(saveState = true) {
             const teamName = document.getElementById('schieraciTeamSelect').value;
             const moduloVal = document.getElementById('schieraciModulo').value;
             const giornata = document.getElementById('giornataSelect').value;
             const reparti = leagueData[teamName] || {};
+
+            if (saveState) {
+                localStorage.setItem('fanta_schieraciTeam', teamName);
+                localStorage.setItem('fanta_schieraciModulo', moduloVal);
+                localStorage.setItem('fanta_schieraciActive', 'true');
+            }
 
             const parts = moduloVal.split('-');
             const counts = {
