@@ -1,6 +1,7 @@
 """
-Aggiorna MV e FM di tutti i giocatori in data.json leggendo le statistiche
+Aggiorna MV, FM, Infortunati e Diffidati di tutti i giocatori in data.json leggendo le statistiche
 di Fantapazz: https://www.fantapazz.com/fantacalcio/statistiche
+e la pagina indisponibili/squalificati: https://www.fantapazz.com/fantacalcio/indisponibili
 
 Uso:
     python update.py              # scarica dal sito (fonte: Fantapazz)
@@ -21,14 +22,13 @@ import unicodedata
 import pandas as pd
 
 URL_STATISTICHE = "https://www.fantapazz.com/fantacalcio/statistiche"
+URL_INDISPONIBILI = "https://www.fantapazz.com/fantacalcio/indisponibili"
 FILE_DATI = "data.json"
 FILE_REPORT = "report_aggiornamento.txt"
 FILE_LOCALI = ["statistiche_fantapazz.xlsx", "statistiche_fantapazz.xls", "statistiche_fantapazz.csv"]
 
-# Fonte -> parte del nome colonna ("FM FP", "MV GdS", "FM Voto Stat." ...)
 FONTI = {"FP": "fp", "GDS": "gds", "CDS": "cds", "STAT": "votostat"}
 
-# Nome squadra (come in data.json) -> sigla usata da Fantapazz
 CLUB = {
     "ATALANTA": "ATA", "BOLOGNA": "BOL", "CAGLIARI": "CAG", "COMO": "COM",
     "FIORENTINA": "FIO", "FROSINONE": "FRO", "GENOA": "GEN", "INTER": "INT",
@@ -39,18 +39,11 @@ CLUB = {
 }
 RUOLI = {"1": "por", "2": "dif", "3": "cen", "4": "att", "P": "por", "D": "dif", "C": "cen", "A": "att"}
 
-# Eventuali correzioni manuali: (NOME IN data.json, ruolo) -> nome Fantapazz esatto
-# Esempio: ("MARTINEZ", "att"): "Martinez L."
 ALIAS = {}
-
 SOGLIA = 0.82
 
 
-# ----------------------------------------------------------------------------
-# Utilità sui nomi
-# ----------------------------------------------------------------------------
 def norm(s):
-    """MAIUSCOLO, senza accenti/apostrofi/punteggiatura, spazi singoli."""
     s = unicodedata.normalize("NFKD", str(s or ""))
     s = "".join(c for c in s if not unicodedata.combining(c))
     s = s.upper().replace("'", "").replace("’", "")
@@ -64,13 +57,11 @@ def sigla_club(nome_squadra):
         n = "JUVENTUS"
     if n in CLUB:
         return CLUB[n]
-    # refusi tipo FROSINORE / SASSLUOLO
     m = difflib.get_close_matches(n, list(CLUB), n=1, cutoff=0.75)
     return CLUB[m[0]] if m else None
 
 
 def cognome_e_token(nome_sito):
-    """'Martinez J.' -> ('MARTINEZ', ['MARTINEZ'])  |  'Douglas Luiz' -> ('DOUGLAS LUIZ', [...])"""
     toks = norm(nome_sito).split()
     toks_senza_iniziali = [t for t in toks if len(t) > 1] or toks
     return " ".join(toks_senza_iniziali), toks_senza_iniziali
@@ -84,7 +75,6 @@ def punteggio(nome_json, nome_sito):
         return 1.0
     ta = set(a.split())
     ts = set(toks)
-    # uno contenuto nell'altro: "PIO" in "ESPOSITO PIO", "NICO PAZ" contiene "PAZ"
     if ta and ts and (ta <= ts or ts <= ta):
         return 0.95
     return max(
@@ -93,9 +83,6 @@ def punteggio(nome_json, nome_sito):
     )
 
 
-# ----------------------------------------------------------------------------
-# Lettura delle statistiche (sito o file locale)
-# ----------------------------------------------------------------------------
 def numero(v):
     if v is None or (isinstance(v, float) and pd.isna(v)):
         return None
@@ -138,12 +125,48 @@ def carica_tabella(file_locale):
     return tabella_da_html(r.text)
 
 
+def scarica_indisponibili():
+    """Tenta di recuperare infortunati e diffidati dalla pagina dedicata di Fantapazz."""
+    infortunati = set()
+    diffidati = set()
+    try:
+        import requests
+        print(f"🚑 Scarico infortunati e diffidati da {URL_INDISPONIBILI} ...")
+        r = requests.get(
+            URL_INDISPONIBILI,
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                     "Accept-Language": "it-IT,it;q=0.9"},
+            timeout=20,
+        )
+        r.raise_for_status()
+        tables = pd.read_html(io.StringIO(r.text))
+        for t in tables:
+            cols = [str(c).lower() for c in t.columns]
+            c_nome = next((c for c in t.columns if "calciatore" in str(c).lower() or "giocatore" in str(c).lower() or "nome" in str(c).lower()), None)
+            c_stato = next((c for c in t.columns if "stato" in str(c).lower() or "motivo" in str(c).lower() or "tipo" in str(c).lower() or "situazione" in str(c).lower()), None)
+            if c_nome:
+                for _, row in t.iterrows():
+                    nome = norm(row[c_nome])
+                    if not nome:
+                        continue
+                    stato_str = " ".join(str(row[c]).lower() for c in t.columns if pd.notna(row[c]))
+                    if "diffidat" in stato_str:
+                        diffidati.add(nome)
+                    elif any(k in stato_str for k in ["infortun", "indisponibil", "lesion", "affatic", "distors", "operat", "stop", "out"]):
+                        infortunati.add(nome)
+        print(f"✅ Trovati {len(infortunati)} infortunati e {len(diffidati)} diffidati.")
+    except Exception as e:
+        print(f"⚠️ Impossibile scaricare lista indisponibili automatica ({e}). Mantengo i flag esistenti in data.json.")
+    return infortunati, diffidati
+
+
 def leggi_file(path):
     if path.lower().endswith((".xlsx", ".xls")):
         df = pd.read_excel(path)
     else:
         df = pd.read_csv(path, sep=None, engine="python")
-    if not any("calciatore" in str(c).lower() for c in df.columns):  # intestazioni nella prima riga
+    if not any("calciatore" in str(c).lower() for c in df.columns):
         df.columns = df.iloc[0]
         df = df.drop(df.index[0])
     return df
@@ -169,7 +192,7 @@ def estrai_voti(df, fonte):
         ruolo = None
         if c_ruolo is not None:
             ruolo = RUOLI.get(str(r[c_ruolo]).strip().upper()[:1])
-        if ruolo is None:  # ruolo dentro la cella ID_Ruolo (es. "1 P") o nel nome
+        if ruolo is None:
             for c in df.columns[:2]:
                 m = re.match(r"\s*([1-4PDCA])\b", str(r[c]).upper())
                 if m:
@@ -185,11 +208,7 @@ def estrai_voti(df, fonte):
     return righe
 
 
-# ----------------------------------------------------------------------------
-# Abbinamento giocatori
-# ----------------------------------------------------------------------------
 def trova(p, ruolo, righe):
-    """Ritorna (riga_sito | None, motivo)."""
     club = sigla_club(p["squadra"])
     alias = ALIAS.get((p["name"], ruolo))
     if alias:
@@ -198,7 +217,6 @@ def trova(p, ruolo, righe):
                 return r, "alias"
 
     def migliori(cands, soglia):
-        # il ruolo in data.json a volte e' sbagliato: e' solo un bonus, non un filtro
         sc = sorted(((punteggio(p["name"], r["nome"]), r) for r in cands), key=lambda x: -(x[0] + (0.05 if x[1]["ruolo"] == ruolo else 0)))
         sc = [(s_, r_) for s_, r_ in sc if s_ >= soglia]
         if not sc:
@@ -215,12 +233,20 @@ def trova(p, ruolo, righe):
         return r, motivo
     if motivo.startswith("ambiguo"):
         return None, motivo
-    # ultimo tentativo: stesso ruolo, qualsiasi club, soglia alta (club sbagliato/trasferimento)
     altri = [x for x in righe if x["club"] and x["club"] != club]
     r, motivo2 = migliori(altri, 0.93)
-    if r:  # non lo applico: potrebbe essere un omonimo. Lo segnalo soltanto.
+    if r:
         return None, f"non trovato nel club; forse e' {r['nome']} ({r['club']}) -> se si', aggiungilo ad ALIAS"
     return None, motivo
+
+
+def verifica_stato(nome_json, nome_sito, lista_stato):
+    if not lista_stato:
+        return False
+    for item in lista_stato:
+        if punteggio(nome_json, item) >= 0.90 or (nome_sito and punteggio(nome_sito, item) >= 0.90):
+            return True
+    return False
 
 
 def main():
@@ -250,6 +276,8 @@ def main():
     con_voti = [r for r in righe if r["mv"] is not None and r["fm"] is not None]
     print(f"✅ {len(righe)} calciatori letti, {len(con_voti)} con voti")
 
+    infortunati_set, diffidati_set = scarica_indisponibili() if not file_locale else (set(), set())
+
     with open(FILE_DATI, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -259,6 +287,15 @@ def main():
             for p in giocatori:
                 r, motivo = trova(p, ruolo, righe)
                 etichetta = f"{squadra}: {p['name']} ({p['squadra']}, {ruolo})"
+                nome_sito = r["nome"] if r else None
+
+                if infortunati_set or diffidati_set:
+                    p["infortunato"] = verifica_stato(p["name"], nome_sito, infortunati_set)
+                    p["diffidato"] = verifica_stato(p["name"], nome_sito, diffidati_set)
+                else:
+                    p.setdefault("infortunato", False)
+                    p.setdefault("diffidato", False)
+
                 if r is None:
                     log["problemi"].append(f"{etichetta} -> {motivo}")
                 elif r["mv"] is None or r["fm"] is None:
