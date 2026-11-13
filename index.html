@@ -45,6 +45,34 @@
             </div>
         </header>
 
+        <!-- SEZIONE CONFRONTO SQUADRE -->
+        <section class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl space-y-4">
+            <h2 class="text-xl font-bold text-amber-400 border-b border-slate-700 pb-3">⚔️ Confronto Diretto Squadre</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="text-xs font-bold text-slate-400 uppercase mb-1 block">Squadra 1 (Tua):</label>
+                    <select id="team1Select" onchange="aggiornaConfronto()" class="w-full bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-2 px-3 rounded-lg text-sm focus:outline-none"></select>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-slate-400 uppercase mb-1 block">Squadra 2 (Avversaria):</label>
+                    <select id="team2Select" onchange="aggiornaConfronto()" class="w-full bg-slate-900 border border-slate-600 text-amber-400 font-bold py-2 px-3 rounded-lg text-sm focus:outline-none"></select>
+                </div>
+            </div>
+            <div class="overflow-x-auto pt-2">
+                <table class="w-full text-center text-sm">
+                    <thead class="bg-slate-900 text-slate-400 text-xs uppercase">
+                        <tr>
+                            <th class="p-3" id="thTeam1Name">Squadra 1</th>
+                            <th class="p-3">Statistiche a Confronto</th>
+                            <th class="p-3" id="thTeam2Name">Squadra 2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="compareTableBody" class="divide-y divide-slate-700"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FORMAZIONE SUL CAMPO -->
         <section class="bg-slate-800 p-6 rounded-xl border-2 border-emerald-500/80 shadow-xl space-y-4">
             <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-3 gap-3">
                 <div class="flex items-center gap-4">
@@ -87,6 +115,7 @@
             </div>
         </section>
 
+        <!-- ROSA COMPLETA -->
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
                 <h2 id="teamTitle" class="text-xl font-bold text-slate-100">Rosa Squadra</h2>
@@ -307,8 +336,6 @@
             ]
         };
 
-
-        // Indice di forza delle squadre (1 = più abbordabile, 5 = big/difficile)
         const forzaSquadre = {
             "INTER": 5, "NAPOLI": 5, "ATALANTA": 5, "JUVENTUS": 4, "MILAN": 4,
             "ROMA": 4, "LAZIO": 4, "BOLOGNA": 3, "FIORENTINA": 3, "COMO": 3,
@@ -319,7 +346,6 @@
         function getDifficoltaMatch(avversario, isHome) {
             if (!avversario || avversario === "-") return { livello: 0, label: "-", badgeClass: "bg-slate-700 text-slate-400" };
             let base = forzaSquadre[avversario.toUpperCase().trim()] || 3;
-            // Giocare in trasferta aumenta leggermente la difficoltà
             let score = isHome ? base : Math.min(5, base + 1);
             if (score <= 2) {
                 return { livello: score, label: `🟢 ${score}/5 (Facile)`, badgeClass: "bg-emerald-950 text-emerald-400 border border-emerald-700/60" };
@@ -353,12 +379,20 @@
             }
 
             const teamSelect = document.getElementById('teamSelect');
+            const team1Select = document.getElementById('team1Select');
+            const team2Select = document.getElementById('team2Select');
+
+            const teamNames = Object.keys(leagueData);
+
             if (teamSelect && teamSelect.options.length === 0) {
-                Object.keys(leagueData).forEach(team => {
-                    const opt1 = document.createElement('option');
-                    opt1.value = team; opt1.textContent = team;
-                    teamSelect.appendChild(opt1);
+                teamNames.forEach(team => {
+                    teamSelect.appendChild(new Option(team, team));
+                    team1Select.appendChild(new Option(team, team));
+                    team2Select.appendChild(new Option(team, team));
                 });
+                if (teamNames.length > 1) {
+                    team2Select.selectedIndex = 1;
+                }
             }
 
             const savedModulo = localStorage.getItem('cascina_modulo');
@@ -373,8 +407,8 @@
         function updateAll() {
             renderTeam();
             updateCustomLineupStats();
-            // Aggiorna anche le etichette delle partite sul campo se cambia giornata
             initCustomLineupSelectors();
+            aggiornaConfronto();
         }
 
         function getMatchDetails(p, giornata) {
@@ -418,7 +452,6 @@
                     label.className = "text-[10px] font-extrabold text-amber-400 uppercase tracking-wider";
                     label.textContent = `${role} #${i}`;
 
-                    // Sottoetichetta per la partita (Casa/Fuori vs Avversario)
                     const matchInfo = document.createElement('span');
                     matchInfo.className = "match-info text-[9px] text-slate-400 mb-1 font-medium";
                     matchInfo.textContent = "-";
@@ -449,7 +482,6 @@
                     const key = `${role}_${i}`;
                     if (savedLineup[key]) {
                         select.value = savedLineup[key];
-                        // Calcola subito la partita se c'è un giocatore selezionato
                         let playerObj = (list || []).find(p => p.name === savedLineup[key]);
                         if (playerObj) {
                             const match = getMatchDetails(playerObj, giornata);
@@ -468,33 +500,40 @@
                 }
             };
 
-            renderRow('pitch-att', 'ATT', attCount, cascina.att);
-            renderRow('pitch-cen', 'CEN', cenCount, cascina.cen);
-            renderRow('pitch-dif', 'DIF', difCount, cascina.dif);
-            renderRow('pitch-por', 'POR', 1, cascina.por);
+            renderRow('pitch-por', 'POR', 1, cascina.por || []);
+            renderRow('pitch-dif', 'DIF', difCount, cascina.dif || []);
+            renderRow('pitch-cen', 'CEN', cenCount, cascina.cen || []);
+            renderRow('pitch-att', 'ATT', attCount, cascina.att || []);
 
             aggiornaTuttiISelettori();
+            updateCustomLineupStats();
         }
 
         function aggiornaInfoPartiteCampo() {
-            const giornata = document.getElementById('giornataSelect').value || 12;
+            const giornata = document.getElementById('giornataSelect').value;
             const cascina = leagueData["CASCINA"] || {};
-            
-            document.querySelectorAll('.custom-player-select').forEach(sel => {
-                const wrapper = sel.parentElement;
+            const selectors = document.querySelectorAll('.custom-player-select');
+
+            selectors.forEach(sel => {
+                const playerName = sel.value;
+                const wrapper = sel.closest('div');
                 const matchInfo = wrapper.querySelector('.match-info');
-                if (!sel.value) {
+                if (!matchInfo) return;
+
+                if (!playerName) {
                     matchInfo.textContent = "-";
                     matchInfo.className = "match-info text-[9px] text-slate-400 mb-1 font-medium";
                     return;
                 }
-                let roleKey = sel.dataset.role.toLowerCase();
-                if(roleKey === 'por') roleKey = 'por';
-                else if(roleKey === 'dif') roleKey = 'dif';
-                else if(roleKey === 'cen') roleKey = 'cen';
-                else if(roleKey === 'att') roleKey = 'att';
 
-                let playerObj = (cascina[roleKey] || []).find(p => p.name === sel.value);
+                let playerObj = null;
+                ['por', 'dif', 'cen', 'att'].forEach(r => {
+                    if (cascina[r]) {
+                        let found = cascina[r].find(p => p.name === playerName);
+                        if (found) playerObj = found;
+                    }
+                });
+
                 if (playerObj) {
                     const match = getMatchDetails(playerObj, giornata);
                     const diff = getDifficoltaMatch(match.avversario, match.isHome);
@@ -506,117 +545,177 @@
             });
         }
 
-        function salvaFormazione() {
-            const selects = document.querySelectorAll('.custom-player-select');
-            let lineupToSave = {};
-            selects.forEach((sel) => {
-                lineupToSave[`${sel.dataset.role}_${sel.dataset.index}`] = sel.value;
-            });
-            localStorage.setItem('cascina_formazione', JSON.stringify(lineupToSave));
-            updateCustomLineupStats();
-        }
-
         function aggiornaTuttiISelettori() {
-            const selects = document.querySelectorAll('.custom-player-select');
-            let scelti = [];
-
-            selects.forEach(sel => {
-                if (sel.value) scelti.push(sel.value);
+            const selectors = document.querySelectorAll('.custom-player-select');
+            const selectedValues = new Set();
+            selectors.forEach(s => {
+                if (s.value) selectedValues.add(s.value);
             });
 
-            selects.forEach(sel => {
-                const valoreCorrente = sel.value;
-                for (let opt of sel.options) {
-                    if (opt.value === "") continue;
-                    if (scelti.includes(opt.value) && opt.value !== valoreCorrente) {
+            selectors.forEach(s => {
+                const currentVal = s.value;
+                Array.from(s.options).forEach(opt => {
+                    if (opt.value === "") return;
+                    if (selectedValues.has(opt.value) && opt.value !== currentVal) {
                         opt.disabled = true;
                         opt.style.color = "#64748b";
                     } else {
                         opt.disabled = false;
                         opt.style.color = "#f8fafc";
                     }
-                }
+                });
             });
+        }
 
+        function salvaFormazione() {
+            const selectors = document.querySelectorAll('.custom-player-select');
+            let lineup = {};
+            selectors.forEach(s => {
+                const key = `${s.dataset.role}_${s.dataset.index}`;
+                lineup[key] = s.value;
+            });
+            localStorage.setItem('cascina_formazione', JSON.stringify(lineup));
             updateCustomLineupStats();
         }
 
         function updateCustomLineupStats() {
-            const selects = document.querySelectorAll('.custom-player-select');
+            const selectors = document.querySelectorAll('.custom-player-select');
             const cascina = leagueData["CASCINA"] || {};
-            let selectedPlayers = [];
-            
-            selects.forEach(sel => {
-                const name = sel.value;
-                const role = sel.dataset.role;
-                if (!name) return;
-                
-                let roleKey = role.toLowerCase() === 'por' ? 'por' : role.toLowerCase() === 'dif' ? 'dif' : role.toLowerCase() === 'cen' ? 'cen' : 'att';
-                let playerObj = (cascina[roleKey] || []).find(p => p.name === name);
-                
-                if (playerObj) {
-                    selectedPlayers.push({ mv: playerObj.mv, fm: playerObj.fm });
+            let count = 0;
+            let sumMV = 0;
+            let sumFM = 0;
+
+            selectors.forEach(s => {
+                if (s.value) {
+                    count++;
+                    let playerObj = null;
+                    ['por', 'dif', 'cen', 'att'].forEach(r => {
+                        if (cascina[r]) {
+                            let found = cascina[r].find(p => p.name === s.value);
+                            if (found) playerObj = found;
+                        }
+                    });
+                    if (playerObj) {
+                        sumMV += (playerObj.mv || 0);
+                        sumFM += (playerObj.fm || 0);
+                    }
                 }
             });
 
-            let totalMv = selectedPlayers.reduce((acc, p) => acc + Number(p.mv), 0);
-            let totalFm = selectedPlayers.reduce((acc, p) => acc + Number(p.fm), 0);
-            const count = selectedPlayers.length || 1;
+            const avgMV = count > 0 ? (sumMV / count).toFixed(2) : "0.00";
+            const avgFM = count > 0 ? (sumFM / count).toFixed(2) : "0.00";
 
             const statsEl = document.getElementById('customLineupStats');
             if (statsEl) {
-                statsEl.textContent = `Titolari: ${selectedPlayers.length}/11 | Media Voto: ${(totalMv/count).toFixed(2)} | Fantamedia: ${(totalFm/count).toFixed(2)}`;
+                statsEl.textContent = `Titolari: ${count}/11 | MV: ${avgMV} | FM: ${avgFM}`;
             }
         }
 
         function renderTeam() {
-            const giornataEl = document.getElementById('giornataSelect');
-            const teamEl = document.getElementById('teamSelect');
-            if (!giornataEl || !teamEl) return;
+            const teamSelect = document.getElementById('teamSelect');
+            if (!teamSelect) return;
+            const teamName = teamSelect.value;
+            const teamTitle = document.getElementById('teamTitle');
+            if (teamTitle) teamTitle.textContent = `Rosa Squadra: ${teamName}`;
 
-            const giornata = giornataEl.value || 12;
-            const teamName = teamEl.value || "CASCINA";
-            const team = leagueData[teamName];
-            if (!team) return;
-            
-            document.getElementById('teamTitle').textContent = `Rosa Completa: ${teamName}`;
-            const tbody = document.getElementById('rosterTable');
-            tbody.innerHTML = '';
+            const rosterTable = document.getElementById('rosterTable');
+            if (!rosterTable) return;
+            rosterTable.innerHTML = '';
 
-            const categories = [
-                { role: 'POR', list: team.por || [], color: 'text-amber-400 font-bold' },
-                { role: 'DIF', list: team.dif || [], color: 'text-blue-400 font-bold' },
-                { role: 'CEN', list: team.cen || [], color: 'text-emerald-400 font-bold' },
-                { role: 'ATT', list: team.att || [], color: 'text-rose-400 font-bold' }
+            const reparti = leagueData[teamName] || {};
+            const giornata = document.getElementById('giornataSelect').value;
+            const ruoliOrder = [
+                { key: 'por', label: 'POR' },
+                { key: 'dif', label: 'DIF' },
+                { key: 'cen', label: 'CEN' },
+                { key: 'att', label: 'ATT' }
             ];
 
-            categories.forEach(cat => {
-                cat.list.forEach(p => {
+            ruoliOrder.forEach(r => {
+                const giocatori = reparti[r.key] || [];
+                giocatori.forEach(p => {
                     const match = getMatchDetails(p, giornata);
                     const diff = getDifficoltaMatch(match.avversario, match.isHome);
-                    const homeAwayBadge = match.isHome ? '<span class="text-emerald-400 font-bold">🏠 Casa</span>' : '<span class="text-amber-400 font-bold">✈️ Fuori</span>';
-                    const infortunatoBadge = p.infortunato ? '<span title="Infortunato (Infermeria)" class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-950 text-rose-400 border border-rose-700/60">🏥 INF</span>' : '';
-                    const diffidatoBadge = p.diffidato ? '<span title="Diffidato" class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-amber-950 text-amber-400 border border-amber-700/60">⚠️ DIFF</span>' : '';
-                    
+                    const statusBadges = `${p.infortunato ? ' <span class="bg-rose-950 text-rose-400 border border-rose-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">🏥 INF</span>' : ''}${p.diffidato ? ' <span class="bg-amber-950 text-amber-400 border border-amber-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">⚠️ DIFF</span>' : ''}`;
+
                     const tr = document.createElement('tr');
-                    tr.className = "hover:bg-slate-700/50 transition";
+                    tr.className = "hover:bg-slate-700/40 transition-colors";
                     tr.innerHTML = `
-                        <td class="p-3 ${cat.color}">${cat.role}</td>
-                        <td class="p-3 font-semibold text-slate-200">${p.name}${infortunatoBadge}${diffidatoBadge}</td>
-                        <td class="p-3 text-xs"><span class="text-slate-300 font-medium">${p.squadra}</span> <span class="text-slate-500 mx-1">→</span> ${homeAwayBadge} vs <span class="text-amber-300 font-semibold">${match.avversario}</span></td>
-                        <td class="p-3 text-center text-xs"><span class="px-2 py-1 rounded-full font-semibold ${diff.badgeClass}">${diff.label}</span></td>
-                        <td class="p-3 text-center text-slate-300 font-mono">${Number(p.mv).toFixed(2)}</td>
-                        <td class="p-3 text-center text-emerald-400 font-mono font-bold">${Number(p.fm).toFixed(2)}</td>
+                        <td class="p-3 font-bold text-amber-400">${r.label}</td>
+                        <td class="p-3 font-semibold text-white">${p.name} ${statusBadges}</td>
+                        <td class="p-3 text-slate-300">${p.squadra} <span class="text-xs text-slate-400">(${match.isHome ? '🏠 Casa vs' : '✈️ Fuori vs'} ${match.avversario})</span></td>
+                        <td class="p-3 text-center"><span class="px-2 py-1 rounded text-xs font-semibold ${diff.badgeClass}">${diff.label}</span></td>
+                        <td class="p-3 text-center font-mono text-emerald-400 font-bold">${(p.mv || 0).toFixed(2)}</td>
+                        <td class="p-3 text-center font-mono text-amber-400 font-bold">${(p.fm || 0).toFixed(2)}</td>
                     `;
-                    tbody.appendChild(tr);
+                    rosterTable.appendChild(tr);
+                });
+            });
+        }
+
+        function calcolaStatsTeam(teamName) {
+            const reparti = leagueData[teamName] || {};
+            let totalPlayers = 0;
+            let sumMV = 0;
+            let sumFM = 0;
+            let infCount = 0;
+            let diffCount = 0;
+
+            Object.keys(reparti).forEach(ruolo => {
+                reparti[ruolo].forEach(p => {
+                    totalPlayers++;
+                    sumMV += (p.mv || 0);
+                    sumFM += (p.fm || 0);
+                    if (p.infortunato) infCount++;
+                    if (p.diffidato) diffCount++;
                 });
             });
 
-            // Aggiorna anche le etichette sul campo
-            aggiornaInfoPartiteCampo();
+            return {
+                avgMV: totalPlayers ? (sumMV / totalPlayers).toFixed(2) : '0.00',
+                avgFM: totalPlayers ? (sumFM / totalPlayers).toFixed(2) : '0.00',
+                infCount,
+                diffCount
+            };
         }
 
-        loadData();
+        function aggiornaConfronto() {
+            const t1 = document.getElementById('team1Select').value;
+            const t2 = document.getElementById('team2Select').value;
+            if (!t1 || !t2) return;
+
+            document.getElementById('thTeam1Name').textContent = t1;
+            document.getElementById('thTeam2Name').textContent = t2;
+
+            const s1 = calcolaStatsTeam(t1);
+            const s2 = calcolaStatsTeam(t2);
+
+            const tbody = document.getElementById('compareTableBody');
+            tbody.innerHTML = `
+                <tr>
+                    <td class="p-3 font-bold text-emerald-400 font-mono text-base">${s1.avgFM}</td>
+                    <td class="p-3 text-slate-400 text-xs font-semibold uppercase">Fantamedia Squadra (FM)</td>
+                    <td class="p-3 font-bold text-amber-400 font-mono text-base">${s2.avgFM}</td>
+                </tr>
+                <tr>
+                    <td class="p-3 font-bold text-emerald-300 font-mono">${s1.avgMV}</td>
+                    <td class="p-3 text-slate-400 text-xs font-semibold uppercase">Media Voto Squadra (MV)</td>
+                    <td class="p-3 font-bold text-amber-300 font-mono">${s2.avgMV}</td>
+                </tr>
+                <tr>
+                    <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${s1.infCount > 0 ? 'bg-rose-950 text-rose-400 border border-rose-700/60' : 'bg-slate-700 text-slate-400'}">${s1.infCount} Infortunati</span></td>
+                    <td class="p-3 text-slate-400 text-xs font-semibold uppercase">Giocatori Infortunati (🏥)</td>
+                    <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${s2.infCount > 0 ? 'bg-rose-950 text-rose-400 border border-rose-700/60' : 'bg-slate-700 text-slate-400'}">${s2.infCount} Infortunati</span></td>
+                </tr>
+                <tr>
+                    <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${s1.diffCount > 0 ? 'bg-amber-950 text-amber-400 border border-amber-700/60' : 'bg-slate-700 text-slate-400'}">${s1.diffCount} Diffidati</span></td>
+                    <td class="p-3 text-slate-400 text-xs font-semibold uppercase">Giocatori Diffidati (⚠️)</td>
+                    <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${s2.diffCount > 0 ? 'bg-amber-950 text-amber-400 border border-amber-700/60' : 'bg-slate-700 text-slate-400'}">${s2.diffCount} Diffidati</span></td>
+                </tr>
+            `;
+        }
+
+        window.onload = loadData;
     </script>
 </body>
 </html>
