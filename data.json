@@ -1,11 +1,15 @@
 {
-    "CASCINA": {
+   "CASCINA": {
         "por": [
             {
                 "name": "OKOYE",
                 "squadra": "UDINESE",
                 "mv": 6.05,
                 "fm": 4.05,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 2,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -14,6 +18,10 @@
                 "squadra": "BOLOGNA",
                 "mv": 5.5,
                 "fm": 4.5,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -22,6 +30,10 @@
                 "squadra": "BOLOGNA",
                 "mv": 6.08,
                 "fm": 5.08,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 1,
                 "infortunato": false,
                 "diffidato": false
             }
@@ -32,6 +44,10 @@
                 "squadra": "FROSINONE",
                 "mv": 5.88,
                 "fm": 6.03,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 5,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": true
             },
@@ -40,6 +56,10 @@
                 "squadra": "PARMA",
                 "mv": 5.86,
                 "fm": 5.73,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -48,6 +68,10 @@
                 "squadra": "COMO",
                 "mv": 6.18,
                 "fm": 6.18,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -56,6 +80,10 @@
                 "squadra": "JUVENTUS",
                 "mv": 5.68,
                 "fm": 5.53,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -64,6 +92,10 @@
                 "squadra": "MONZA",
                 "mv": 5.98,
                 "fm": 6.39,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -72,6 +104,10 @@
                 "squadra": "BOLOGNA",
                 "mv": 5.86,
                 "fm": 5.92,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -80,6 +116,10 @@
                 "squadra": "GENOA",
                 "mv": 5.88,
                 "fm": 5.78,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 1,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -88,6 +128,10 @@
                 "squadra": "COMO",
                 "mv": 6.07,
                 "fm": 6.57,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             }
@@ -98,6 +142,10 @@
                 "squadra": "MONZA",
                 "mv": 5.72,
                 "fm": 5.83,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -106,6 +154,10 @@
                 "squadra": "BOLOGNA",
                 "mv": 6.5,
                 "fm": 7.3,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -114,6 +166,10 @@
                 "squadra": "TORINO",
                 "mv": 6.15,
                 "fm": 6.25,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -122,6 +178,10 @@
                 "squadra": "INTER",
                 "mv": 6.44,
                 "fm": 7.5,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -130,6 +190,10 @@
                 "squadra": "JUVENTUS",
                 "mv": 6.11,
                 "fm": 6.48,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 2,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -138,6 +202,10 @@
                 "squadra": "MILAN",
                 "mv": 6.86,
                 "fm": 8.93,
+                "gol": 4,
+                "assist": 3,
+                "gialli": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -146,6 +214,10 @@
                 "squadra": "MILAN",
                 "mv": 6.56,
                 "fm": 8.06,
+                "gol": 4,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -154,6 +226,10 @@
                 "squadra": "CAGLIARI",
                 "mv": 6.03,
                 "fm": 5.97,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": true,
                 "diffidato": false
             }
@@ -164,6 +240,10 @@
                 "squadra": "INTER",
                 "mv": 6.39,
                 "fm": 7.39,
+                "gol": 3,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -172,6 +252,10 @@
                 "squadra": "GENOA",
                 "mv": 5.79,
                 "fm": 5.64,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -180,6 +264,10 @@
                 "squadra": "MONZA",
                 "mv": 6.36,
                 "fm": 6.64,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -188,6 +276,10 @@
                 "squadra": "LECCE",
                 "mv": 5.42,
                 "fm": 5.42,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -196,6 +288,10 @@
                 "squadra": "LAZIO",
                 "mv": 6.47,
                 "fm": 8.25,
+                "gol": 4,
+                "assist": 4,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -204,6 +300,10 @@
                 "squadra": "ATALANTA",
                 "mv": 6.0,
                 "fm": 6.5,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             }
