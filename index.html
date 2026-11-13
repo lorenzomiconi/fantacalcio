@@ -115,6 +115,37 @@
             </div>
         </section>
 
+        <!-- SEZIONE PANCHINA (11 GIOCATORI: 2 POR, 3 DIF, 3 CEN, 3 ATT - ESCLUSI INFORTUNATI/DIFFIDATI) -->
+        <section class="bg-slate-800 p-6 rounded-xl border-2 border-sky-500/80 shadow-xl space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-3 gap-3">
+                <h2 class="text-xl font-bold text-sky-400 flex items-center gap-2">
+                    <span>🪑</span> Panchina (11 Giocatori: 2 POR, 3 DIF, 3 CEN, 3 ATT)
+                </h2>
+                <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700 font-mono text-sky-300" id="benchStats">
+                    Panchina: 0/11
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Portieri Panchina (2)</h3>
+                    <div class="flex flex-wrap gap-3" id="bench-por"></div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Difensori Panchina (3)</h3>
+                    <div class="flex flex-wrap gap-3" id="bench-dif"></div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Centrocampisti Panchina (3)</h3>
+                    <div class="flex flex-wrap gap-3" id="bench-cen"></div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Attaccanti Panchina (3)</h3>
+                    <div class="flex flex-wrap gap-3" id="bench-att"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- ROSA COMPLETA -->
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
             <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-3">
@@ -478,6 +509,7 @@
             }
 
             initCustomLineupSelectors();
+            initBenchSelectors();
             updateAll();
 
             if (localStorage.getItem('fanta_schieraciActive') === 'true') {
@@ -509,13 +541,13 @@
             renderTeam();
             updateCustomLineupStats();
             initCustomLineupSelectors();
+            initBenchSelectors();
             aggiornaConfronto();
             if (localStorage.getItem('fanta_schieraciActive') === 'true') {
                 eseguiSchieraci(false);
             }
         }
 
-        // FUNZIONE CORRETTA E ROBUSTA PER TROVARE LA PARTITA DELLA SQUADRA
         function getMatchDetails(p, giornata) {
             if (!p || !p.squadra) return { avversario: "-", isHome: false };
             let squadraKey = p.squadra.toUpperCase().trim();
@@ -537,6 +569,7 @@
             const moduloVal = document.getElementById('moduloSelect').value;
             localStorage.setItem('cascina_modulo', moduloVal);
             initCustomLineupSelectors();
+            aggiornaTuttiISelettori();
         }
 
         function initCustomLineupSelectors() {
@@ -554,6 +587,9 @@
                 const container = document.getElementById(containerId);
                 if (!container) return;
                 container.innerHTML = '';
+
+                // FILTRA VIA INFORTUNATI E DIFFIDATI DAL CAMPO
+                const listaDisponibili = (list || []).filter(p => !p.infortunato && !p.diffidato);
 
                 for (let i = 1; i <= count; i++) {
                     const wrapper = document.createElement('div');
@@ -582,24 +618,22 @@
                     emptyOpt.textContent = "-- Seleziona --";
                     select.appendChild(emptyOpt);
 
-                    (list || []).forEach((p) => {
+                    listaDisponibili.forEach((p) => {
                         const opt = document.createElement('option');
                         opt.value = p.name;
-                        const statusIcons = `${p.infortunato ? ' 🏥' : ''}${p.diffidato ? ' ⚠️' : ''}`;
-                        opt.textContent = `${p.name}${statusIcons} (${p.squadra})`;
+                        opt.textContent = `${p.name} (${p.squadra})`;
                         select.appendChild(opt);
                     });
 
                     const key = `${role}_${i}`;
                     if (savedLineup[key]) {
                         select.value = savedLineup[key];
-                        let playerObj = (list || []).find(p => p.name === savedLineup[key]);
+                        let playerObj = listaDisponibili.find(p => p.name === savedLineup[key]);
                         if (playerObj) {
                             const match = getMatchDetails(playerObj, giornata);
                             const diff = getDifficoltaMatch(match.avversario, match.isHome);
-                            const statusBadges = `${playerObj.infortunato ? ' <span title="Infortunato">🏥</span>' : ''}${playerObj.diffidato ? ' <span title="Diffidato">⚠️</span>' : ''}`;
                             const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
-                            matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}${statusBadges}`;
+                            matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}`;
                             matchInfo.className = `match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-emerald-400' : 'text-amber-300'}`;
                         }
                     }
@@ -618,6 +652,85 @@
 
             aggiornaTuttiISelettori();
             updateCustomLineupStats();
+        }
+
+        // GESTIONE PANCHINA (2 POR, 3 DIF, 3 CEN, 3 ATT - ESCLUSI INFORTUNATI/DIFFIDATI)
+        function initBenchSelectors() {
+            const giornata = document.getElementById('giornataSelect') ? document.getElementById('giornataSelect').value : 12;
+            const cascina = leagueData["CASCINA"] || {};
+            let savedBench = JSON.parse(localStorage.getItem('cascina_panchina') || "{}");
+
+            const benchConfig = [
+                { id: 'bench-por', role: 'POR', count: 2, list: cascina.por || [] },
+                { id: 'bench-dif', role: 'DIF', count: 3, list: cascina.dif || [] },
+                { id: 'bench-cen', role: 'CEN', count: 3, list: cascina.cen || [] },
+                { id: 'bench-att', role: 'ATT', count: 3, list: cascina.att || [] }
+            ];
+
+            benchConfig.forEach(cfg => {
+                const container = document.getElementById(cfg.id);
+                if (!container) return;
+                container.innerHTML = '';
+
+                // FILTRA VIA INFORTUNATI E DIFFIDATI Dalla PANCHINA
+                const listaDisponibili = (cfg.list || []).filter(p => !p.infortunato && !p.diffidato);
+
+                for (let i = 1; i <= cfg.count; i++) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = "flex flex-col items-center bg-slate-900/95 p-2 rounded-lg border border-sky-500/40 shadow-lg w-36 sm:w-40 backdrop-blur";
+
+                    const label = document.createElement('span');
+                    label.className = "text-[10px] font-extrabold text-sky-400 uppercase tracking-wider";
+                    label.textContent = `${cfg.role} P.${i}`;
+
+                    const matchInfo = document.createElement('span');
+                    matchInfo.className = "bench-match-info text-[9px] text-slate-400 mb-1 font-medium";
+                    matchInfo.textContent = "-";
+
+                    const select = document.createElement('select');
+                    select.className = "bench-player-select w-full bg-slate-800 text-white text-xs p-1 rounded border border-slate-600 focus:outline-none text-center font-semibold";
+                    select.dataset.role = cfg.role;
+                    select.dataset.index = i;
+                    select.onchange = () => {
+                        salvaPanchina();
+                        aggiornaTuttiISelettori();
+                        aggiornaInfoPartitePanchina();
+                    };
+
+                    const emptyOpt = document.createElement('option');
+                    emptyOpt.value = "";
+                    emptyOpt.textContent = "-- Seleziona --";
+                    select.appendChild(emptyOpt);
+
+                    listaDisponibili.forEach(p => {
+                        const opt = document.createElement('option');
+                        opt.value = p.name;
+                        opt.textContent = `${p.name} (${p.squadra})`;
+                        select.appendChild(opt);
+                    });
+
+                    const key = `${cfg.role}_P${i}`;
+                    if (savedBench[key]) {
+                        select.value = savedBench[key];
+                        let playerObj = listaDisponibili.find(p => p.name === savedBench[key]);
+                        if (playerObj) {
+                            const match = getMatchDetails(playerObj, giornata);
+                            const diff = getDifficoltaMatch(match.avversario, match.isHome);
+                            const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
+                            matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}`;
+                            matchInfo.className = `bench-match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-sky-400' : 'text-amber-300'}`;
+                        }
+                    }
+
+                    wrapper.appendChild(label);
+                    wrapper.appendChild(matchInfo);
+                    wrapper.appendChild(select);
+                    container.appendChild(wrapper);
+                }
+            });
+
+            aggiornaTuttiISelettori();
+            updateBenchStats();
         }
 
         function aggiornaInfoPartiteCampo() {
@@ -648,22 +761,55 @@
                 if (playerObj) {
                     const match = getMatchDetails(playerObj, giornata);
                     const diff = getDifficoltaMatch(match.avversario, match.isHome);
-                    const statusBadges = `${playerObj.infortunato ? ' <span title="Infortunato">🏥</span>' : ''}${playerObj.diffidato ? ' <span title="Diffidato">⚠️</span>' : ''}`;
                     const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
-                    matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}${statusBadges}`;
+                    matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}`;
                     matchInfo.className = `match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-emerald-400' : 'text-amber-300'}`;
                 }
             });
         }
 
+        function aggiornaInfoPartitePanchina() {
+            const giornata = document.getElementById('giornataSelect').value;
+            const cascina = leagueData["CASCINA"] || {};
+            const selectors = document.querySelectorAll('.bench-player-select');
+
+            selectors.forEach(sel => {
+                const playerName = sel.value;
+                const wrapper = sel.closest('div');
+                const matchInfo = wrapper.querySelector('.bench-match-info');
+                if (!matchInfo) return;
+
+                if (!playerName) {
+                    matchInfo.textContent = "-";
+                    matchInfo.className = "bench-match-info text-[9px] text-slate-400 mb-1 font-medium";
+                    return;
+                }
+
+                let playerObj = null;
+                ['por', 'dif', 'cen', 'att'].forEach(r => {
+                    if (cascina[r]) {
+                        let found = cascina[r].find(p => p.name === playerName);
+                        if (found) playerObj = found;
+                    }
+                });
+
+                if (playerObj) {
+                    const match = getMatchDetails(playerObj, giornata);
+                    const diff = getDifficoltaMatch(match.avversario, match.isHome);
+                    const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
+                    matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}`;
+                    matchInfo.className = `bench-match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-sky-400' : 'text-amber-300'}`;
+                }
+            });
+        }
+
         function aggiornaTuttiISelettori() {
-            const selectors = document.querySelectorAll('.custom-player-select');
             const selectedValues = new Set();
-            selectors.forEach(s => {
+            document.querySelectorAll('.custom-player-select, .bench-player-select').forEach(s => {
                 if (s.value) selectedValues.add(s.value);
             });
 
-            selectors.forEach(s => {
+            document.querySelectorAll('.custom-player-select, .bench-player-select').forEach(s => {
                 const currentVal = s.value;
                 Array.from(s.options).forEach(opt => {
                     if (opt.value === "") return;
@@ -687,6 +833,17 @@
             });
             localStorage.setItem('cascina_formazione', JSON.stringify(lineup));
             updateCustomLineupStats();
+        }
+
+        function salvaPanchina() {
+            const selectors = document.querySelectorAll('.bench-player-select');
+            let bench = JSON.parse(localStorage.getItem('cascina_panchina') || "{}");
+            selectors.forEach(s => {
+                const key = `${s.dataset.role}_P${s.dataset.index}`;
+                bench[key] = s.value;
+            });
+            localStorage.setItem('cascina_panchina', JSON.stringify(bench));
+            updateBenchStats();
         }
 
         function updateCustomLineupStats() {
@@ -719,6 +876,18 @@
             const statsEl = document.getElementById('customLineupStats');
             if (statsEl) {
                 statsEl.textContent = `Titolari: ${count}/11 | MV: ${avgMV} | FM: ${avgFM}`;
+            }
+        }
+
+        function updateBenchStats() {
+            const selectors = document.querySelectorAll('.bench-player-select');
+            let count = 0;
+            selectors.forEach(s => {
+                if (s.value) count++;
+            });
+            const benchStatsEl = document.getElementById('benchStats');
+            if (benchStatsEl) {
+                benchStatsEl.textContent = `Panchina: ${count}/11`;
             }
         }
 
