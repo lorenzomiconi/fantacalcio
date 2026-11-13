@@ -100,6 +100,7 @@
                             <th class="p-3">Ruolo</th>
                             <th class="p-3">Giocatore</th>
                             <th class="p-3">Squadra & Partita</th>
+                            <th class="p-3 text-center">Difficoltà</th>
                             <th class="p-3 text-center">Media Voto (MV)</th>
                             <th class="p-3 text-center">Fantamedia (FM)</th>
                         </tr>
@@ -306,6 +307,29 @@
             ]
         };
 
+
+        // Indice di forza delle squadre (1 = più abbordabile, 5 = big/difficile)
+        const forzaSquadre = {
+            "INTER": 5, "NAPOLI": 5, "ATALANTA": 5, "JUVENTUS": 4, "MILAN": 4,
+            "ROMA": 4, "LAZIO": 4, "BOLOGNA": 3, "FIORENTINA": 3, "COMO": 3,
+            "TORINO": 3, "UDINESE": 2, "GENOA": 2, "PARMA": 2, "CAGLIARI": 2,
+            "LECCE": 1, "MONZA": 1, "SASSUOLO": 2, "FROSINONE": 1, "VENEZIA": 1, "VERONA": 1
+        };
+
+        function getDifficoltaMatch(avversario, isHome) {
+            if (!avversario || avversario === "-") return { livello: 0, label: "-", badgeClass: "bg-slate-700 text-slate-400" };
+            let base = forzaSquadre[avversario.toUpperCase().trim()] || 3;
+            // Giocare in trasferta aumenta leggermente la difficoltà
+            let score = isHome ? base : Math.min(5, base + 1);
+            if (score <= 2) {
+                return { livello: score, label: `🟢 ${score}/5 (Facile)`, badgeClass: "bg-emerald-950 text-emerald-400 border border-emerald-700/60" };
+            } else if (score === 3) {
+                return { livello: score, label: `🟡 ${score}/5 (Media)`, badgeClass: "bg-amber-950 text-amber-400 border border-amber-700/60" };
+            } else {
+                return { livello: score, label: `🔴 ${score}/5 (Difficile)`, badgeClass: "bg-rose-950 text-rose-400 border border-rose-700/60" };
+            }
+        }
+
         async function loadData() {
             try {
                 const response = await fetch('data.json');
@@ -417,7 +441,8 @@
                     (list || []).forEach((p) => {
                         const opt = document.createElement('option');
                         opt.value = p.name;
-                        opt.textContent = `${p.name} (${p.squadra})`;
+                        const statusIcons = `${p.infortunato ? ' 🏥' : ''}${p.diffidato ? ' ⚠️' : ''}`;
+                        opt.textContent = `${p.name}${statusIcons} (${p.squadra})`;
                         select.appendChild(opt);
                     });
 
@@ -428,7 +453,10 @@
                         let playerObj = (list || []).find(p => p.name === savedLineup[key]);
                         if (playerObj) {
                             const match = getMatchDetails(playerObj, giornata);
-                            matchInfo.innerHTML = match.isHome ? `🏠 vs ${match.avversario}` : `✈️ @ ${match.avversario}`;
+                            const diff = getDifficoltaMatch(match.avversario, match.isHome);
+                            const statusBadges = `${playerObj.infortunato ? ' <span title="Infortunato">🏥</span>' : ''}${playerObj.diffidato ? ' <span title="Diffidato">⚠️</span>' : ''}`;
+                            const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
+                            matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}${statusBadges}`;
                             matchInfo.className = `match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-emerald-400' : 'text-amber-300'}`;
                         }
                     }
@@ -469,7 +497,10 @@
                 let playerObj = (cascina[roleKey] || []).find(p => p.name === sel.value);
                 if (playerObj) {
                     const match = getMatchDetails(playerObj, giornata);
-                    matchInfo.innerHTML = match.isHome ? `🏠 vs ${match.avversario}` : `✈️ @ ${match.avversario}`;
+                    const diff = getDifficoltaMatch(match.avversario, match.isHome);
+                    const statusBadges = `${playerObj.infortunato ? ' <span title="Infortunato">🏥</span>' : ''}${playerObj.diffidato ? ' <span title="Diffidato">⚠️</span>' : ''}`;
+                    const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
+                    matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}${statusBadges}`;
                     matchInfo.className = `match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-emerald-400' : 'text-amber-300'}`;
                 }
             });
@@ -562,14 +593,18 @@
             categories.forEach(cat => {
                 cat.list.forEach(p => {
                     const match = getMatchDetails(p, giornata);
+                    const diff = getDifficoltaMatch(match.avversario, match.isHome);
                     const homeAwayBadge = match.isHome ? '<span class="text-emerald-400 font-bold">🏠 Casa</span>' : '<span class="text-amber-400 font-bold">✈️ Fuori</span>';
+                    const infortunatoBadge = p.infortunato ? '<span title="Infortunato (Infermeria)" class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-950 text-rose-400 border border-rose-700/60">🏥 INF</span>' : '';
+                    const diffidatoBadge = p.diffidato ? '<span title="Diffidato" class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-amber-950 text-amber-400 border border-amber-700/60">⚠️ DIFF</span>' : '';
                     
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-slate-700/50 transition";
                     tr.innerHTML = `
                         <td class="p-3 ${cat.color}">${cat.role}</td>
-                        <td class="p-3 font-semibold text-slate-200">${p.name}</td>
+                        <td class="p-3 font-semibold text-slate-200">${p.name}${infortunatoBadge}${diffidatoBadge}</td>
                         <td class="p-3 text-xs"><span class="text-slate-300 font-medium">${p.squadra}</span> <span class="text-slate-500 mx-1">→</span> ${homeAwayBadge} vs <span class="text-amber-300 font-semibold">${match.avversario}</span></td>
+                        <td class="p-3 text-center text-xs"><span class="px-2 py-1 rounded-full font-semibold ${diff.badgeClass}">${diff.label}</span></td>
                         <td class="p-3 text-center text-slate-300 font-mono">${Number(p.mv).toFixed(2)}</td>
                         <td class="p-3 text-center text-emerald-400 font-mono font-bold">${Number(p.fm).toFixed(2)}</td>
                     `;
