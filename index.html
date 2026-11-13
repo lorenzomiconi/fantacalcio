@@ -138,6 +138,56 @@
                 </table>
             </div>
         </div>
+
+        <!-- NUOVA SEZIONE: SCHIERACI (CONSIGLIERE AUTOMATICO) -->
+        <section class="bg-slate-800 p-6 rounded-xl border-2 border-amber-500/80 shadow-xl space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-3 gap-3">
+                <div>
+                    <h2 class="text-xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>🔮</span> SCHIERACI (Consigliere Automatico)
+                    </h2>
+                    <p class="text-slate-400 text-xs mt-1">Calcola automaticamente la formazione migliore escludendo gli infortunati e premiando la fantamedia</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase mr-2">Squadra:</label>
+                        <select id="schieraciTeamSelect" class="bg-slate-900 border border-slate-600 text-emerald-400 font-bold py-1 px-2 rounded text-sm focus:outline-none"></select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-400 uppercase mr-2">Modulo:</label>
+                        <select id="schieraciModulo" class="bg-slate-900 border border-amber-500 text-amber-400 font-bold py-1 px-2 rounded text-sm focus:outline-none">
+                            <option value="3-5-2">3-5-2</option>
+                            <option value="4-3-3" selected>4-3-3</option>
+                            <option value="4-4-2">4-4-2</option>
+                            <option value="4-5-1">4-5-1</option>
+                            <option value="5-4-1">5-4-1</option>
+                        </select>
+                    </div>
+                    <button onclick="eseguiSchieraci()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs px-4 py-2 rounded shadow transition-colors cursor-pointer uppercase">
+                        ⚡ Schiera Top 11
+                    </button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-900 text-slate-400 text-xs uppercase">
+                        <tr>
+                            <th class="p-3">Ruolo Consigliato</th>
+                            <th class="p-3">Giocatore Consigliato</th>
+                            <th class="p-3">Squadra & Partita</th>
+                            <th class="p-3 text-center">Difficoltà</th>
+                            <th class="p-3 text-center">Fantamedia (FM)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schieraciTableBody" class="divide-y divide-slate-700">
+                        <tr>
+                            <td colspan="5" class="p-6 text-center text-slate-400 italic">Clicca su "⚡ Schiera Top 11" per generare la formazione consigliata.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -381,6 +431,7 @@
             const teamSelect = document.getElementById('teamSelect');
             const team1Select = document.getElementById('team1Select');
             const team2Select = document.getElementById('team2Select');
+            const schieraciTeamSelect = document.getElementById('schieraciTeamSelect');
 
             const teamNames = Object.keys(leagueData);
 
@@ -389,6 +440,7 @@
                     teamSelect.appendChild(new Option(team, team));
                     team1Select.appendChild(new Option(team, team));
                     team2Select.appendChild(new Option(team, team));
+                    schieraciTeamSelect.appendChild(new Option(team, team));
                 });
                 if (teamNames.length > 1) {
                     team2Select.selectedIndex = 1;
@@ -713,6 +765,71 @@
                     <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${s2.diffCount > 0 ? 'bg-amber-950 text-amber-400 border border-amber-700/60' : 'bg-slate-700 text-slate-400'}">${s2.diffCount} Diffidati</span></td>
                 </tr>
             `;
+        }
+
+        // LOGICA DEL CONSIGLIERE AUTOMATICO (SCHIERACI)
+        function eseguiSchieraci() {
+            const teamName = document.getElementById('schieraciTeamSelect').value;
+            const moduloVal = document.getElementById('schieraciModulo').value;
+            const giornata = document.getElementById('giornataSelect').value;
+            const reparti = leagueData[teamName] || {};
+
+            const parts = moduloVal.split('-');
+            const counts = {
+                por: 1,
+                dif: parseInt(parts[0]),
+                cen: parseInt(parts[1]),
+                att: parseInt(parts[2])
+            };
+
+            const tbody = document.getElementById('schieraciTableBody');
+            tbody.innerHTML = '';
+
+            let allConsigliati = [];
+
+            ['por', 'dif', 'cen', 'att'].forEach(ruoloKey => {
+                let giocatori = [...(reparti[ruoloKey] || [])];
+
+                // Ordina i giocatori: 
+                // 1. Prima i sani (infortunato = false)
+                // 2. Poi per Fantamedia (FM) più alta
+                giocatori.sort((a, b) => {
+                    if (a.infortunato !== b.infortunato) {
+                        return a.infortunato ? 1 : -1; // Sani prima
+                    }
+                    return (b.fm || 0) - (a.fm || 0); // Fantamedia decrescente
+                });
+
+                let limit = counts[ruoloKey];
+                let sceltiPerRuolo = giocatori.slice(0, limit);
+
+                sceltiPerRuolo.forEach(p => {
+                    allConsigliati.push({ ruolo: ruoloKey.toUpperCase(), player: p });
+                });
+            });
+
+            if (allConsigliati.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-rose-400 italic">Nessun giocatore trovato per questa squadra.</td></tr>`;
+                return;
+            }
+
+            allConsigliati.forEach(item => {
+                const p = item.player;
+                const match = getMatchDetails(p, giornata);
+                const diff = getDifficoltaMatch(match.avversario, match.isHome);
+                const statusBadges = `${p.infortunato ? ' <span class="bg-rose-950 text-rose-400 border border-rose-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">🏥 INF</span>' : ''}${p.diffidato ? ' <span class="bg-amber-950 text-amber-400 border border-amber-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">⚠️ DIFF</span>' : ''}`;
+
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-700/40 transition-colors";
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-amber-400">${item.ruolo}</td>
+                    <td class="p-3 font-semibold text-white">${p.name} ${statusBadges}</td>
+                    <td class="p-3 text-slate-300">${p.squadra} <span class="text-xs text-slate-400">(${match.isHome ? '🏠 Casa vs' : '✈️ Fuori vs'} ${match.avversario})</span></td>
+                    <td class="p-3 text-center"><span class="px-2 py-1 rounded text-xs font-semibold ${diff.badgeClass}">${diff.label}</span></td>
+                    <td class="p-3 text-center font-mono text-amber-400 font-bold">${(p.fm || 0).toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
         }
 
         window.onload = loadData;
