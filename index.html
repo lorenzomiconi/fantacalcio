@@ -115,35 +115,23 @@
             </div>
         </section>
 
-        <!-- SEZIONE PANCHINA (11 GIOCATORI: 2 POR, 3 DIF, 3 CEN, 3 ATT - ESCLUSI INFORTUNATI/DIFFIDATI) -->
+        <!-- SEZIONE PANCHINA LIBERA CON AGGIUNTA E CANCELLAZIONE -->
         <section class="bg-slate-800 p-6 rounded-xl border-2 border-sky-500/80 shadow-xl space-y-4">
             <div class="flex flex-col md:flex-row justify-between items-center border-b border-slate-700 pb-3 gap-3">
-                <h2 class="text-xl font-bold text-sky-400 flex items-center gap-2">
-                    <span>🪑</span> Panchina (11 Giocatori: 2 POR, 3 DIF, 3 CEN, 3 ATT)
-                </h2>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-xl font-bold text-sky-400 flex items-center gap-2">
+                        <span>🪑</span> Panchina Libera
+                    </h2>
+                    <button onclick="aggiungiPanchinaSlot()" class="bg-sky-500 hover:bg-sky-600 text-slate-950 font-extrabold text-xs px-3 py-1.5 rounded shadow transition-colors cursor-pointer flex items-center gap-1">
+                        ➕ Aggiungi Panchinaro
+                    </button>
+                </div>
                 <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700 font-mono text-sky-300" id="benchStats">
-                    Panchina: 0/11
+                    Panchina: 0
                 </div>
             </div>
 
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Portieri Panchina (2)</h3>
-                    <div class="flex flex-wrap gap-3" id="bench-por"></div>
-                </div>
-                <div>
-                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Difensori Panchina (3)</h3>
-                    <div class="flex flex-wrap gap-3" id="bench-dif"></div>
-                </div>
-                <div>
-                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Centrocampisti Panchina (3)</h3>
-                    <div class="flex flex-wrap gap-3" id="bench-cen"></div>
-                </div>
-                <div>
-                    <h3 class="text-xs font-bold text-sky-400 uppercase mb-2">Attaccanti Panchina (3)</h3>
-                    <div class="flex flex-wrap gap-3" id="bench-att"></div>
-                </div>
-            </div>
+            <div class="flex flex-wrap gap-3" id="benchContainer"></div>
         </section>
 
         <!-- ROSA COMPLETA -->
@@ -588,7 +576,6 @@
                 if (!container) return;
                 container.innerHTML = '';
 
-                // FILTRA VIA INFORTUNATI E DIFFIDATI DAL CAMPO
                 const listaDisponibili = (list || []).filter(p => !p.infortunato && !p.diffidato);
 
                 for (let i = 1; i <= count; i++) {
@@ -654,83 +641,108 @@
             updateCustomLineupStats();
         }
 
-        // GESTIONE PANCHINA (2 POR, 3 DIF, 3 CEN, 3 ATT - ESCLUSI INFORTUNATI/DIFFIDATI)
+        // GESTIONE PANCHINA LIBERA CON AGGIUNTA, RIMOZIONE E SALVATAGGIO
         function initBenchSelectors() {
+            const container = document.getElementById('benchContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
             const giornata = document.getElementById('giornataSelect') ? document.getElementById('giornataSelect').value : 12;
             const cascina = leagueData["CASCINA"] || {};
-            let savedBench = JSON.parse(localStorage.getItem('cascina_panchina') || "{}");
+            
+            // Uniamo tutti i giocatori disponibili (POR, DIF, CEN, ATT) sani
+            let tuttiGiocatori = [
+                ...(cascina.por || []),
+                ...(cascina.dif || []),
+                ...(cascina.cen || []),
+                ...(cascina.att || [])
+            ].filter(p => !p.infortunato && !p.diffidato);
 
-            const benchConfig = [
-                { id: 'bench-por', role: 'POR', count: 2, list: cascina.por || [] },
-                { id: 'bench-dif', role: 'DIF', count: 3, list: cascina.dif || [] },
-                { id: 'bench-cen', role: 'CEN', count: 3, list: cascina.cen || [] },
-                { id: 'bench-att', role: 'ATT', count: 3, list: cascina.att || [] }
-            ];
+            let savedBench = JSON.parse(localStorage.getItem('cascina_panchina_libera') || "[]");
 
-            benchConfig.forEach(cfg => {
-                const container = document.getElementById(cfg.id);
-                if (!container) return;
-                container.innerHTML = '';
+            // Se è la prima volta e non c'è nulla salvato, creiamo 1 slot di default vuoto
+            if (savedBench.length === 0) {
+                savedBench = [""];
+            }
 
-                // FILTRA VIA INFORTUNATI E DIFFIDATI Dalla PANCHINA
-                const listaDisponibili = (cfg.list || []).filter(p => !p.infortunato && !p.diffidato);
+            savedBench.forEach((savedName, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = "flex flex-col items-center bg-slate-900/95 p-2 rounded-lg border border-sky-500/40 shadow-lg w-36 sm:w-40 backdrop-blur relative";
 
-                for (let i = 1; i <= cfg.count; i++) {
-                    const wrapper = document.createElement('div');
-                    wrapper.className = "flex flex-col items-center bg-slate-900/95 p-2 rounded-lg border border-sky-500/40 shadow-lg w-36 sm:w-40 backdrop-blur";
+                // Tasto X per cancellare lo slot
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = "absolute top-1 right-1 bg-rose-950 hover:bg-rose-800 text-rose-400 font-bold text-[10px] w-5 h-5 rounded flex items-center justify-center cursor-pointer border border-rose-700/60";
+                deleteBtn.textContent = "✕";
+                deleteBtn.title = "Rimuovi panchinaro";
+                deleteBtn.onclick = () => {
+                    rimuoviPanchinaSlot(index);
+                };
 
-                    const label = document.createElement('span');
-                    label.className = "text-[10px] font-extrabold text-sky-400 uppercase tracking-wider";
-                    label.textContent = `${cfg.role} P.${i}`;
+                const label = document.createElement('span');
+                label.className = "text-[10px] font-extrabold text-sky-400 uppercase tracking-wider mb-1";
+                label.textContent = `Panchina #${index + 1}`;
 
-                    const matchInfo = document.createElement('span');
-                    matchInfo.className = "bench-match-info text-[9px] text-slate-400 mb-1 font-medium";
-                    matchInfo.textContent = "-";
+                const matchInfo = document.createElement('span');
+                matchInfo.className = "bench-match-info text-[9px] text-slate-400 mb-1 font-medium";
+                matchInfo.textContent = "-";
 
-                    const select = document.createElement('select');
-                    select.className = "bench-player-select w-full bg-slate-800 text-white text-xs p-1 rounded border border-slate-600 focus:outline-none text-center font-semibold";
-                    select.dataset.role = cfg.role;
-                    select.dataset.index = i;
-                    select.onchange = () => {
-                        salvaPanchina();
-                        aggiornaTuttiISelettori();
-                        aggiornaInfoPartitePanchina();
-                    };
+                const select = document.createElement('select');
+                select.className = "bench-player-select w-full bg-slate-800 text-white text-xs p-1 rounded border border-slate-600 focus:outline-none text-center font-semibold";
+                select.dataset.index = index;
+                select.onchange = () => {
+                    salvaPanchina();
+                    aggiornaTuttiISelettori();
+                    aggiornaInfoPartitePanchina();
+                };
 
-                    const emptyOpt = document.createElement('option');
-                    emptyOpt.value = "";
-                    emptyOpt.textContent = "-- Seleziona --";
-                    select.appendChild(emptyOpt);
+                const emptyOpt = document.createElement('option');
+                emptyOpt.value = "";
+                emptyOpt.textContent = "-- Seleziona --";
+                select.appendChild(emptyOpt);
 
-                    listaDisponibili.forEach(p => {
-                        const opt = document.createElement('option');
-                        opt.value = p.name;
-                        opt.textContent = `${p.name} (${p.squadra})`;
-                        select.appendChild(opt);
-                    });
+                tuttiGiocatori.forEach(p => {
+                    const opt = document.createElement('option');
+                    opt.value = p.name;
+                    opt.textContent = `${p.name} (${p.squadra})`;
+                    select.appendChild(opt);
+                });
 
-                    const key = `${cfg.role}_P${i}`;
-                    if (savedBench[key]) {
-                        select.value = savedBench[key];
-                        let playerObj = listaDisponibili.find(p => p.name === savedBench[key]);
-                        if (playerObj) {
-                            const match = getMatchDetails(playerObj, giornata);
-                            const diff = getDifficoltaMatch(match.avversario, match.isHome);
-                            const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
-                            matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}`;
-                            matchInfo.className = `bench-match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-sky-400' : 'text-amber-300'}`;
-                        }
+                if (savedName) {
+                    select.value = savedName;
+                    let playerObj = tuttiGiocatori.find(p => p.name === savedName);
+                    if (playerObj) {
+                        const match = getMatchDetails(playerObj, giornata);
+                        const diff = getDifficoltaMatch(match.avversario, match.isHome);
+                        const diffDot = diff.livello > 0 ? ` • Diff: ${diff.livello}/5` : '';
+                        matchInfo.innerHTML = `${match.isHome ? '🏠 vs' : '✈️ @'} ${match.avversario}${diffDot}`;
+                        matchInfo.className = `bench-match-info text-[9px] mb-1 font-medium ${match.isHome ? 'text-sky-400' : 'text-amber-300'}`;
                     }
-
-                    wrapper.appendChild(label);
-                    wrapper.appendChild(matchInfo);
-                    wrapper.appendChild(select);
-                    container.appendChild(wrapper);
                 }
+
+                wrapper.appendChild(deleteBtn);
+                wrapper.appendChild(label);
+                wrapper.appendChild(matchInfo);
+                wrapper.appendChild(select);
+                container.appendChild(wrapper);
             });
 
             aggiornaTuttiISelettori();
             updateBenchStats();
+        }
+
+        function aggiungiPanchinaSlot() {
+            let savedBench = JSON.parse(localStorage.getItem('cascina_panchina_libera') || "[]");
+            savedBench.push("");
+            localStorage.setItem('cascina_panchina_libera', JSON.stringify(savedBench));
+            initBenchSelectors();
+        }
+
+        function rimuoviPanchinaSlot(index) {
+            let savedBench = JSON.parse(localStorage.getItem('cascina_panchina_libera') || "[]");
+            savedBench.splice(index, 1);
+            localStorage.setItem('cascina_panchina_libera', JSON.stringify(savedBench));
+            initBenchSelectors();
+            updateAll();
         }
 
         function aggiornaInfoPartiteCampo() {
@@ -837,12 +849,11 @@
 
         function salvaPanchina() {
             const selectors = document.querySelectorAll('.bench-player-select');
-            let bench = JSON.parse(localStorage.getItem('cascina_panchina') || "{}");
+            let benchArr = [];
             selectors.forEach(s => {
-                const key = `${s.dataset.role}_P${s.dataset.index}`;
-                bench[key] = s.value;
+                benchArr.push(s.value);
             });
-            localStorage.setItem('cascina_panchina', JSON.stringify(bench));
+            localStorage.setItem('cascina_panchina_libera', JSON.stringify(benchArr));
             updateBenchStats();
         }
 
@@ -887,7 +898,7 @@
             });
             const benchStatsEl = document.getElementById('benchStats');
             if (benchStatsEl) {
-                benchStatsEl.textContent = `Panchina: ${count}/11`;
+                benchStatsEl.textContent = `Panchina: ${count}`;
             }
         }
 
@@ -1018,14 +1029,14 @@
                 att: parseInt(parts[2])
             };
 
-            const tbody = document.getElementById('schieraciTableBody');
-            tbody.innerHTML = '';
+            const tbody = document.getElementById('schieraciTableBlock') || document.getElementById('schieraciTableBody');
+            const targetTbody = document.getElementById('schieraciTableBody');
+            targetTbody.innerHTML = '';
 
             let allConsigliati = [];
 
             ['por', 'dif', 'cen', 'att'].forEach(ruoloKey => {
                 let giocatoriDisponibili = (reparti[ruoloKey] || []).filter(p => !p.infortunato && !p.diffidato);
-
                 giocatoriDisponibili.sort((a, b) => (b.fm || 0) - (a.fm || 0));
 
                 let limit = counts[ruoloKey];
@@ -1037,7 +1048,7 @@
             });
 
             if (allConsigliati.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-rose-400 italic">Nessun giocatore disponibile (tutti infortunati/diffidati o rosa vuota).</td></tr>`;
+                targetTbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-rose-400 italic">Nessun giocatore disponibile (tutti infortunati/diffidati o rosa vuota).</td></tr>`;
                 return;
             }
 
@@ -1055,7 +1066,7 @@
                     <td class="p-3 text-center"><span class="px-2 py-1 rounded text-xs font-semibold ${diff.badgeClass}">${diff.label}</span></td>
                     <td class="p-3 text-center font-mono text-amber-400 font-bold">${(p.fm || 0).toFixed(2)}</td>
                 `;
-                tbody.appendChild(tr);
+                targetTbody.appendChild(tr);
             });
         }
 
