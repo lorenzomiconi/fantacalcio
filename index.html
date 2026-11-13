@@ -448,7 +448,6 @@
                     schieraciTeamSelect.appendChild(new Option(team, team));
                 });
 
-                // Ripristina le scelte salvate
                 const savedTeam = localStorage.getItem('fanta_teamSelect');
                 if (savedTeam && teamNames.includes(savedTeam)) teamSelect.value = savedTeam;
 
@@ -481,7 +480,6 @@
             initCustomLineupSelectors();
             updateAll();
 
-            // Se era già stato premuto "Schiera Top 11" in precedenza, rigenera la tabella
             if (localStorage.getItem('fanta_schieraciActive') === 'true') {
                 eseguiSchieraci(false);
             }
@@ -517,13 +515,20 @@
             }
         }
 
+        // FUNZIONE CORRETTA E ROBUSTA PER TROVARE LA PARTITA DELLA SQUADRA
         function getMatchDetails(p, giornata) {
             if (!p || !p.squadra) return { avversario: "-", isHome: false };
             let squadraKey = p.squadra.toUpperCase().trim();
             const partiteGiornata = calendarioUfficiale[giornata] || [];
             for (let match of partiteGiornata) {
-                if (match.home === squadraKey) return { avversario: match.away, isHome: true };
-                if (match.away === squadraKey) return { avversario: match.home, isHome: false };
+                let homeKey = match.home ? match.home.toUpperCase().trim() : "";
+                let awayKey = match.away ? match.away.toUpperCase().trim() : "";
+                if (homeKey === squadraKey || homeKey.includes(squadraKey) || squadraKey.includes(homeKey)) {
+                    return { avversario: match.away, isHome: true };
+                }
+                if (awayKey === squadraKey || awayKey.includes(squadraKey) || squadraKey.includes(awayKey)) {
+                    return { avversario: match.home, isHome: false };
+                }
             }
             return { avversario: "-", isHome: false };
         }
@@ -790,7 +795,6 @@
             const t2 = document.getElementById('team2Select').value;
             if (!t1 || !t2) return;
 
-            // Salva la selezione del confronto
             localStorage.setItem('fanta_team1', t1);
             localStorage.setItem('fanta_team2', t2);
 
@@ -825,7 +829,6 @@
             `;
         }
 
-        // LOGICA DEL CONSIGLIERE AUTOMATICO (SCHIERACI) - FILTRA INFORTUNATI E DIFFIDATI E SALVA LO STATO
         function eseguiSchieraci(saveState = true) {
             const teamName = document.getElementById('schieraciTeamSelect').value;
             const moduloVal = document.getElementById('schieraciModulo').value;
@@ -854,7 +857,6 @@
             ['por', 'dif', 'cen', 'att'].forEach(ruoloKey => {
                 let giocatoriDisponibili = (reparti[ruoloKey] || []).filter(p => !p.infortunato && !p.diffidato);
 
-                // Ordina i disponibili per Fantamedia (FM) decrescente
                 giocatoriDisponibili.sort((a, b) => (b.fm || 0) - (a.fm || 0));
 
                 let limit = counts[ruoloKey];
