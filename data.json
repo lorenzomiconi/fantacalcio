@@ -1,5 +1,5 @@
 {
-   "CASCINA": {
+    "CASCINA": {
         "por": [
             {
                 "name": "OKOYE",
@@ -9,9 +9,10 @@
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
-                "rossi": 0,
+                "rossi": 2,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PESSINA",
@@ -20,10 +21,11 @@
                 "fm": 4.5,
                 "gol": 0,
                 "assist": 0,
-                "gialli": 0,
+                "gialli": 1,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SKORUPSKI",
@@ -33,9 +35,10 @@
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
-                "rossi": 0,
+                "rossi": 1,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -49,7 +52,9 @@
                 "gialli": 5,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": true
+                "diffidato": false,
+                "nota": "Squalificato per un turno (Giudice sportivo)",
+                "squalificato": true
             },
             {
                 "name": "DEL PRATO",
@@ -61,7 +66,8 @@
                 "gialli": 3,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KEMPF",
@@ -73,7 +79,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "LUCUMI",
@@ -85,7 +92,8 @@
                 "gialli": 3,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MANGAS",
@@ -97,7 +105,8 @@
                 "gialli": 1,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ZORTEA",
@@ -109,7 +118,8 @@
                 "gialli": 1,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "VASQUEZ",
@@ -121,7 +131,8 @@
                 "gialli": 2,
                 "rossi": 1,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "RAMON",
@@ -133,7 +144,8 @@
                 "gialli": 1,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -147,7 +159,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BERNARDESCHI",
@@ -159,7 +172,8 @@
                 "gialli": 2,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CACCIAMANI",
@@ -171,7 +185,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CALHANOGLU",
@@ -183,7 +198,8 @@
                 "gialli": 1,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DOUGLAS",
@@ -195,7 +211,8 @@
                 "gialli": 2,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MOREIRA",
@@ -207,7 +224,8 @@
                 "gialli": 1,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PULISIC",
@@ -219,7 +237,8 @@
                 "gialli": 2,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "WINKS",
@@ -231,7 +250,9 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lombalgia, tempi da definire",
+                "squalificato": false
             }
         ],
         "att": [
@@ -245,7 +266,8 @@
                 "gialli": 2,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "COLOMBO",
@@ -257,7 +279,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MOTA",
@@ -269,7 +292,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GEUBBELS",
@@ -281,7 +305,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "NOSLIN",
@@ -293,7 +318,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SCAMACCA",
@@ -305,7 +331,8 @@
                 "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     },
@@ -317,7 +344,8 @@
                 "mv": 6.27,
                 "fm": 5.09,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PERRI",
@@ -325,7 +353,8 @@
                 "mv": 6.0,
                 "fm": 4.56,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "TORRIANI",
@@ -333,7 +362,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -343,7 +373,8 @@
                 "mv": 5.86,
                 "fm": 6.14,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GHILARDI",
@@ -351,7 +382,8 @@
                 "mv": 6.45,
                 "fm": 7.15,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MANCINI",
@@ -359,7 +391,8 @@
                 "mv": 6.25,
                 "fm": 6.38,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MIRANDA",
@@ -367,7 +400,8 @@
                 "mv": 6.35,
                 "fm": 6.8,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PEDRAZA",
@@ -375,7 +409,8 @@
                 "mv": 5.96,
                 "fm": 5.89,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SCALVINI",
@@ -383,15 +418,18 @@
                 "mv": 5.67,
                 "fm": 5.67,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "TAVBARES",
                 "squadra": "LAZIO",
                 "mv": 6.5,
                 "fm": 7.1,
-                "infortunato": false,
-                "diffidato": false
+                "infortunato": true,
+                "diffidato": false,
+                "nota": "Problema al flessore (cambio l'8/11), tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "VALLE",
@@ -399,7 +437,8 @@
                 "mv": 5.86,
                 "fm": 6.07,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -409,7 +448,9 @@
                 "mv": 5.9,
                 "fm": 5.9,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Sovraccarico all'addome, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "COLPANI",
@@ -417,7 +458,8 @@
                 "mv": 6.0,
                 "fm": 6.5,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "JONES",
@@ -425,7 +467,8 @@
                 "mv": 6.06,
                 "fm": 6.06,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MBANGULA",
@@ -433,7 +476,8 @@
                 "mv": 7.08,
                 "fm": 10.08,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MCTOMINAY",
@@ -441,7 +485,8 @@
                 "mv": 5.97,
                 "fm": 6.72,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "RABIOT",
@@ -449,7 +494,8 @@
                 "mv": 6.83,
                 "fm": 8.83,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ROMANO",
@@ -457,7 +503,8 @@
                 "mv": 6.34,
                 "fm": 6.61,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SAMARDZIC",
@@ -465,7 +512,8 @@
                 "mv": 5.89,
                 "fm": 6.32,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -475,7 +523,8 @@
                 "mv": 5.0,
                 "fm": 5.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CASTRO",
@@ -483,7 +532,8 @@
                 "mv": 6.16,
                 "fm": 6.66,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DIAO",
@@ -491,7 +541,9 @@
                 "mv": 6.33,
                 "fm": 7.33,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al flessore, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "KOLO",
@@ -499,7 +551,8 @@
                 "mv": 5.64,
                 "fm": 6.05,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "LAURIENTE'",
@@ -507,7 +560,8 @@
                 "mv": 6.11,
                 "fm": 6.7,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "VARELA",
@@ -515,7 +569,8 @@
                 "mv": 6.65,
                 "fm": 9.4,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     },
@@ -527,7 +582,8 @@
                 "mv": 6.11,
                 "fm": 4.78,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PROVEDEL",
@@ -535,15 +591,17 @@
                 "mv": 6.25,
                 "fm": 5.75,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "STANKOVIC",
                 "squadra": "VENEZIA",
                 "mv": 6.16,
                 "fm": 4.52,
-                "infortunato": true,
-                "diffidato": false
+                "infortunato": false,
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -553,7 +611,9 @@
                 "mv": 5.94,
                 "fm": 5.81,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al retto femorale, rientro verso fine novembre",
+                "squalificato": false
             },
             {
                 "name": "BELLANOVA",
@@ -561,7 +621,9 @@
                 "mv": 6.04,
                 "fm": 6.11,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Distrazione all'adduttore, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "AUGUSTO",
@@ -569,7 +631,8 @@
                 "mv": 6.5,
                 "fm": 7.28,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "HAINAUT",
@@ -577,7 +640,8 @@
                 "mv": 6.18,
                 "fm": 6.91,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "JIMENEZ",
@@ -585,7 +649,8 @@
                 "mv": 6.03,
                 "fm": 6.78,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PROVSTGAARD",
@@ -593,7 +658,8 @@
                 "mv": 6.0,
                 "fm": 6.15,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SPINAZZOLA",
@@ -601,7 +667,9 @@
                 "mv": 5.92,
                 "fm": 5.92,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al bicipite femorale, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "WEALEY",
@@ -609,7 +677,8 @@
                 "mv": 6.22,
                 "fm": 6.56,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -619,7 +688,8 @@
                 "mv": 6.18,
                 "fm": 6.41,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CONCEICAO",
@@ -627,7 +697,8 @@
                 "mv": 6.14,
                 "fm": 6.64,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DIOUF",
@@ -635,7 +706,8 @@
                 "mv": 6.33,
                 "fm": 6.78,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "FAZZINI",
@@ -643,7 +715,8 @@
                 "mv": 5.63,
                 "fm": 5.54,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MODRIC",
@@ -651,7 +724,8 @@
                 "mv": 6.16,
                 "fm": 6.3,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PISILLI",
@@ -659,7 +733,8 @@
                 "mv": 6.17,
                 "fm": 7.06,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ZACCAGNI",
@@ -667,7 +742,9 @@
                 "mv": 6.43,
                 "fm": 7.08,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al quadricipite, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "ZHEGROVA",
@@ -675,7 +752,8 @@
                 "mv": 6.31,
                 "fm": 7.25,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -685,7 +763,8 @@
                 "mv": 5.67,
                 "fm": 5.67,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BOGA",
@@ -693,7 +772,8 @@
                 "mv": 6.0,
                 "fm": 6.43,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "HOJLIND",
@@ -701,7 +781,8 @@
                 "mv": 6.2,
                 "fm": 7.1,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "LUCCA",
@@ -709,7 +790,8 @@
                 "mv": 5.5,
                 "fm": 5.5,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PICCOLI",
@@ -717,7 +799,8 @@
                 "mv": 5.72,
                 "fm": 6.09,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "TOURE'",
@@ -725,7 +808,8 @@
                 "mv": 5.7,
                 "fm": 5.8,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     },
@@ -737,7 +821,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "VICARIO",
@@ -745,7 +830,8 @@
                 "mv": 6.27,
                 "fm": 5.18,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "TORNQVIST",
@@ -753,7 +839,8 @@
                 "mv": 6.14,
                 "fm": 4.14,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -763,7 +850,8 @@
                 "mv": 5.58,
                 "fm": 5.58,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DOEKHI",
@@ -771,7 +859,8 @@
                 "mv": 6.44,
                 "fm": 6.56,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GALLO",
@@ -779,7 +868,8 @@
                 "mv": 5.88,
                 "fm": 5.98,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GILA",
@@ -787,7 +877,8 @@
                 "mv": 6.36,
                 "fm": 6.58,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KRISTENSEN",
@@ -795,7 +886,9 @@
                 "mv": 5.44,
                 "fm": 5.31,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Distrazione ai flessori, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "RRAHMANI",
@@ -803,7 +896,8 @@
                 "mv": 5.88,
                 "fm": 5.93,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SPENCE",
@@ -811,7 +905,8 @@
                 "mv": 6.17,
                 "fm": 6.5,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "VALERI",
@@ -819,7 +914,8 @@
                 "mv": 5.93,
                 "fm": 5.93,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -829,7 +925,8 @@
                 "mv": 5.75,
                 "fm": 5.75,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CISSE",
@@ -837,7 +934,8 @@
                 "mv": 6.71,
                 "fm": 9.13,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GONCALVES",
@@ -845,7 +943,8 @@
                 "mv": 6.13,
                 "fm": 6.63,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MCKENNIE",
@@ -853,7 +952,8 @@
                 "mv": 5.91,
                 "fm": 6.22,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MILA",
@@ -861,7 +961,8 @@
                 "mv": 5.84,
                 "fm": 5.78,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "NICO PAZ",
@@ -869,7 +970,8 @@
                 "mv": 6.4,
                 "fm": 7.55,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ZANIOLO",
@@ -877,7 +979,8 @@
                 "mv": 6.0,
                 "fm": 6.33,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "THORSTVEDT",
@@ -885,7 +988,8 @@
                 "mv": 5.81,
                 "fm": 5.97,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -895,7 +999,8 @@
                 "mv": 5.67,
                 "fm": 5.67,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CARLOS",
@@ -903,7 +1008,8 @@
                 "mv": 5.45,
                 "fm": 5.35,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KRSTOVIC",
@@ -911,7 +1017,8 @@
                 "mv": 6.27,
                 "fm": 8.32,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PELLEGRINO",
@@ -919,7 +1026,8 @@
                 "mv": 6.0,
                 "fm": 7.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "RAMOS",
@@ -927,7 +1035,8 @@
                 "mv": 5.59,
                 "fm": 5.95,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "YEBOAH",
@@ -935,7 +1044,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     },
@@ -947,7 +1057,8 @@
                 "mv": 6.36,
                 "fm": 4.32,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GOLLINI",
@@ -955,7 +1066,8 @@
                 "mv": 6.55,
                 "fm": 5.15,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SVILAR",
@@ -963,7 +1075,9 @@
                 "mv": 6.4,
                 "fm": 5.8,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Frattura da stress al piede, tempi da definire",
+                "squalificato": false
             }
         ],
         "dif": [
@@ -973,7 +1087,9 @@
                 "mv": 5.75,
                 "fm": 5.75,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Risentimento al polpaccio, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "BELGHALI",
@@ -981,7 +1097,8 @@
                 "mv": 6.33,
                 "fm": 6.89,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "COUTO",
@@ -989,7 +1106,8 @@
                 "mv": 5.98,
                 "fm": 6.08,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DI MARCO",
@@ -997,7 +1115,8 @@
                 "mv": 6.25,
                 "fm": 6.35,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MARIN",
@@ -1005,7 +1124,8 @@
                 "mv": 5.9,
                 "fm": 6.05,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "N'DIKA",
@@ -1013,7 +1133,8 @@
                 "mv": 6.11,
                 "fm": 6.39,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SUTALO",
@@ -1021,7 +1142,9 @@
                 "mv": 6.22,
                 "fm": 5.97,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Problema al flessore, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "THEATE",
@@ -1029,7 +1152,8 @@
                 "mv": 6.06,
                 "fm": 6.38,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -1039,7 +1163,8 @@
                 "mv": 5.81,
                 "fm": 6.03,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "FABBIAN",
@@ -1047,7 +1172,8 @@
                 "mv": 6.09,
                 "fm": 6.72,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "FRATTESI",
@@ -1055,7 +1181,8 @@
                 "mv": 6.2,
                 "fm": 7.02,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "RODRIGUEZ",
@@ -1063,7 +1190,9 @@
                 "mv": 5.75,
                 "fm": 5.75,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Fermo dal 20 ottobre, rientro verso metà dicembre",
+                "squalificato": false
             },
             {
                 "name": "ROWE",
@@ -1071,7 +1200,8 @@
                 "mv": 5.58,
                 "fm": 5.58,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SAELEMAEKERS",
@@ -1079,7 +1209,9 @@
                 "mv": 6.25,
                 "fm": 6.5,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Caviglia operata, stop pesante",
+                "squalificato": false
             },
             {
                 "name": "VERGARA",
@@ -1087,7 +1219,8 @@
                 "mv": 6.08,
                 "fm": 6.58,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "VLASIC",
@@ -1095,7 +1228,8 @@
                 "mv": 5.82,
                 "fm": 6.09,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -1105,7 +1239,9 @@
                 "mv": 6.29,
                 "fm": 7.14,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Risentimento ai flessori, rientro verso inizio dicembre",
+                "squalificato": false
             },
             {
                 "name": "DAVIS",
@@ -1113,7 +1249,8 @@
                 "mv": 5.78,
                 "fm": 5.93,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DE KATELAERE",
@@ -1121,7 +1258,8 @@
                 "mv": 5.82,
                 "fm": 6.23,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ESPOSITO",
@@ -1129,7 +1267,8 @@
                 "mv": 6.14,
                 "fm": 7.29,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SOULE'",
@@ -1137,7 +1276,8 @@
                 "mv": 6.66,
                 "fm": 7.66,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "WOLTEMADE",
@@ -1145,7 +1285,8 @@
                 "mv": 5.84,
                 "fm": 6.22,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     },
@@ -1157,7 +1298,8 @@
                 "mv": 6.09,
                 "fm": 4.64,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CHRISTENSEN",
@@ -1165,7 +1307,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DE GEA",
@@ -1173,7 +1316,8 @@
                 "mv": 5.93,
                 "fm": 3.61,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -1183,7 +1327,8 @@
                 "mv": 5.95,
                 "fm": 6.05,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CALVANI",
@@ -1191,7 +1336,8 @@
                 "mv": 6.05,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "HERMOSO",
@@ -1199,7 +1345,8 @@
                 "mv": 6.33,
                 "fm": 6.83,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KAMARA",
@@ -1207,7 +1354,8 @@
                 "mv": 5.91,
                 "fm": 6.59,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MOLINA",
@@ -1215,7 +1363,8 @@
                 "mv": 6.22,
                 "fm": 6.44,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "OYONO",
@@ -1223,15 +1372,17 @@
                 "mv": 6.08,
                 "fm": 6.08,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "RODRIGUEZ",
                 "squadra": "CAGLIARI",
                 "mv": 5.86,
                 "fm": 5.73,
-                "infortunato": true,
-                "diffidato": false
+                "infortunato": false,
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BISSEK",
@@ -1239,7 +1390,8 @@
                 "mv": 5.91,
                 "fm": 6.28,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -1249,7 +1401,8 @@
                 "mv": 6.18,
                 "fm": 6.98,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CALò",
@@ -1257,7 +1410,8 @@
                 "mv": 6.5,
                 "fm": 8.05,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "FAGIOLI",
@@ -1265,7 +1419,8 @@
                 "mv": 6.05,
                 "fm": 6.18,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CHUKWUEZE",
@@ -1273,7 +1428,9 @@
                 "mv": 6.29,
                 "fm": 6.57,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Tendine dell'anca operato, rientro verso aprile",
+                "squalificato": false
             },
             {
                 "name": "MATIC",
@@ -1281,7 +1438,8 @@
                 "mv": 6.18,
                 "fm": 6.33,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ORSOLINI",
@@ -1289,7 +1447,8 @@
                 "mv": 6.2,
                 "fm": 7.4,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SCHMID",
@@ -1297,7 +1456,8 @@
                 "mv": 6.25,
                 "fm": 7.07,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "TAYLOR",
@@ -1305,7 +1465,8 @@
                 "mv": 6.48,
                 "fm": 7.02,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -1315,7 +1476,8 @@
                 "mv": 6.5,
                 "fm": 7.83,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BERARDI",
@@ -1323,7 +1485,9 @@
                 "mv": 5.94,
                 "fm": 6.44,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Tempi di recupero da definire",
+                "squalificato": false
             },
             {
                 "name": "CUTRONE",
@@ -1331,7 +1495,8 @@
                 "mv": 5.7,
                 "fm": 5.1,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DOUVIKAS",
@@ -1339,7 +1504,8 @@
                 "mv": 6.23,
                 "fm": 7.59,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ZEBALLOS",
@@ -1347,7 +1513,8 @@
                 "mv": 5.95,
                 "fm": 6.55,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KVERNADZE",
@@ -1355,7 +1522,8 @@
                 "mv": 6.75,
                 "fm": 7.84,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     },
@@ -1367,7 +1535,8 @@
                 "mv": 6.39,
                 "fm": 5.02,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CORVI",
@@ -1375,7 +1544,8 @@
                 "mv": 6.0,
                 "fm": 4.13,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MILINKOVIC",
@@ -1383,7 +1553,8 @@
                 "mv": 6.63,
                 "fm": 5.88,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -1393,7 +1564,8 @@
                 "mv": 5.98,
                 "fm": 6.75,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CELIK",
@@ -1401,7 +1573,8 @@
                 "mv": 5.78,
                 "fm": 5.84,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GRAGUSIN",
@@ -1409,7 +1582,8 @@
                 "mv": 5.55,
                 "fm": 5.55,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "FORTINI",
@@ -1417,7 +1591,9 @@
                 "mv": 5.8,
                 "fm": 5.8,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Affaticamento all'adduttore, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "GATTI",
@@ -1425,7 +1601,8 @@
                 "mv": 6.5,
                 "fm": 7.38,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "LULLI",
@@ -1433,7 +1610,8 @@
                 "mv": 6.85,
                 "fm": 8.25,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SOLET",
@@ -1441,7 +1619,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "STONES",
@@ -1449,7 +1628,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -1459,7 +1639,8 @@
                 "mv": 6.06,
                 "fm": 7.17,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BARELLA",
@@ -1467,7 +1648,8 @@
                 "mv": 6.23,
                 "fm": 6.63,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GONZALEZ",
@@ -1475,7 +1657,9 @@
                 "mv": 6.04,
                 "fm": 6.54,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al soleo",
+                "squalificato": false
             },
             {
                 "name": "MANDRAGORA",
@@ -1483,7 +1667,8 @@
                 "mv": 6.03,
                 "fm": 6.53,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MORA",
@@ -1491,7 +1676,8 @@
                 "mv": 6.66,
                 "fm": 8.16,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PELLEGRINI",
@@ -1499,7 +1685,9 @@
                 "mv": 6.13,
                 "fm": 6.13,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione muscolare di alto grado",
+                "squalificato": false
             },
             {
                 "name": "SUCIC",
@@ -1507,7 +1695,8 @@
                 "mv": 6.06,
                 "fm": 6.39,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ANGUISSA",
@@ -1515,7 +1704,8 @@
                 "mv": 5.68,
                 "fm": 6.11,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -1525,7 +1715,8 @@
                 "mv": 6.18,
                 "fm": 6.95,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MARTINEZ",
@@ -1533,7 +1724,8 @@
                 "mv": 6.6,
                 "fm": 8.8,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "OSMAJIC",
@@ -1541,7 +1733,8 @@
                 "mv": 6.28,
                 "fm": 7.58,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "RASPADORI",
@@ -1549,7 +1742,9 @@
                 "mv": 5.88,
                 "fm": 6.63,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Distrazione al bicipite femorale, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "ROBINSON",
@@ -1557,7 +1752,8 @@
                 "mv": 6.34,
                 "fm": 7.22,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SANTOS",
@@ -1565,7 +1761,9 @@
                 "mv": 6.19,
                 "fm": 6.19,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al bicipite femorale, rientro verso inizio dicembre",
+                "squalificato": false
             }
         ]
     },
@@ -1577,7 +1775,8 @@
                 "mv": 6.45,
                 "fm": 5.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MURIC",
@@ -1585,7 +1784,8 @@
                 "mv": 5.88,
                 "fm": 3.75,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SPORTIELLO",
@@ -1593,7 +1793,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -1603,7 +1804,9 @@
                 "mv": 6.15,
                 "fm": 6.15,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Problema muscolare alla gamba, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "COMUZZO",
@@ -1611,7 +1814,8 @@
                 "mv": 5.95,
                 "fm": 6.2,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DE WINTER",
@@ -1619,7 +1823,8 @@
                 "mv": 5.73,
                 "fm": 5.59,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DOIG",
@@ -1627,7 +1832,8 @@
                 "mv": 5.73,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KALULU",
@@ -1635,7 +1841,9 @@
                 "mv": 5.77,
                 "fm": 5.77,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione agli ischiocrurali, rientro verso fine novembre",
+                "squalificato": false
             },
             {
                 "name": "GABRIEL",
@@ -1643,7 +1851,8 @@
                 "mv": 5.83,
                 "fm": 6.38,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "VOJVODA",
@@ -1651,7 +1860,8 @@
                 "mv": 5.59,
                 "fm": 5.59,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ZE PEDRP",
@@ -1659,7 +1869,8 @@
                 "mv": 5.84,
                 "fm": 5.7,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -1669,7 +1880,8 @@
                 "mv": 6.07,
                 "fm": 6.79,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BUSIO",
@@ -1677,7 +1889,8 @@
                 "mv": 6.17,
                 "fm": 6.42,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DA CUNHA",
@@ -1685,7 +1898,8 @@
                 "mv": 6.2,
                 "fm": 6.48,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "EKKELENKAMP",
@@ -1693,7 +1907,8 @@
                 "mv": 6.14,
                 "fm": 7.05,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "FITZ-JIM",
@@ -1701,7 +1916,8 @@
                 "mv": 6.03,
                 "fm": 6.53,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GAETANO",
@@ -1709,7 +1925,9 @@
                 "mv": 6.11,
                 "fm": 6.54,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Distrazione agli adduttori, rientro verso fine novembre",
+                "squalificato": false
             },
             {
                 "name": "LOBOTKA",
@@ -1717,7 +1935,9 @@
                 "mv": 6.21,
                 "fm": 6.64,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione della sindesmosi, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "MASTANTUONO",
@@ -1725,7 +1945,8 @@
                 "mv": 6.34,
                 "fm": 7.34,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -1735,7 +1956,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "NERES",
@@ -1743,7 +1965,9 @@
                 "mv": 5.75,
                 "fm": 5.75,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al semimembranoso, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "PINAMONTI",
@@ -1751,7 +1975,8 @@
                 "mv": 6.07,
                 "fm": 7.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ROMERO",
@@ -1759,7 +1984,8 @@
                 "mv": 6.08,
                 "fm": 6.69,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SIMEONE",
@@ -1767,7 +1993,8 @@
                 "mv": 6.14,
                 "fm": 6.77,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "THURAM",
@@ -1775,7 +2002,9 @@
                 "mv": 6.7,
                 "fm": 8.65,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Problema al bicipite femorale, tempi da definire",
+                "squalificato": false
             }
         ]
     },
@@ -1787,7 +2016,8 @@
                 "mv": 6.06,
                 "fm": 5.31,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MERET",
@@ -1795,7 +2025,8 @@
                 "mv": 6.25,
                 "fm": 4.68,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "SANCHEZ",
@@ -1803,7 +2034,8 @@
                 "mv": 6.33,
                 "fm": 5.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -1813,7 +2045,8 @@
                 "mv": 6.1,
                 "fm": 6.3,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "COCO",
@@ -1821,7 +2054,8 @@
                 "mv": 6.11,
                 "fm": 6.07,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DI LORENZO",
@@ -1829,7 +2063,9 @@
                 "mv": 6.13,
                 "fm": 6.28,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione all'adduttore lungo, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "FAVASULI",
@@ -1837,7 +2073,9 @@
                 "mv": 6.63,
                 "fm": 7.13,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Lesione al retto femorale, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "FLORIANI",
@@ -1845,7 +2083,8 @@
                 "mv": 5.91,
                 "fm": 6.14,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "HEHHEM",
@@ -1853,7 +2092,8 @@
                 "mv": 5.82,
                 "fm": 5.61,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MINA",
@@ -1861,7 +2101,9 @@
                 "mv": 5.75,
                 "fm": 5.75,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Microlesione al bicipite femorale, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "OSTIGARD",
@@ -1869,7 +2111,8 @@
                 "mv": 6.07,
                 "fm": 5.89,
                 "infortunato": false,
-                "diffidato": true
+                "diffidato": true,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -1879,7 +2122,8 @@
                 "mv": 6.08,
                 "fm": 6.47,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CANCELLIERI",
@@ -1887,7 +2131,8 @@
                 "mv": 6.13,
                 "fm": 6.54,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DE BRUYNE",
@@ -1895,7 +2140,8 @@
                 "mv": 6.32,
                 "fm": 7.23,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KARLSTROM",
@@ -1903,7 +2149,8 @@
                 "mv": 5.68,
                 "fm": 5.77,
                 "infortunato": false,
-                "diffidato": true
+                "diffidato": true,
+                "squalificato": false
             },
             {
                 "name": "KESSIE",
@@ -1911,7 +2158,8 @@
                 "mv": 6.25,
                 "fm": 7.08,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "NJIE",
@@ -1919,7 +2167,8 @@
                 "mv": 6.28,
                 "fm": 7.28,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PERRONE",
@@ -1927,7 +2176,8 @@
                 "mv": 5.91,
                 "fm": 5.91,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "POLITANO",
@@ -1935,7 +2185,8 @@
                 "mv": 6.18,
                 "fm": 7.03,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -1945,7 +2196,8 @@
                 "mv": 5.59,
                 "fm": 6.14,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BOWIE",
@@ -1953,7 +2205,8 @@
                 "mv": 5.84,
                 "fm": 6.07,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "DOVBYK",
@@ -1961,7 +2214,8 @@
                 "mv": 5.67,
                 "fm": 6.5,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GHEDJEMIS",
@@ -1969,7 +2223,8 @@
                 "mv": 6.47,
                 "fm": 7.25,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MALEN",
@@ -1977,7 +2232,8 @@
                 "mv": 6.55,
                 "fm": 9.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MENDY",
@@ -1985,7 +2241,8 @@
                 "mv": 6.05,
                 "fm": 6.5,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     },
@@ -1997,7 +2254,8 @@
                 "mv": 6.41,
                 "fm": 5.86,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "MOTTA",
@@ -2005,7 +2263,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PALMISANI",
@@ -2013,7 +2272,8 @@
                 "mv": 6.39,
                 "fm": 5.02,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "dif": [
@@ -2023,7 +2283,8 @@
                 "mv": 6.64,
                 "fm": 7.43,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "BARTESAGHI",
@@ -2031,7 +2292,8 @@
                 "mv": 5.81,
                 "fm": 5.31,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "CAMBIASO",
@@ -2039,7 +2301,9 @@
                 "mv": 5.46,
                 "fm": 5.54,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Affaticamento muscolare",
+                "squalificato": false
             },
             {
                 "name": "KAIKI",
@@ -2047,7 +2311,8 @@
                 "mv": 6.34,
                 "fm": 6.78,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "OBRADOR",
@@ -2055,7 +2320,8 @@
                 "mv": 5.83,
                 "fm": 5.83,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PAVLOVIC",
@@ -2063,7 +2329,9 @@
                 "mv": 6.35,
                 "fm": 6.3,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Problema alla spalla",
+                "squalificato": false
             },
             {
                 "name": "VALDEPENAS",
@@ -2071,7 +2339,8 @@
                 "mv": 5.71,
                 "fm": 6.07,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ZAPPACOSTA",
@@ -2079,7 +2348,8 @@
                 "mv": 5.58,
                 "fm": 5.47,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "cen": [
@@ -2089,7 +2359,9 @@
                 "mv": 5.71,
                 "fm": 5.29,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Distrazione al retto femorale, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "CRISTANTE",
@@ -2097,7 +2369,8 @@
                 "mv": 6.42,
                 "fm": 6.75,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "EDERSON",
@@ -2105,23 +2378,27 @@
                 "mv": 5.77,
                 "fm": 6.18,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "GUDMUNSSON",
                 "squadra": "LAZIO",
                 "mv": 6.33,
                 "fm": 7.17,
-                "infortunato": false,
-                "diffidato": false
+                "infortunato": true,
+                "diffidato": false,
+                "nota": "Problema alla spalla, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "KONè",
                 "squadra": "ROMA",
                 "mv": 6.64,
                 "fm": 7.36,
-                "infortunato": true,
-                "diffidato": false
+                "infortunato": false,
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "PESSINA",
@@ -2129,7 +2406,8 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "POBEGA",
@@ -2137,7 +2415,8 @@
                 "mv": 6.33,
                 "fm": 6.78,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "ZIELISKI",
@@ -2145,7 +2424,8 @@
                 "mv": 6.25,
                 "fm": 7.05,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ],
         "att": [
@@ -2155,7 +2435,8 @@
                 "mv": 6.75,
                 "fm": 7.42,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "KEAN",
@@ -2163,7 +2444,9 @@
                 "mv": 6.13,
                 "fm": 6.38,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Fastidio alla tibia, rientro verso inizio dicembre",
+                "squalificato": false
             },
             {
                 "name": "RAIMONDO",
@@ -2171,7 +2454,9 @@
                 "mv": 6.43,
                 "fm": 8.68,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Distorsione alla caviglia, rientro verso metà dicembre",
+                "squalificato": false
             },
             {
                 "name": "VITINHA",
@@ -2179,7 +2464,8 @@
                 "mv": 5.86,
                 "fm": 5.81,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             },
             {
                 "name": "YILDIZ",
@@ -2187,7 +2473,9 @@
                 "mv": 6.0,
                 "fm": 6.0,
                 "infortunato": true,
-                "diffidato": false
+                "diffidato": false,
+                "nota": "Problema al piede, tempi da definire",
+                "squalificato": false
             },
             {
                 "name": "MALDINI",
@@ -2195,7 +2483,8 @@
                 "mv": 6.2,
                 "fm": 7.57,
                 "infortunato": false,
-                "diffidato": false
+                "diffidato": false,
+                "squalificato": false
             }
         ]
     }
