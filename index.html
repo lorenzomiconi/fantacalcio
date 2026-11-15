@@ -169,7 +169,7 @@
                     <h2 class="text-xl font-bold text-amber-400 flex items-center gap-2">
                         <span>🔮</span> SCHIERACI (Consigliere Automatico)
                     </h2>
-                    <p class="text-slate-400 text-xs mt-1">Esclude automaticamente infortunati e diffidati, scegliendo i migliori per fantamedia</p>
+                    <p class="text-slate-400 text-xs mt-1">Esclude automaticamente infortunati (🏥) e squalificati (❗); i diffidati (⚠️) possono giocare, scegliendo i migliori per fantamedia</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
                     <div>
@@ -580,7 +580,7 @@
                 if (!container) return;
                 container.innerHTML = '';
 
-                const listaDisponibili = (list || []).filter(p => !p.infortunato && !p.diffidato);
+                const listaDisponibili = (list || []).filter(p => !p.infortunato && !p.squalificato);
 
                 for (let i = 1; i <= count; i++) {
                     const wrapper = document.createElement('div');
@@ -658,7 +658,7 @@
                 ...(cascina.dif || []),
                 ...(cascina.cen || []),
                 ...(cascina.att || [])
-            ].filter(p => !p.infortunato && !p.diffidato);
+            ].filter(p => !p.infortunato && !p.squalificato);
 
             let savedBench = JSON.parse(localStorage.getItem('cascina_panchina_libera') || "[]");
 
@@ -927,7 +927,7 @@
                 giocatori.forEach(p => {
                     const match = getMatchDetails(p, giornata);
                     const diff = getDifficoltaMatch(match.avversario, match.isHome);
-                    const statusBadges = `${p.infortunato ? ' <span class="bg-rose-950 text-rose-400 border border-rose-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">🏥 INF</span>' : ''}${p.diffidato ? ' <span class="bg-amber-950 text-amber-400 border border-amber-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">⚠️ DIFF</span>' : ''}`;
+                    const statusBadges = `${p.squalificato ? ' <span class="bg-red-950 text-red-500 border border-red-600/70 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1" title="Squalificato: non può giocare">❗ SQUAL.</span>' : ''}${p.infortunato ? ' <span class="bg-rose-950 text-rose-400 border border-rose-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">🏥 INF</span>' : ''}${p.diffidato ? ' <span class="bg-amber-950 text-amber-400 border border-amber-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">⚠️ DIFF</span>' : ''}`;
 
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-slate-700/40 transition-colors";
@@ -974,6 +974,24 @@
             };
         }
 
+        function contaFlag(teamName, flag) {
+            const reparti = leagueData[teamName] || {};
+            return ['por', 'dif', 'cen', 'att'].reduce((n, k) => n + (reparti[k] || []).filter(p => p[flag]).length, 0);
+        }
+
+        function elencoIndisponibili(teamName) {
+            const reparti = leagueData[teamName] || {};
+            const out = [], dif = [], sq = [];
+            const esc = t => String(t || '').replace(/&/g, '&amp;').replace(/</g, '&lt;');
+            ['por', 'dif', 'cen', 'att'].forEach(k => (reparti[k] || []).forEach(p => {
+                if (p.squalificato) sq.push(`<div class="mb-1"><span class="text-red-500 font-black">❗</span> <b class="text-red-400">${esc(p.name)}</b> <span class="text-slate-500">(${esc(p.squadra)}) squalificato, non gioca</span></div>`);
+                else if (p.infortunato) out.push(`<div class="mb-1">🏥 <b class="text-rose-300">${esc(p.name)}</b> <span class="text-slate-500">(${esc(p.squadra)})</span>${p.nota ? `<div class="text-[10px] text-slate-500">${esc(p.nota)}</div>` : ''}</div>`);
+                else if (p.diffidato) dif.push(`<div class="mb-1">⚠️ <b class="text-amber-300">${esc(p.name)}</b> <span class="text-slate-500">diffidato, può giocare</span></div>`);
+            }));
+            const tutto = sq.concat(out, dif);
+            return tutto.length ? tutto.join('') : '<span class="text-slate-500">nessuno</span>';
+        }
+
         function aggiornaConfronto() {
             const t1 = document.getElementById('team1Select').value;
             const t2 = document.getElementById('team2Select').value;
@@ -1010,6 +1028,16 @@
                     <td class="p-3 text-slate-400 text-xs font-semibold uppercase">Giocatori Diffidati (⚠️)</td>
                     <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${s2.diffCount > 0 ? 'bg-amber-950 text-amber-400 border border-amber-700/60' : 'bg-slate-700 text-slate-400'}">${s2.diffCount} Diffidati</span></td>
                 </tr>
+                <tr>
+                    <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${contaFlag(t1, 'squalificato') > 0 ? 'bg-red-950 text-red-500 border border-red-600/70' : 'bg-slate-700 text-slate-400'}">${contaFlag(t1, 'squalificato')} Squalificati</span></td>
+                    <td class="p-3 text-slate-400 text-xs font-semibold uppercase">Giocatori Squalificati (❗)</td>
+                    <td class="p-3"><span class="px-2 py-1 rounded text-xs font-bold ${contaFlag(t2, 'squalificato') > 0 ? 'bg-red-950 text-red-500 border border-red-600/70' : 'bg-slate-700 text-slate-400'}">${contaFlag(t2, 'squalificato')} Squalificati</span></td>
+                </tr>
+                <tr>
+                    <td class="p-3 text-left text-xs align-top">${elencoIndisponibili(t1)}</td>
+                    <td class="p-3 text-slate-400 text-xs font-semibold uppercase align-top">Chi non gioca 🏥</td>
+                    <td class="p-3 text-left text-xs align-top">${elencoIndisponibili(t2)}</td>
+                </tr>
             `;
         }
 
@@ -1039,7 +1067,7 @@
             let allConsigliati = [];
 
             ['por', 'dif', 'cen', 'att'].forEach(ruoloKey => {
-                let giocatoriDisponibili = (reparti[ruoloKey] || []).filter(p => !p.infortunato && !p.diffidato);
+                let giocatoriDisponibili = (reparti[ruoloKey] || []).filter(p => !p.infortunato && !p.squalificato);
                 giocatoriDisponibili.sort((a, b) => (b.fm || 0) - (a.fm || 0));
 
                 let limit = counts[ruoloKey];
@@ -1051,7 +1079,7 @@
             });
 
             if (allConsigliati.length === 0) {
-                targetTbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-rose-400 italic">Nessun giocatore disponibile (tutti infortunati/diffidati o rosa vuota).</td></tr>`;
+                targetTbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-rose-400 italic">Nessun giocatore disponibile (tutti infortunati/squalificati o rosa vuota).</td></tr>`;
                 return;
             }
 
