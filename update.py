@@ -1,7 +1,7 @@
 """
 Aggiorna MV, FM, Infortunati e Diffidati di tutti i giocatori in data.json leggendo le statistiche
 di Fantapazz: https://www.fantapazz.com/fantacalcio/statistiche
-e la pagina indisponibili/squalificati: https://www.fantapazz.com/fantacalcio/indisponibili
+e la pagina probabili formazioni (infortunati, squalificati, diffidati): https://www.fantapazz.com/calcio/fantacalcio/serie-a/probabili-formazioni
 
 Uso:
     python update.py              # scarica dal sito (fonte: Fantapazz)
@@ -22,7 +22,7 @@ import unicodedata
 import pandas as pd
 
 URL_STATISTICHE = "https://www.fantapazz.com/fantacalcio/statistiche"
-URL_INDISPONIBILI = "https://www.fantapazz.com/fantacalcio/indisponibili"
+URL_FORMAZIONI = "https://www.fantapazz.com/calcio/fantacalcio/serie-a/probabili-formazioni"
 FILE_DATI = "data.json"
 FILE_REPORT = "report_aggiornamento.txt"
 FILE_LOCALI = ["statistiche_fantapazz.xlsx", "statistiche_fantapazz.xls", "statistiche_fantapazz.csv"]
@@ -39,7 +39,10 @@ CLUB = {
 }
 RUOLI = {"1": "por", "2": "dif", "3": "cen", "4": "att", "P": "por", "D": "dif", "C": "cen", "A": "att"}
 
-ALIAS = {}
+ALIAS = {
+    ("RASPADORI", "att"): "Raspadori",   # nel json e' al Napoli, su Fantapazz e' all'Atalanta
+    ("HEHHEM", "dif"): "Heggem",         # refuso nel json
+}
 SOGLIA = 0.82
 
 
@@ -125,41 +128,115 @@ def carica_tabella(file_locale):
     return tabella_da_html(r.text)
 
 
-def scarica_indisponibili():
-    """Tenta di recuperare infortunati e diffidati dalla pagina dedicata di Fantapazz."""
-    infortunati = set()
-    diffidati = set()
-    try:
-        import requests
-        print(f"🚑 Scarico infortunati e diffidati da {URL_INDISPONIBILI} ...")
-        r = requests.get(
-            URL_INDISPONIBILI,
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                                   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-                     "Accept-Language": "it-IT,it;q=0.9"},
-            timeout=20,
-        )
-        r.raise_for_status()
-        tables = pd.read_html(io.StringIO(r.text))
-        for t in tables:
-            cols = [str(c).lower() for c in t.columns]
-            c_nome = next((c for c in t.columns if "calciatore" in str(c).lower() or "giocatore" in str(c).lower() or "nome" in str(c).lower()), None)
-            c_stato = next((c for c in t.columns if "stato" in str(c).lower() or "motivo" in str(c).lower() or "tipo" in str(c).lower() or "situazione" in str(c).lower()), None)
-            if c_nome:
-                for _, row in t.iterrows():
-                    nome = norm(row[c_nome])
-                    if not nome:
-                        continue
-                    stato_str = " ".join(str(row[c]).lower() for c in t.columns if pd.notna(row[c]))
-                    if "diffidat" in stato_str:
-                        diffidati.add(nome)
-                    elif any(k in stato_str for k in ["infortun", "indisponibil", "lesion", "affatic", "distors", "operat", "stop", "out"]):
-                        infortunati.add(nome)
-        print(f"✅ Trovati {len(infortunati)} infortunati e {len(diffidati)} diffidati.")
-    except Exception as e:
-        print(f"⚠️ Impossibile scaricare lista indisponibili automatica ({e}). Mantengo i flag esistenti in data.json.")
-    return infortunati, diffidati
+SEZIONI = ["Ballottaggi", "Squalificati", "Infortunati", "In dubbio", "Diffidati", "Ultimo aggiornamento"]
+RE_DATA = re.compile(r"^[A-Za-z]{3}, \d{1,2} [A-Za-z]{3}")
+RE_BALL = re.compile(r"([^/,]+?)\s*/\s*([^,]+?)\s+(\d+)%\s*-\s*(\d+)%")
 
+
+def risolvi_nome(testo, noti):
+    """Toglie lettera del ruolo (PDCA) attaccata davanti/dietro e ritorna il nome come scritto nelle statistiche."""
+    t = re.sub(r"^[-*•]\s*", "", testo.strip())
+    t = re.sub(r"\s*\[.*$", "", t).strip()
+    cand = [t]
+    if len(t) > 2 and t[-1] in "PDCA":
+        cand.append(t[:-1].strip())
+    if len(t) > 2 and t[0] in "PDCA":
+        cand.append(t[1:].strip())
+    for c in cand:
+        if norm(c) in noti:
+            return noti[norm(c)][0]
+    return None
+
+
+def parse_formazioni(testo, righe):
+    """testo: pagina in righe di testo. Ritorna {sigla_club: {titolari, panchina, infortunati, ...}}."""
+    noti = {}
+    for r in righe:
+        noti.setdefault(norm(r["nome"]), (r["nome"], r["club"]))
+    righe_t = [l.strip() for l in testo.splitlines() if l.strip()]
+    out = {}
+    for k, l in enumerate(righe_t):
+        if l != "Ultime notizie":
+            continue
+        # nomi prima di "Ultime notizie", fino alla data della partita / fine blocco precedente
+        nomi, j = [], k - 1
+        while j >= 0 and not RE_DATA.match(righe_t[j]) and righe_t[j] != "Ultimo aggiornamento" and not righe_t[j].startswith("## "):
+            n = risolvi_nome(righe_t[j], noti)
+            if n:
+                nomi.insert(0, n)
+            j -= 1
+        if len(nomi) < 11:
+            continue
+        clubs = [noti[norm(n)][1] for n in nomi if noti[norm(n)][1]]
+        if not clubs:
+            continue
+        club = max(set(clubs), key=clubs.count)
+        blocco = dict(titolari=nomi[:11], panchina=nomi[11:], infortunati={}, squalificati=[], dubbi={}, diffidati=[], ballottaggi=[])
+        # sezioni dopo "Ultime notizie"
+        sez, m = None, k + 1
+        while m < len(righe_t) and righe_t[m] != "Ultimo aggiornamento":
+            riga = righe_t[m]
+            if riga in SEZIONI:
+                sez = riga
+            elif sez == "Ballottaggi":
+                for a, b, pa, pb in RE_BALL.findall(riga):
+                    na, nb = risolvi_nome(a, noti), risolvi_nome(b, noti)
+                    if na and nb:
+                        blocco["ballottaggi"].append((na, nb, int(pa), int(pb)))
+            elif sez in ("Squalificati", "Infortunati", "In dubbio", "Diffidati"):
+                n = risolvi_nome(riga, noti)
+                nota = re.search(r"\[(.*?)\]", riga)
+                if n and sez == "Squalificati":
+                    blocco["squalificati"].append(n)
+                elif n and sez == "Infortunati":
+                    blocco["infortunati"][n] = nota.group(1) if nota else ""
+                elif n and sez == "In dubbio":
+                    blocco["dubbi"][n] = ""
+                elif n and sez == "Diffidati":
+                    blocco["diffidati"].append(n)
+                elif sez == "Infortunati" and blocco["infortunati"] and not n:   # nota su riga separata
+                    ultimo = list(blocco["infortunati"])[-1]
+                    if not blocco["infortunati"][ultimo]:
+                        blocco["infortunati"][ultimo] = riga.strip("[] ")
+            m += 1
+        out[club] = blocco
+    return out
+
+
+def scarica_formazioni(righe):
+    import requests
+    from bs4 import BeautifulSoup
+    r = requests.get(URL_FORMAZIONI, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "it-IT,it;q=0.9"}, timeout=30)
+    r.raise_for_status()
+    testo = BeautifulSoup(r.text, "lxml").get_text("\n")
+    return parse_formazioni(testo, righe)
+
+
+
+def flag_news(p, ruolo, riga, news):
+    """Ritorna (infortunato, diffidato, nota, squalificato) usando SEMPRE il club: evita gli omonimi (Kone I. Sassuolo != Kone M. Roma)."""
+    club = riga["club"] if riga else sigla_club(p["squadra"])
+    nome_sito = riga["nome"] if riga else None
+    alias = ALIAS.get((p["name"], ruolo))
+    if alias:
+        nome_sito = alias
+        for c_, b_ in news.items():
+            if alias in (list(b_["titolari"]) + list(b_["panchina"]) + list(b_["infortunati"]) + list(b_["squalificati"])):
+                club = c_
+    b = news.get(club)
+    if not b:
+        return False, False, "", False
+    if nome_sito is None:
+        tutti = list(b["titolari"]) + list(b["panchina"]) + list(b["infortunati"]) + list(b["squalificati"]) + list(b["dubbi"]) + list(b["diffidati"])
+        sc = sorted(((punteggio(p["name"], n), n) for n in tutti), reverse=True)
+        nome_sito = sc[0][1] if sc and sc[0][0] >= SOGLIA else None
+    if nome_sito is None:
+        return False, False, "", False
+    if nome_sito in b["squalificati"]:
+        return False, False, "Squalificato", True
+    if nome_sito in b["infortunati"]:
+        return True, False, b["infortunati"][nome_sito], False
+    return False, nome_sito in b["diffidati"], "", False
 
 def leggi_file(path):
     if path.lower().endswith((".xlsx", ".xls")):
@@ -204,6 +281,7 @@ def estrai_voti(df, fonte):
             "ruolo": ruolo,
             "mv": numero(r[c_mv]),
             "fm": numero(r[c_fm]),
+            "pres": None,
         })
     return righe
 
@@ -213,7 +291,7 @@ def trova(p, ruolo, righe):
     alias = ALIAS.get((p["name"], ruolo))
     if alias:
         for r in righe:
-            if r["nome"] == alias and (club is None or r["club"] == club):
+            if r["nome"] == alias:
                 return r, "alias"
 
     def migliori(cands, soglia):
@@ -238,15 +316,6 @@ def trova(p, ruolo, righe):
     if r:
         return None, f"non trovato nel club; forse e' {r['nome']} ({r['club']}) -> se si', aggiungilo ad ALIAS"
     return None, motivo
-
-
-def verifica_stato(nome_json, nome_sito, lista_stato):
-    if not lista_stato:
-        return False
-    for item in lista_stato:
-        if punteggio(nome_json, item) >= 0.90 or (nome_sito and punteggio(nome_sito, item) >= 0.90):
-            return True
-    return False
 
 
 def main():
@@ -276,7 +345,16 @@ def main():
     con_voti = [r for r in righe if r["mv"] is not None and r["fm"] is not None]
     print(f"✅ {len(righe)} calciatori letti, {len(con_voti)} con voti")
 
-    infortunati_set, diffidati_set = scarica_indisponibili() if not file_locale else (set(), set())
+    news = {}
+    if not file_locale:
+        try:
+            news = scarica_formazioni(righe)
+            if len(news) < 10:
+                raise ValueError(f"trovate solo {len(news)} squadre su 20: la pagina e' cambiata?")
+            print(f"📰 Infortunati/diffidati letti per {len(news)} squadre")
+        except Exception as e:
+            news = {}
+            print(f"⚠️ News non aggiornate ({e}). Mantengo i flag esistenti in data.json.")
 
     with open(FILE_DATI, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -289,12 +367,16 @@ def main():
                 etichetta = f"{squadra}: {p['name']} ({p['squadra']}, {ruolo})"
                 nome_sito = r["nome"] if r else None
 
-                if infortunati_set or diffidati_set:
-                    p["infortunato"] = verifica_stato(p["name"], nome_sito, infortunati_set)
-                    p["diffidato"] = verifica_stato(p["name"], nome_sito, diffidati_set)
+                if news:
+                    p["infortunato"], p["diffidato"], nota, p["squalificato"] = flag_news(p, ruolo, r, news)
+                    if nota:
+                        p["nota"] = nota
+                    else:
+                        p.pop("nota", None)
                 else:
                     p.setdefault("infortunato", False)
                     p.setdefault("diffidato", False)
+                    p.setdefault("squalificato", False)
 
                 if r is None:
                     log["problemi"].append(f"{etichetta} -> {motivo}")
