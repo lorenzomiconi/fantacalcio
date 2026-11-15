@@ -9,7 +9,7 @@
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
-                "rossi": 2,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             },
@@ -20,7 +20,7 @@
                 "fm": 4.5,
                 "gol": 0,
                 "assist": 0,
-                "gialli": 1,
+                "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
@@ -33,7 +33,7 @@
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
-                "rossi": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false
             }
