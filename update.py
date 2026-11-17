@@ -18,6 +18,7 @@ import os
 import re
 import shutil
 import unicodedata
+from datetime import datetime
 
 import pandas as pd
 
@@ -192,7 +193,7 @@ def risolvi_nome(testo, noti):
     return None
 
 
-def parse_formazioni(testo, righe):
+def parse_formazioni(testo, righe, ordine=None):
     """testo: pagina in righe di testo. Ritorna {sigla_club: {titolari, panchina, infortunati, ...}}."""
     noti = {}
     for r in righe:
@@ -244,6 +245,8 @@ def parse_formazioni(testo, righe):
                         blocco["infortunati"][ultimo] = riga.strip("[] ")
             m += 1
         out[club] = blocco
+        if ordine is not None:
+            ordine.append(club)
     return out
 
 
@@ -253,7 +256,21 @@ def scarica_formazioni(righe):
     r = requests.get(URL_FORMAZIONI, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "it-IT,it;q=0.9"}, timeout=30)
     r.raise_for_status()
     testo = BeautifulSoup(r.text, "lxml").get_text("\n")
-    return parse_formazioni(testo, righe)
+    ordine = []
+    news = parse_formazioni(testo, righe, ordine)
+    scrivi_turno(ordine)
+    return news
+
+
+def scrivi_turno(ordine):
+    """Le squadre compaiono a coppie (casa, trasferta): salvo le partite del prossimo turno in turno.json.
+    La pagina le confronta col calendario per aprirsi da sola sulla giornata giusta."""
+    nome_club = {v: k for k, v in CLUB.items()}
+    partite = [f"{nome_club.get(a, a)}-{nome_club.get(b, b)}" for a, b in zip(ordine[0::2], ordine[1::2])]
+    if len(partite) >= 5:
+        with open("turno.json", "w", encoding="utf-8") as f:
+            json.dump({"aggiornato": datetime.now().strftime("%Y-%m-%d %H:%M"), "partite": partite}, f, ensure_ascii=False, indent=2)
+        print(f"📅 Prossimo turno: {len(partite)} partite salvate in turno.json")
 
 
 
