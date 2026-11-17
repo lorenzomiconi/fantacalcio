@@ -431,7 +431,7 @@
 
         async function loadData() {
             try {
-                const response = await fetch('data.json');
+                const response = await fetch('data.json?' + Date.now());
                 leagueData = await response.json();
                 initDashboard();
             } catch (error) {
@@ -927,7 +927,7 @@
                 giocatori.forEach(p => {
                     const match = getMatchDetails(p, giornata);
                     const diff = getDifficoltaMatch(match.avversario, match.isHome);
-                    const statusBadges = `${p.squalificato ? ' <span class="bg-red-950 text-red-500 border border-red-600/70 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1" title="Squalificato: non può giocare">❗ SQUAL.</span>' : ''}${p.infortunato ? ' <span class="bg-rose-950 text-rose-400 border border-rose-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">🏥 INF</span>' : ''}${p.diffidato ? ' <span class="bg-amber-950 text-amber-400 border border-amber-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">⚠️ DIFF</span>' : ''}`;
+                    const statusBadges = `${p.rigori_parati ? ` <span class="bg-sky-950 text-sky-300 border border-sky-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1" title="Rigori parati">🧤 ${p.rigori_parati} RP</span>` : ''}${p.squalificato ? ' <span class="bg-red-950 text-red-500 border border-red-600/70 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1" title="Squalificato: non può giocare">❗ SQUAL.</span>' : ''}${p.infortunato ? ' <span class="bg-rose-950 text-rose-400 border border-rose-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">🏥 INF</span>' : ''}${p.diffidato ? ' <span class="bg-amber-950 text-amber-400 border border-amber-700/60 text-[10px] px-1.5 py-0.5 rounded font-bold ml-1">⚠️ DIFF</span>' : ''}`;
 
                     const tr = document.createElement('tr');
                     tr.className = "hover:bg-slate-700/40 transition-colors";

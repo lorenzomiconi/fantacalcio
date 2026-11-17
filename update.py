@@ -86,6 +86,50 @@ def punteggio(nome_json, nome_sito):
     )
 
 
+URL_STAT_FC = "https://www.fantacalcio.it/statistiche-serie-a/2026-27/italia/medie"
+# alias per i nomi di Fantacalcio.it (nome nel json, ruolo) -> nome sul sito
+ALIAS_FC = {
+    ("MATINEZ", "por"): "Martinez Jo.",     # refuso nel json: e' il portiere dell'Inter
+    ("PIO", "att"): "Esposito F.P.",
+    ("RASPADORI", "att"): "Raspadori",     # nel json e' al Napoli, ora e' all'Atalanta
+    ("HEHHEM", "dif"): "Heggem",           # refuso nel json
+}
+
+
+def scarica_stat_fantacalcio():
+    """Gol, assist, ammonizioni ed espulsioni da Fantacalcio.it (tabella con colonne Gol, Ass, Amm, Esp)."""
+    import requests
+    r = requests.get(URL_STAT_FC, headers={"User-Agent": "Mozilla/5.0", "Accept-Language": "it-IT,it;q=0.9"}, timeout=30)
+    r.raise_for_status()
+    for t in pd.read_html(io.StringIO(r.text)):
+        cols = {str(c).strip().lower(): c for c in t.columns}
+        if all(k in cols for k in ("gol", "ass", "amm", "esp")):
+            c_nome = next((c for k, c in cols.items() if "calciator" in k or k in ("nome", "giocatore")), t.columns[0])
+            c_sq = cols.get("sq") or cols.get("squadra")
+            n = lambda v: int(numero(v) or 0)
+            return [{"nome": str(row[c_nome]).strip(), "club": str(row[c_sq]).strip().upper()[:3] if c_sq is not None else None,
+                     "ruolo": None, "gol": n(row[cols["gol"]]), "ass": n(row[cols["ass"]]),
+                     "amm": n(row[cols["amm"]]), "esp": n(row[cols["esp"]]), "rp": n(row[cols["rp"]]) if "rp" in cols else 0} for _, row in t.iterrows() if not pd.isna(row[c_nome])]
+    raise ValueError("tabella con Gol/Ass/Amm/Esp non trovata nella pagina")
+
+
+def applica_statistiche(data, righe_fc):
+    """Scrive gol, assist, gialli, rossi per ogni giocatore. Ritorna i non abbinati."""
+    mancanti = []
+    for squadra, reparti in data.items():
+        if squadra.startswith("_"):
+            continue
+        for ruolo, giocatori in reparti.items():
+            for p in giocatori:
+                r, motivo = trova(p, ruolo, righe_fc, ALIAS_FC)
+                if r is None:
+                    mancanti.append(f"{squadra}: {p['name']} ({p['squadra']}) -> {motivo}")
+                    continue
+                p["gol"], p["assist"], p["gialli"], p["rossi"] = r["gol"], r["ass"], r["amm"], r["esp"]
+                p["rigori_parati"] = r.get("rp", p.get("rigori_parati", 0))
+    return mancanti
+
+
 def numero(v):
     if v is None or (isinstance(v, float) and pd.isna(v)):
         return None
@@ -286,9 +330,9 @@ def estrai_voti(df, fonte):
     return righe
 
 
-def trova(p, ruolo, righe):
+def trova(p, ruolo, righe, aliases=None):
     club = sigla_club(p["squadra"])
-    alias = ALIAS.get((p["name"], ruolo))
+    alias = (ALIAS if aliases is None else aliases).get((p["name"], ruolo))
     if alias:
         for r in righe:
             if r["nome"] == alias:
@@ -386,6 +430,16 @@ def main():
                     p["mv"], p["fm"] = r["mv"], r["fm"]
                     (log["ok"] if motivo in ("ok", "alias") else log["fuzzy"]).append(
                         f"{etichetta} -> {r['nome']} | MV {r['mv']} FM {r['fm']}" + ("" if motivo in ("ok", "alias") else f"  [{motivo}]"))
+
+    if not file_locale:
+        try:
+            stat_fc = scarica_stat_fantacalcio()
+            manc = applica_statistiche(data, stat_fc)
+            print(f"📈 Gol, assist e cartellini aggiornati da Fantacalcio.it ({len(manc)} giocatori non abbinati)")
+            for m in manc:
+                print("   ⚠️ ", m)
+        except Exception as e:
+            print(f"⚠️ Gol/assist/cartellini non aggiornati ({e}). Mantengo i valori esistenti.")
 
     shutil.copy(FILE_DATI, FILE_DATI + ".bak")
     with open(FILE_DATI, "w", encoding="utf-8") as f:

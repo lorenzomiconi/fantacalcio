@@ -9,10 +9,11 @@
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
-                "rossi": 2,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 1
             },
             {
                 "name": "PESSINA",
@@ -21,11 +22,12 @@
                 "fm": 4.5,
                 "gol": 0,
                 "assist": 0,
-                "gialli": 1,
+                "gialli": 0,
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "SKORUPSKI",
@@ -35,10 +37,11 @@
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
-                "rossi": 1,
+                "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 1
             }
         ],
         "dif": [
@@ -54,7 +57,8 @@
                 "infortunato": false,
                 "diffidato": false,
                 "nota": "Squalificato per un turno (Giudice sportivo)",
-                "squalificato": true
+                "squalificato": true,
+                "rigori_parati": 0
             },
             {
                 "name": "DEL PRATO",
@@ -67,7 +71,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "KEMPF",
@@ -80,7 +85,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "LUCUMI",
@@ -93,7 +99,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "MANGAS",
@@ -106,7 +113,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "ZORTEA",
@@ -119,7 +127,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "VASQUEZ",
@@ -132,7 +141,8 @@
                 "rossi": 1,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "RAMON",
@@ -145,7 +155,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -160,7 +171,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "BERNARDESCHI",
@@ -173,7 +185,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "CACCIAMANI",
@@ -186,7 +199,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "CALHANOGLU",
@@ -199,7 +213,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "DOUGLAS",
@@ -212,7 +227,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "MOREIRA",
@@ -225,7 +241,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "PULISIC",
@@ -238,7 +255,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "WINKS",
@@ -246,13 +264,14 @@
                 "mv": 6.03,
                 "fm": 5.97,
                 "gol": 0,
-                "assist": 1,
-                "gialli": 0,
+                "assist": 0,
+                "gialli": 1,
                 "rossi": 0,
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lombalgia, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -267,7 +286,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "COLOMBO",
@@ -280,7 +300,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "MOTA",
@@ -293,7 +314,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "GEUBBELS",
@@ -306,7 +328,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "NOSLIN",
@@ -319,7 +342,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             },
             {
                 "name": "SCAMACCA",
@@ -332,7 +356,8 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "rigori_parati": 0
             }
         ]
     },
@@ -345,7 +370,12 @@
                 "fm": 5.09,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PERRI",
@@ -354,7 +384,12 @@
                 "fm": 4.56,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "TORRIANI",
@@ -363,7 +398,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -374,7 +414,12 @@
                 "fm": 6.14,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GHILARDI",
@@ -383,7 +428,12 @@
                 "fm": 7.15,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MANCINI",
@@ -392,7 +442,12 @@
                 "fm": 6.38,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MIRANDA",
@@ -401,7 +456,12 @@
                 "fm": 6.8,
                 "infortunato": true,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 5,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PEDRAZA",
@@ -410,7 +470,12 @@
                 "fm": 5.89,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SCALVINI",
@@ -419,7 +484,12 @@
                 "fm": 5.67,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "TAVBARES",
@@ -429,7 +499,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Problema al flessore (cambio l'8/11), tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 3,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VALLE",
@@ -438,7 +513,12 @@
                 "fm": 6.07,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -450,7 +530,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Sovraccarico all'addome, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "COLPANI",
@@ -459,7 +544,12 @@
                 "fm": 6.5,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "JONES",
@@ -468,7 +558,12 @@
                 "fm": 6.06,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MBANGULA",
@@ -477,7 +572,12 @@
                 "fm": 10.08,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MCTOMINAY",
@@ -486,7 +586,12 @@
                 "fm": 6.72,
                 "infortunato": true,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "RABIOT",
@@ -495,7 +600,12 @@
                 "fm": 8.83,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 5,
+                "assist": 4,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ROMANO",
@@ -504,7 +614,12 @@
                 "fm": 6.61,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SAMARDZIC",
@@ -513,7 +628,12 @@
                 "fm": 6.32,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -524,7 +644,12 @@
                 "fm": 5.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CASTRO",
@@ -533,7 +658,12 @@
                 "fm": 6.66,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DIAO",
@@ -543,7 +673,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al flessore, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KOLO",
@@ -552,7 +687,12 @@
                 "fm": 6.05,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "LAURIENTE'",
@@ -561,7 +701,12 @@
                 "fm": 6.7,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VARELA",
@@ -570,7 +715,12 @@
                 "fm": 9.4,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 9,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -583,7 +733,12 @@
                 "fm": 4.78,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PROVEDEL",
@@ -592,7 +747,12 @@
                 "fm": 5.75,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "STANKOVIC",
@@ -601,7 +761,12 @@
                 "fm": 4.52,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 1
             }
         ],
         "dif": [
@@ -613,7 +778,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al retto femorale, rientro verso fine novembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BELLANOVA",
@@ -623,7 +793,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Distrazione all'adduttore, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "AUGUSTO",
@@ -632,7 +807,12 @@
                 "fm": 7.28,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 2,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "HAINAUT",
@@ -641,7 +821,12 @@
                 "fm": 6.91,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "JIMENEZ",
@@ -650,7 +835,12 @@
                 "fm": 6.78,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PROVSTGAARD",
@@ -659,7 +849,12 @@
                 "fm": 6.15,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SPINAZZOLA",
@@ -669,7 +864,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al bicipite femorale, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "WEALEY",
@@ -678,7 +878,12 @@
                 "fm": 6.56,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 3,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -689,7 +894,12 @@
                 "fm": 6.41,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 3,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CONCEICAO",
@@ -698,7 +908,12 @@
                 "fm": 6.64,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DIOUF",
@@ -707,7 +922,12 @@
                 "fm": 6.78,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 4,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FAZZINI",
@@ -716,7 +936,12 @@
                 "fm": 5.54,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MODRIC",
@@ -725,7 +950,12 @@
                 "fm": 6.3,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PISILLI",
@@ -734,7 +964,12 @@
                 "fm": 7.06,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ZACCAGNI",
@@ -744,7 +979,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al quadricipite, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 5,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ZHEGROVA",
@@ -753,7 +993,12 @@
                 "fm": 7.25,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -764,7 +1009,12 @@
                 "fm": 5.67,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BOGA",
@@ -773,7 +1023,12 @@
                 "fm": 6.43,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "HOJLIND",
@@ -782,7 +1037,12 @@
                 "fm": 7.1,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "LUCCA",
@@ -791,7 +1051,12 @@
                 "fm": 5.5,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PICCOLI",
@@ -800,7 +1065,12 @@
                 "fm": 6.09,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "TOURE'",
@@ -809,7 +1079,12 @@
                 "fm": 5.8,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -822,7 +1097,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VICARIO",
@@ -831,7 +1111,12 @@
                 "fm": 5.18,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "TORNQVIST",
@@ -840,7 +1125,12 @@
                 "fm": 4.14,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -851,7 +1141,12 @@
                 "fm": 5.58,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DOEKHI",
@@ -860,7 +1155,12 @@
                 "fm": 6.56,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GALLO",
@@ -869,7 +1169,12 @@
                 "fm": 5.98,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GILA",
@@ -878,7 +1183,12 @@
                 "fm": 6.58,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KRISTENSEN",
@@ -888,7 +1198,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Distrazione ai flessori, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "RRAHMANI",
@@ -897,7 +1212,12 @@
                 "fm": 5.93,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SPENCE",
@@ -906,7 +1226,12 @@
                 "fm": 6.5,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VALERI",
@@ -915,7 +1240,12 @@
                 "fm": 5.93,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -926,7 +1256,12 @@
                 "fm": 5.75,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CISSE",
@@ -935,7 +1270,12 @@
                 "fm": 9.13,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 5,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GONCALVES",
@@ -944,7 +1284,12 @@
                 "fm": 6.63,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MCKENNIE",
@@ -953,7 +1298,12 @@
                 "fm": 6.22,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MILA",
@@ -962,7 +1312,12 @@
                 "fm": 5.78,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "NICO PAZ",
@@ -971,7 +1326,12 @@
                 "fm": 7.55,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 3,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ZANIOLO",
@@ -980,7 +1340,12 @@
                 "fm": 6.33,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "THORSTVEDT",
@@ -989,7 +1354,12 @@
                 "fm": 5.97,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 1,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -1000,7 +1370,12 @@
                 "fm": 5.67,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CARLOS",
@@ -1009,7 +1384,12 @@
                 "fm": 5.35,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KRSTOVIC",
@@ -1018,7 +1398,12 @@
                 "fm": 8.32,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 7,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PELLEGRINO",
@@ -1027,7 +1412,12 @@
                 "fm": 7.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "RAMOS",
@@ -1036,7 +1426,12 @@
                 "fm": 5.95,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 2,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "YEBOAH",
@@ -1045,7 +1440,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -1058,7 +1458,12 @@
                 "fm": 4.32,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GOLLINI",
@@ -1067,7 +1472,12 @@
                 "fm": 5.15,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SVILAR",
@@ -1077,7 +1487,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Frattura da stress al piede, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -1089,7 +1504,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Risentimento al polpaccio, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BELGHALI",
@@ -1098,7 +1518,12 @@
                 "fm": 6.89,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 3,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "COUTO",
@@ -1107,7 +1532,12 @@
                 "fm": 6.08,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DI MARCO",
@@ -1116,7 +1546,12 @@
                 "fm": 6.35,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MARIN",
@@ -1125,7 +1560,12 @@
                 "fm": 6.05,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "N'DIKA",
@@ -1134,7 +1574,12 @@
                 "fm": 6.39,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SUTALO",
@@ -1144,7 +1589,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Problema al flessore, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "THEATE",
@@ -1153,7 +1603,12 @@
                 "fm": 6.38,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -1164,7 +1619,12 @@
                 "fm": 6.03,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FABBIAN",
@@ -1173,7 +1633,12 @@
                 "fm": 6.72,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FRATTESI",
@@ -1182,7 +1647,12 @@
                 "fm": 7.02,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "RODRIGUEZ",
@@ -1192,7 +1662,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Fermo dal 20 ottobre, rientro verso metà dicembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ROWE",
@@ -1201,7 +1676,12 @@
                 "fm": 5.58,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SAELEMAEKERS",
@@ -1211,7 +1691,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Caviglia operata, stop pesante",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VERGARA",
@@ -1220,7 +1705,12 @@
                 "fm": 6.58,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VLASIC",
@@ -1229,7 +1719,12 @@
                 "fm": 6.09,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -1241,7 +1736,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Risentimento ai flessori, rientro verso inizio dicembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DAVIS",
@@ -1250,7 +1750,12 @@
                 "fm": 5.93,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DE KATELAERE",
@@ -1259,7 +1764,12 @@
                 "fm": 6.23,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ESPOSITO",
@@ -1268,7 +1778,12 @@
                 "fm": 7.29,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SOULE'",
@@ -1277,7 +1792,12 @@
                 "fm": 7.66,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 3,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "WOLTEMADE",
@@ -1286,7 +1806,12 @@
                 "fm": 6.22,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -1299,7 +1824,12 @@
                 "fm": 4.64,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CHRISTENSEN",
@@ -1308,7 +1838,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DE GEA",
@@ -1317,7 +1852,12 @@
                 "fm": 3.61,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -1328,7 +1868,12 @@
                 "fm": 6.05,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CALVANI",
@@ -1337,7 +1882,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "HERMOSO",
@@ -1346,7 +1896,12 @@
                 "fm": 6.83,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KAMARA",
@@ -1355,7 +1910,12 @@
                 "fm": 6.59,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MOLINA",
@@ -1364,7 +1924,12 @@
                 "fm": 6.44,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "OYONO",
@@ -1373,7 +1938,12 @@
                 "fm": 6.08,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "RODRIGUEZ",
@@ -1382,7 +1952,12 @@
                 "fm": 5.73,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BISSEK",
@@ -1391,7 +1966,12 @@
                 "fm": 6.28,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -1402,7 +1982,12 @@
                 "fm": 6.98,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CALò",
@@ -1411,7 +1996,12 @@
                 "fm": 8.05,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 5,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FAGIOLI",
@@ -1420,7 +2010,12 @@
                 "fm": 6.18,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CHUKWUEZE",
@@ -1430,7 +2025,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Tendine dell'anca operato, rientro verso aprile",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MATIC",
@@ -1439,7 +2039,12 @@
                 "fm": 6.33,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ORSOLINI",
@@ -1448,7 +2053,12 @@
                 "fm": 7.4,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SCHMID",
@@ -1457,7 +2067,12 @@
                 "fm": 7.07,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 4,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "TAYLOR",
@@ -1466,7 +2081,12 @@
                 "fm": 7.02,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -1477,7 +2097,12 @@
                 "fm": 7.83,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BERARDI",
@@ -1487,7 +2112,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Tempi di recupero da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CUTRONE",
@@ -1496,7 +2126,12 @@
                 "fm": 5.1,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DOUVIKAS",
@@ -1505,7 +2140,12 @@
                 "fm": 7.59,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 5,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ZEBALLOS",
@@ -1514,7 +2154,12 @@
                 "fm": 6.55,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KVERNADZE",
@@ -1523,7 +2168,12 @@
                 "fm": 7.84,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 4,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -1536,7 +2186,12 @@
                 "fm": 5.02,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CORVI",
@@ -1545,7 +2200,12 @@
                 "fm": 4.13,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MILINKOVIC",
@@ -1554,7 +2214,12 @@
                 "fm": 5.88,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -1565,7 +2230,12 @@
                 "fm": 6.75,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CELIK",
@@ -1574,7 +2244,12 @@
                 "fm": 5.84,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GRAGUSIN",
@@ -1583,7 +2258,12 @@
                 "fm": 5.55,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FORTINI",
@@ -1593,7 +2273,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Affaticamento all'adduttore, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GATTI",
@@ -1602,7 +2287,12 @@
                 "fm": 7.38,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "LULLI",
@@ -1611,7 +2301,12 @@
                 "fm": 8.25,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SOLET",
@@ -1620,7 +2315,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "STONES",
@@ -1629,7 +2329,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -1640,7 +2345,12 @@
                 "fm": 7.17,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BARELLA",
@@ -1649,7 +2359,12 @@
                 "fm": 6.63,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GONZALEZ",
@@ -1659,7 +2374,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al soleo",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MANDRAGORA",
@@ -1668,7 +2388,12 @@
                 "fm": 6.53,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MORA",
@@ -1677,7 +2402,12 @@
                 "fm": 8.16,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PELLEGRINI",
@@ -1687,7 +2417,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione muscolare di alto grado",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SUCIC",
@@ -1696,7 +2431,12 @@
                 "fm": 6.39,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ANGUISSA",
@@ -1705,7 +2445,12 @@
                 "fm": 6.11,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -1716,7 +2461,12 @@
                 "fm": 6.95,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MARTINEZ",
@@ -1725,7 +2475,12 @@
                 "fm": 8.8,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "OSMAJIC",
@@ -1734,7 +2489,12 @@
                 "fm": 7.58,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "RASPADORI",
@@ -1744,7 +2504,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Distrazione al bicipite femorale, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ROBINSON",
@@ -1753,7 +2518,12 @@
                 "fm": 7.22,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SANTOS",
@@ -1763,7 +2533,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al bicipite femorale, rientro verso inizio dicembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -1776,7 +2551,12 @@
                 "fm": 5.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 1
             },
             {
                 "name": "MURIC",
@@ -1785,7 +2565,12 @@
                 "fm": 3.75,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SPORTIELLO",
@@ -1794,7 +2579,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -1806,7 +2596,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Problema muscolare alla gamba, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "COMUZZO",
@@ -1815,7 +2610,12 @@
                 "fm": 6.2,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DE WINTER",
@@ -1824,7 +2624,12 @@
                 "fm": 5.59,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DOIG",
@@ -1833,7 +2638,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KALULU",
@@ -1843,7 +2653,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione agli ischiocrurali, rientro verso fine novembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GABRIEL",
@@ -1852,7 +2667,12 @@
                 "fm": 6.38,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VOJVODA",
@@ -1861,7 +2681,12 @@
                 "fm": 5.59,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ZE PEDRP",
@@ -1870,7 +2695,12 @@
                 "fm": 5.7,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -1881,7 +2711,12 @@
                 "fm": 6.79,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BUSIO",
@@ -1890,7 +2725,12 @@
                 "fm": 6.42,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DA CUNHA",
@@ -1899,7 +2739,12 @@
                 "fm": 6.48,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "EKKELENKAMP",
@@ -1908,7 +2753,12 @@
                 "fm": 7.05,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FITZ-JIM",
@@ -1917,7 +2767,12 @@
                 "fm": 6.53,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GAETANO",
@@ -1927,7 +2782,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Distrazione agli adduttori, rientro verso fine novembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 1,
+                "rigori_parati": 0
             },
             {
                 "name": "LOBOTKA",
@@ -1937,7 +2797,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione della sindesmosi, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MASTANTUONO",
@@ -1946,7 +2811,12 @@
                 "fm": 7.34,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -1957,7 +2827,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "NERES",
@@ -1967,7 +2842,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al semimembranoso, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PINAMONTI",
@@ -1976,7 +2856,12 @@
                 "fm": 7.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ROMERO",
@@ -1985,7 +2870,12 @@
                 "fm": 6.69,
                 "infortunato": true,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SIMEONE",
@@ -1994,7 +2884,12 @@
                 "fm": 6.77,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "THURAM",
@@ -2004,7 +2899,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Problema al bicipite femorale, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 6,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -2017,7 +2917,12 @@
                 "fm": 5.31,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MERET",
@@ -2026,7 +2931,12 @@
                 "fm": 4.68,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "SANCHEZ",
@@ -2035,7 +2945,12 @@
                 "fm": 5.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -2046,7 +2961,12 @@
                 "fm": 6.3,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "COCO",
@@ -2055,7 +2975,12 @@
                 "fm": 6.07,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DI LORENZO",
@@ -2065,7 +2990,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione all'adduttore lungo, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FAVASULI",
@@ -2075,7 +3005,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Lesione al retto femorale, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "FLORIANI",
@@ -2084,7 +3019,12 @@
                 "fm": 6.14,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "HEHHEM",
@@ -2093,7 +3033,12 @@
                 "fm": 5.61,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MINA",
@@ -2103,7 +3048,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Microlesione al bicipite femorale, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "OSTIGARD",
@@ -2112,7 +3062,12 @@
                 "fm": 5.89,
                 "infortunato": false,
                 "diffidato": true,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 4,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -2123,7 +3078,12 @@
                 "fm": 6.47,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CANCELLIERI",
@@ -2132,7 +3092,12 @@
                 "fm": 6.54,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DE BRUYNE",
@@ -2141,7 +3106,12 @@
                 "fm": 7.23,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 4,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KARLSTROM",
@@ -2150,7 +3120,12 @@
                 "fm": 5.77,
                 "infortunato": false,
                 "diffidato": true,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 4,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KESSIE",
@@ -2159,7 +3134,12 @@
                 "fm": 7.08,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "NJIE",
@@ -2168,7 +3148,12 @@
                 "fm": 7.28,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 3,
+                "assist": 2,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PERRONE",
@@ -2177,7 +3162,12 @@
                 "fm": 5.91,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "POLITANO",
@@ -2186,7 +3176,12 @@
                 "fm": 7.03,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 3,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -2197,7 +3192,12 @@
                 "fm": 6.14,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BOWIE",
@@ -2206,7 +3206,12 @@
                 "fm": 6.07,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "DOVBYK",
@@ -2215,7 +3220,12 @@
                 "fm": 6.5,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GHEDJEMIS",
@@ -2224,7 +3234,12 @@
                 "fm": 7.25,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 4,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MALEN",
@@ -2233,7 +3248,12 @@
                 "fm": 9.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 8,
+                "assist": 2,
+                "gialli": 1,
+                "rossi": 1,
+                "rigori_parati": 0
             },
             {
                 "name": "MENDY",
@@ -2242,7 +3262,12 @@
                 "fm": 6.5,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     },
@@ -2255,7 +3280,12 @@
                 "fm": 5.86,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 1
             },
             {
                 "name": "MOTTA",
@@ -2264,7 +3294,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PALMISANI",
@@ -2273,7 +3308,12 @@
                 "fm": 5.02,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "dif": [
@@ -2284,7 +3324,12 @@
                 "fm": 7.43,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "BARTESAGHI",
@@ -2293,7 +3338,12 @@
                 "fm": 5.31,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CAMBIASO",
@@ -2303,7 +3353,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Affaticamento muscolare",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KAIKI",
@@ -2312,7 +3367,12 @@
                 "fm": 6.78,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "OBRADOR",
@@ -2321,7 +3381,12 @@
                 "fm": 5.83,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PAVLOVIC",
@@ -2331,7 +3396,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Problema alla spalla",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VALDEPENAS",
@@ -2340,7 +3410,12 @@
                 "fm": 6.07,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ZAPPACOSTA",
@@ -2349,7 +3424,12 @@
                 "fm": 5.47,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "cen": [
@@ -2361,7 +3441,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Distrazione al retto femorale, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "CRISTANTE",
@@ -2370,7 +3455,12 @@
                 "fm": 6.75,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 1,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "EDERSON",
@@ -2379,7 +3469,12 @@
                 "fm": 6.18,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "GUDMUNSSON",
@@ -2389,7 +3484,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Problema alla spalla, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 1,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KONè",
@@ -2398,7 +3498,12 @@
                 "fm": 7.36,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 2,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "PESSINA",
@@ -2407,7 +3512,12 @@
                 "fm": 6.0,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "POBEGA",
@@ -2416,7 +3526,12 @@
                 "fm": 6.78,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "ZIELISKI",
@@ -2425,7 +3540,12 @@
                 "fm": 7.05,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 2,
+                "assist": 2,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -2436,7 +3556,12 @@
                 "fm": 7.42,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 4,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "KEAN",
@@ -2446,7 +3571,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Fastidio alla tibia, rientro verso inizio dicembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 1,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "RAIMONDO",
@@ -2456,7 +3586,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Distorsione alla caviglia, rientro verso metà dicembre",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 8,
+                "assist": 0,
+                "gialli": 3,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "VITINHA",
@@ -2465,7 +3600,12 @@
                 "fm": 5.81,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 1,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "YILDIZ",
@@ -2475,7 +3615,12 @@
                 "infortunato": true,
                 "diffidato": false,
                 "nota": "Problema al piede, tempi da definire",
-                "squalificato": false
+                "squalificato": false,
+                "gol": 0,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             },
             {
                 "name": "MALDINI",
@@ -2484,7 +3629,12 @@
                 "fm": 7.57,
                 "infortunato": false,
                 "diffidato": false,
-                "squalificato": false
+                "squalificato": false,
+                "gol": 5,
+                "assist": 0,
+                "gialli": 0,
+                "rossi": 0,
+                "rigori_parati": 0
             }
         ]
     }
