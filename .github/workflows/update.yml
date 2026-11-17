@@ -1,26 +1,33 @@
-name: Aggiornamento Giornaliero Fantacalcio
+name: Aggiorna dati fantacalcio
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # Gira ogni giorno alle 06:00 in Italia
-  workflow_dispatch:
+    - cron: "0 6 * * *"      # ogni giorno alle 06:00 UTC (07:00/08:00 in Italia)
+    - cron: "30 17 * * 5,6"  # venerdi' e sabato sera: ultime news prima delle partite
+  workflow_dispatch:          # pulsante "Run workflow" per lanciarlo a mano
+
+permissions:
+  contents: write
 
 jobs:
-  update-data:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Scarica il codice del repository
-        uses: actions/checkout@v4
-
-      - name: Configura Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-
-      - name: Esegui lo script di aggiornamento
-        run: python update.py
-
-      - name: Salva le modifiche in automatico su GitHub
-        uses: stefanzweifel/git-auto-commit-action@v5
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python update.py
+      - name: Salva report come artifact
+        uses: actions/upload-artifact@v4
         with:
-          commit_message: "Aggiornamento automatico rose e news giornaliere 🤖"
+          name: report
+          path: report_aggiornamento.txt
+        if: always()
+      - name: Commit se ci sono modifiche
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add data.json
+          git diff --staged --quiet || (git commit -m "Aggiornamento automatico dati" && git push)
