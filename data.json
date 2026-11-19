@@ -1191,14 +1191,15 @@
                 "squadra": "ATALANTA",
                 "mv": 5.44,
                 "fm": 5.31,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
                 "gialli": 1,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Palestra e lavoro individuale in campo per Gaetano, Hien, Kristensen e Kossounou, terapie e palestra invece per Pompei. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "RRAHMANI",
@@ -1711,15 +1712,14 @@
                 "squadra": "TORINO",
                 "mv": 5.82,
                 "fm": 6.09,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 0,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Fastidio al bicipite femorale, è. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -1728,14 +1728,15 @@
                 "squadra": "INTER",
                 "mv": 6.29,
                 "fm": 7.14,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 2,
                 "assist": 0,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Bracaglia Diffidati: - GENOA Infortunati: - Squalificati: - Diffidati: Ostigard INTER Infortunati: Bonny - Risentimento muscolare ai flessori della coscia destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "DAVIS",
@@ -2337,14 +2338,15 @@
                 "squadra": "SASSUOLO",
                 "mv": 6.06,
                 "fm": 7.17,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 3,
                 "assist": 1,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Problema fisico confermato. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "BARELLA",
@@ -2365,9 +2367,8 @@
                 "squadra": "JUVENTUS",
                 "mv": 6.04,
                 "fm": 6.54,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Lesione di basso grado al soleo destro. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 1,
                 "assist": 0,
@@ -2586,9 +2587,8 @@
                 "squadra": "COMO",
                 "mv": 6.15,
                 "fm": 6.15,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Problema muscolare alla gamba. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -2645,7 +2645,7 @@
                 "fm": 5.77,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Il terzino bianconero è fermo per una lesione ai muscoli ischiocrurali della gamba sinistra. Rientro stimato verso fine novembre.",
+                "nota": "Lavoro differenziato per Celik, Cambiaso, Nico Gonzalez e Kalulu, che hanno seguito un programma separato rispetto al resto della squadra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -2772,14 +2772,15 @@
                 "squadra": "ATALANTA",
                 "mv": 6.11,
                 "fm": 6.54,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 1,
                 "gialli": 0,
                 "rossi": 1,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Palestra e lavoro individuale in campo per Gaetano, Hien, Kristensen e Kossounou, terapie e palestra invece per Pompei. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "LOBOTKA",
@@ -2867,7 +2868,7 @@
                 "gialli": 1,
                 "rossi": 0,
                 "rigori_parati": 0,
-                "nota": "lussazione acromion-claveare della spalla destra, out contro la Roma. Tempi di recupero da definire."
+                "nota": "Lussazione acromion claveare della spalla destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "SIMEONE",
@@ -3339,9 +3340,8 @@
                 "squadra": "JUVENTUS",
                 "mv": 5.46,
                 "fm": 5.54,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Affaticamento muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 1,
