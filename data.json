@@ -267,11 +267,10 @@
                 "assist": 0,
                 "gialli": 1,
                 "rossi": 0,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
-                "rigori_parati": 0,
-                "nota": "Winks: fonti nazionali indipendenti discordanti sulla disponibilità; dubbio obbligatorio. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -2367,14 +2366,15 @@
                 "squadra": "JUVENTUS",
                 "mv": 6.04,
                 "fm": 6.54,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 0,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Gonzalez N. è indicato disponibile nelle probabili aggiornate di SOS Fanta. Tempi di recupero da definire."
             },
             {
                 "name": "MANDRAGORA",
@@ -2772,15 +2772,14 @@
                 "squadra": "ATALANTA",
                 "mv": 6.11,
                 "fm": 6.54,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 1,
                 "gialli": 0,
                 "rossi": 1,
-                "rigori_parati": 0,
-                "nota": "Gaetano, Hien, Kristensen e Kossounou hanno svolto un lavoro in palestra e individuale sul campo. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             },
             {
                 "name": "LOBOTKA",
