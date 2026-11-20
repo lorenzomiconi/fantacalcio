@@ -267,10 +267,11 @@
                 "assist": 0,
                 "gialli": 1,
                 "rossi": 0,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Winks: fonti nazionali indipendenti discordanti sulla disponibilità; dubbio obbligatorio. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             }
         ],
         "att": [
@@ -453,14 +454,15 @@
                 "squadra": "BOLOGNA",
                 "mv": 6.35,
                 "fm": 6.8,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 5,
                 "gialli": 1,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Allenamento differenziato per Juan Miranda e Jay Enem\". Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "PEDRAZA",
@@ -1191,15 +1193,14 @@
                 "squadra": "ATALANTA",
                 "mv": 5.44,
                 "fm": 5.31,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
                 "gialli": 1,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Palestra e lavoro individuale in campo per Gaetano, Hien, Kristensen e Kossounou, terapie e palestra invece per Pompei. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             },
             {
                 "name": "RRAHMANI",
@@ -1498,7 +1499,7 @@
                 "fm": 5.75,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Il difensore è fermo per un risentimento muscolare al polpaccio destro. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
+                "nota": "Problema fisico confermato. Tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -2265,9 +2266,8 @@
                 "squadra": "TORINO",
                 "mv": 5.8,
                 "fm": 5.8,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Il laterale granata è fermo per un affaticamento all’adduttore. Tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -2780,7 +2780,7 @@
                 "gialli": 0,
                 "rossi": 1,
                 "rigori_parati": 0,
-                "nota": "Palestra e lavoro individuale in campo per Gaetano, Hien, Kristensen e Kossounou, terapie e palestra invece per Pompei. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "nota": "Gaetano, Hien, Kristensen e Kossounou hanno svolto un lavoro in palestra e individuale sul campo. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "LOBOTKA",
@@ -2921,14 +2921,15 @@
                 "squadra": "NAPOLI",
                 "mv": 6.25,
                 "fm": 4.68,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Frattura 5ª vertebra lombare. Tempi di recupero da definire."
             },
             {
                 "name": "SANCHEZ",
@@ -3426,9 +3427,8 @@
                 "squadra": "PARMA",
                 "mv": 5.71,
                 "fm": 5.29,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Il centrocampista si è fermato nella rifinitura dell’1 novembre per una distrazione muscolare di basso grado al retto femorale della coscia sinistra. Tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
