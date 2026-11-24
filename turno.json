@@ -1,15 +1,15 @@
 {
-  "aggiornato": "2026-11-23 17:48",
+  "aggiornato": "2026-11-24 17:20",
   "partite": [
-    "COMO-CAGLIARI",
-    "LAZIO-LECCE",
-    "PARMA-ROMA",
-    "NAPOLI-TORINO",
-    "JUVENTUS-VENEZIA",
-    "BOLOGNA-UDINESE",
-    "SASSUOLO-GENOA",
-    "MILAN-FROSINONE",
-    "ATALANTA-INTER",
-    "MONZA-FIORENTINA"
+    "CAGLIARI-MILAN",
+    "COMO-JUVENTUS",
+    "FROSINONE-PARMA",
+    "INTER-GENOA",
+    "LECCE-ATALANTA",
+    "ROMA-MONZA",
+    "SASSUOLO-NAPOLI",
+    "TORINO-LAZIO",
+    "UDINESE-FIORENTINA",
+    "VENEZIA-BOLOGNA"
   ]
 }

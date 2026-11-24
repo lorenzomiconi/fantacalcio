@@ -56,8 +56,7 @@
                 "rossi": 0,
                 "infortunato": false,
                 "diffidato": false,
-                "nota": "Squalificato",
-                "squalificato": true,
+                "squalificato": false,
                 "rigori_parati": 0
             },
             {
@@ -105,8 +104,8 @@
             {
                 "name": "MANGAS",
                 "squadra": "MONZA",
-                "mv": 5.98,
-                "fm": 6.39,
+                "mv": 6.04,
+                "fm": 6.42,
                 "gol": 1,
                 "assist": 2,
                 "gialli": 1,
@@ -163,8 +162,8 @@
             {
                 "name": "AKINSOMIRO",
                 "squadra": "MONZA",
-                "mv": 5.72,
-                "fm": 5.83,
+                "mv": 5.75,
+                "fm": 5.85,
                 "gol": 0,
                 "assist": 1,
                 "gialli": 0,
@@ -211,10 +210,11 @@
                 "assist": 0,
                 "gialli": 1,
                 "rossi": 0,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Emergenza in regia in casa Inter: Hakan Calhanoglu si è fermato dopo mezz’ora a Bergamo e oggi farà gli esami strumentali all’Humanitas di Rozzano. Tempi di recupero da definire."
             },
             {
                 "name": "DOUGLAS",
@@ -267,10 +267,11 @@
                 "assist": 0,
                 "gialli": 1,
                 "rossi": 0,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Problema alla schiena. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             }
         ],
         "att": [
@@ -297,16 +298,17 @@
                 "assist": 2,
                 "gialli": 0,
                 "rossi": 0,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Lesione del legamento crociato anteriore del ginocchio destro, stagione finita. Tempi di recupero da definire."
             },
             {
                 "name": "MOTA",
                 "squadra": "MONZA",
-                "mv": 6.36,
-                "fm": 6.64,
+                "mv": 6.34,
+                "fm": 6.59,
                 "gol": 0,
                 "assist": 2,
                 "gialli": 0,
@@ -461,7 +463,7 @@
                 "gialli": 1,
                 "rossi": 0,
                 "rigori_parati": 0,
-                "nota": "Allenamento differenziato per Juan Miranda e Jay Enem\". Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "nota": "Allenamento differenziato per Ukko Happonen, Juan Miranda, Oussama El Azzouzi e Jay Enem. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "PEDRAZA",
@@ -498,7 +500,7 @@
                 "fm": 7.1,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Novità su Nuno Tavares, la risonanza «ha evidenziato un miglioramento della lesione riportata durante la sfida contro il Napoli. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
+                "nota": "Lesione al flessore. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 1,
                 "assist": 3,
@@ -671,7 +673,7 @@
                 "fm": 7.33,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Lesione muscolare al flessore della gamba. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
+                "nota": "Problema muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 2,
                 "assist": 1,
@@ -710,8 +712,8 @@
             {
                 "name": "VARELA",
                 "squadra": "MONZA",
-                "mv": 6.65,
-                "fm": 9.4,
+                "mv": 6.8,
+                "fm": 9.84,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -774,9 +776,8 @@
                 "squadra": "NAPOLI",
                 "mv": 5.94,
                 "fm": 5.81,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Per Badiashile e Di Lorenzo personalizzato in palestra e in campo. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -829,8 +830,8 @@
             {
                 "name": "JIMENEZ",
                 "squadra": "FIORENTINA",
-                "mv": 6.03,
-                "fm": 6.78,
+                "mv": 6.0,
+                "fm": 6.68,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -973,9 +974,8 @@
                 "squadra": "LAZIO",
                 "mv": 6.43,
                 "fm": 7.08,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Lesione al quadricipite femorale sinistro. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 2,
                 "assist": 5,
@@ -1002,8 +1002,8 @@
             {
                 "name": "BETO",
                 "squadra": "FIORENTINA",
-                "mv": 5.67,
-                "fm": 5.67,
+                "mv": 5.75,
+                "fm": 5.75,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -1276,8 +1276,8 @@
             {
                 "name": "GONCALVES",
                 "squadra": "FIORENTINA",
-                "mv": 6.13,
-                "fm": 6.63,
+                "mv": 5.95,
+                "fm": 6.35,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -1404,8 +1404,8 @@
             {
                 "name": "PELLEGRINO",
                 "squadra": "FIORENTINA",
-                "mv": 6.0,
-                "fm": 7.0,
+                "mv": 5.92,
+                "fm": 6.83,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -1510,14 +1510,15 @@
                 "squadra": "TORINO",
                 "mv": 6.3,
                 "fm": 6.8,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 3,
                 "gialli": 2,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Infiammazione al ginocchio. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "COUTO",
@@ -1582,7 +1583,7 @@
                 "fm": 5.97,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "I prossimi controlli sono previsti per Sutalo e Marusic. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
+                "nota": "Lesione al flessore. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -1611,14 +1612,15 @@
                 "squadra": "SASSLUOLO",
                 "mv": 5.81,
                 "fm": 6.03,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 2,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Problema fisico. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "FABBIAN",
@@ -1655,7 +1657,7 @@
                 "fm": 5.75,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Si è fermato in allenamento il 20 ottobre. Rientro stimato verso metà dicembre.",
+                "nota": "Lesione muscolare di secondo grado. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -1697,14 +1699,15 @@
                 "squadra": "NAPOLI",
                 "mv": 6.08,
                 "fm": 6.58,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 1,
                 "gialli": 2,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Problema fisico confermato. Tempi di recupero da definire."
             },
             {
                 "name": "VLASIC",
@@ -1735,21 +1738,22 @@
                 "gialli": 0,
                 "rossi": 0,
                 "rigori_parati": 0,
-                "nota": "Bracaglia Diffidati: - GENOA Infortunati: - Squalificati: - Diffidati: Ostigard INTER Infortunati: Bonny - Risentimento muscolare ai flessori della coscia destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "nota": "Risentimento muscolare ai flessori della coscia destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "DAVIS",
                 "squadra": "UDINESE",
                 "mv": 5.78,
                 "fm": 5.93,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 2,
                 "gialli": 1,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Problema muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "DE KATELAERE",
@@ -1842,8 +1846,8 @@
             {
                 "name": "DE GEA",
                 "squadra": "FIORENTINA",
-                "mv": 5.93,
-                "fm": 3.61,
+                "mv": 5.94,
+                "fm": 3.56,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -2247,8 +2251,8 @@
             {
                 "name": "GRAGUSIN",
                 "squadra": "FIORENTINA",
-                "mv": 5.55,
-                "fm": 5.55,
+                "mv": 5.48,
+                "fm": 5.44,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -2343,7 +2347,7 @@
                 "gialli": 0,
                 "rossi": 0,
                 "rigori_parati": 0,
-                "nota": "Problema fisico confermato. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "nota": "Problema al ginocchio. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "BARELLA",
@@ -2372,7 +2376,7 @@
                 "gialli": 0,
                 "rossi": 0,
                 "rigori_parati": 0,
-                "nota": "Gonzalez N. è indicato disponibile nelle probabili aggiornate di SOS Fanta. Tempi di recupero da definire."
+                "nota": "Lesione di basso grado al muscolo soleo della gamba destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "MANDRAGORA",
@@ -2409,7 +2413,7 @@
                 "fm": 6.13,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Lesione muscolare di alto grado. Rientro stimato verso fine dicembre.",
+                "nota": "Lesione muscolare di alto grado. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -2506,8 +2510,8 @@
             {
                 "name": "ROBINSON",
                 "squadra": "MONZA",
-                "mv": 6.34,
-                "fm": 7.22,
+                "mv": 6.44,
+                "fm": 7.56,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -2524,7 +2528,7 @@
                 "fm": 6.19,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "L’ala offensiva azzurra si è fermata il 18 ottobre a Venezia per una lesione distrattiva di medio grado al bicipite femorale sinistro. Rientro stimato verso inizio dicembre.",
+                "nota": "Lesione distrattiva di medio grado del bicipite femorale sinistro. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -2541,14 +2545,15 @@
                 "squadra": "ATALANTA",
                 "mv": 6.45,
                 "fm": 5.0,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 1,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 1
+                "rigori_parati": 1,
+                "nota": "Le condizioni di Marco Carnesecchi Oggi per i nerazzurri giornata di scarico e lavoro individuale al Centro Bortolotti. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "MURIC",
@@ -2643,7 +2648,7 @@
                 "fm": 5.77,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Lavoro differenziato per Celik, Cambiaso, Nico Gonzalez e Kalulu, che hanno seguito un programma separato rispetto al resto della squadra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
+                "nota": "Lesione di basso grado del bicipite femorale sinistro. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -2786,7 +2791,7 @@
                 "fm": 6.64,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Alisson e Lobotka hanno svolto lavoro personalizzato in palestra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
+                "nota": "Lesione della sindesmosi tibio-peroneale senza instabilità, associata a lesione di basso grado del LPAA della caviglia sinistra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 1,
                 "assist": 0,
@@ -2797,8 +2802,8 @@
             {
                 "name": "MASTANTUONO",
                 "squadra": "FIORENTINA",
-                "mv": 6.34,
-                "fm": 7.34,
+                "mv": 6.23,
+                "fm": 7.15,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -2977,9 +2982,8 @@
                 "squadra": "NAPOLI",
                 "mv": 6.13,
                 "fm": 6.28,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Per Badiashile e Di Lorenzo personalizzato in palestra e in campo. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 2,
@@ -3034,14 +3038,15 @@
                 "squadra": "CAGLIARI",
                 "mv": 5.75,
                 "fm": 5.75,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Lesione muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "OSTIGARD",
@@ -3107,7 +3112,7 @@
                 "mv": 5.75,
                 "fm": 5.83,
                 "infortunato": false,
-                "diffidato": false,
+                "diffidato": true,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 0,
@@ -3132,8 +3137,8 @@
             {
                 "name": "NJIE",
                 "squadra": "FIORENTINA",
-                "mv": 6.28,
-                "fm": 7.28,
+                "mv": 6.16,
+                "fm": 7.07,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -3248,14 +3253,15 @@
                 "squadra": "CAGLIARI",
                 "mv": 6.02,
                 "fm": 6.44,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 2,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Problema al ginocchio. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             }
         ]
     },
@@ -3392,8 +3398,8 @@
             {
                 "name": "VALDEPENAS",
                 "squadra": "FIORENTINA",
-                "mv": 5.71,
-                "fm": 6.07,
+                "mv": 5.75,
+                "fm": 6.06,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -3492,8 +3498,8 @@
             {
                 "name": "PESSINA",
                 "squadra": "MONZA",
-                "mv": 6.0,
-                "fm": 6.0,
+                "mv": 6.5,
+                "fm": 7.5,
                 "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
@@ -3554,7 +3560,7 @@
                 "fm": 6.38,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "Allarme da Como, c'è un fitto velo di mistero su Moise Kean: nuovi controlli. Tempi di recupero da definire.",
+                "nota": "Trattamento finalizzato al pieno recupero del recente fastidio alla tibia. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 1,
@@ -3569,7 +3575,7 @@
                 "fm": 8.68,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "L’attaccante si è fermato l’1 novembre contro il Toro per una lesione multilegamentosa contusivo distorsiva alla caviglia sinistra. Rientro stimato verso metà dicembre.",
+                "nota": "Lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 8,
                 "assist": 0,
@@ -3598,7 +3604,7 @@
                 "fm": 6.0,
                 "infortunato": true,
                 "diffidato": false,
-                "nota": "E infine Kenan Yildiz: sta lavorando a parte sul campo, è ancora presto per rivederlo in gruppo ma la sua condizione è in crescita. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
+                "nota": "Operato per frattura al quinto metatarso del piede sinistro. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
