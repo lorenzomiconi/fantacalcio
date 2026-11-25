@@ -214,7 +214,7 @@
                 "diffidato": false,
                 "squalificato": false,
                 "rigori_parati": 0,
-                "nota": "Emergenza in regia in casa Inter: Hakan Calhanoglu si è fermato dopo mezz’ora a Bergamo e oggi farà gli esami strumentali all’Humanitas di Rozzano. Tempi di recupero da definire."
+                "nota": "Problema al flessore della coscia destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "DOUGLAS",
@@ -463,7 +463,7 @@
                 "gialli": 1,
                 "rossi": 0,
                 "rigori_parati": 0,
-                "nota": "Allenamento differenziato per Ukko Happonen, Juan Miranda, Oussama El Azzouzi e Jay Enem. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "nota": "Lesione di primo grado al bicipite femorale della coscia sinistra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "PEDRAZA",
@@ -946,14 +946,15 @@
                 "squadra": "MILAN",
                 "mv": 6.19,
                 "fm": 6.31,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 2,
                 "gialli": 1,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Risentimento al retto femorale. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "PISILLI",
@@ -1707,7 +1708,7 @@
                 "gialli": 2,
                 "rossi": 0,
                 "rigori_parati": 0,
-                "nota": "Problema fisico confermato. Tempi di recupero da definire."
+                "nota": "Lesione di alto grado del bicipite femorale della coscia sinistra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "VLASIC",
@@ -2553,7 +2554,7 @@
                 "gialli": 0,
                 "rossi": 0,
                 "rigori_parati": 1,
-                "nota": "Le condizioni di Marco Carnesecchi Oggi per i nerazzurri giornata di scarico e lavoro individuale al Centro Bortolotti. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "nota": "Intervento chirurgico in artroscopia per la pulizia meniscale del ginocchio sinistro. Tempi di recupero da definire."
             },
             {
                 "name": "MURIC",
@@ -3528,14 +3529,15 @@
                 "squadra": "INTER",
                 "mv": 6.25,
                 "fm": 7.05,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 2,
                 "assist": 2,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Problema alla pianta del piede. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             }
         ],
         "att": [
