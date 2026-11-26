@@ -214,7 +214,7 @@
                 "diffidato": false,
                 "squalificato": false,
                 "rigori_parati": 0,
-                "nota": "Problema al flessore della coscia destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "nota": "Risentimento muscolare ai flessori della coscia destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "DOUGLAS",
@@ -2955,14 +2955,15 @@
                 "squadra": "INTER",
                 "mv": 6.0,
                 "fm": 6.18,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 0,
                 "gialli": 2,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Indolenzimento al quadricipite della coscia sinistra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             },
             {
                 "name": "COCO",
