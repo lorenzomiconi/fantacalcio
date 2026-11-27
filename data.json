@@ -267,11 +267,10 @@
                 "assist": 0,
                 "gialli": 1,
                 "rossi": 0,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
-                "rigori_parati": 0,
-                "nota": "Problema alla schiena. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             }
         ],
         "att": [
@@ -671,9 +670,8 @@
                 "squadra": "COMO",
                 "mv": 6.33,
                 "fm": 7.33,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Problema muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 2,
                 "assist": 1,
@@ -1511,15 +1509,14 @@
                 "squadra": "TORINO",
                 "mv": 6.3,
                 "fm": 6.8,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 3,
                 "gialli": 2,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Infiammazione al ginocchio. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             },
             {
                 "name": "COUTO",
@@ -1613,15 +1610,14 @@
                 "squadra": "SASSLUOLO",
                 "mv": 5.81,
                 "fm": 6.03,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 2,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Problema fisico. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             },
             {
                 "name": "FABBIAN",
@@ -1746,15 +1742,14 @@
                 "squadra": "UDINESE",
                 "mv": 5.78,
                 "fm": 5.93,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 2,
                 "gialli": 1,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Problema muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             },
             {
                 "name": "DE KATELAERE",
@@ -2078,14 +2073,15 @@
                 "squadra": "LAZIO",
                 "mv": 6.52,
                 "fm": 7.1,
-                "infortunato": false,
+                "infortunato": true,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 2,
                 "assist": 1,
                 "gialli": 2,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Affaticamento muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
             }
         ],
         "att": [
@@ -2369,15 +2365,14 @@
                 "squadra": "JUVENTUS",
                 "mv": 6.04,
                 "fm": 6.54,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 0,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Lesione di basso grado al muscolo soleo della gamba destra. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             },
             {
                 "name": "MANDRAGORA",
@@ -2647,9 +2642,8 @@
                 "squadra": "JUVENTUS",
                 "mv": 5.77,
                 "fm": 5.77,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
-                "nota": "Lesione di basso grado del bicipite femorale sinistro. Probabilmente non riuscirà a recuperare; tempi di recupero da definire.",
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
@@ -3040,29 +3034,29 @@
                 "squadra": "CAGLIARI",
                 "mv": 5.75,
                 "fm": 5.75,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Lesione muscolare. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             },
             {
                 "name": "OSTIGARD",
                 "squadra": "GENOA",
                 "mv": 6.15,
                 "fm": 5.98,
-                "infortunato": false,
-                "diffidato": true,
+                "infortunato": true,
+                "diffidato": false,
                 "squalificato": false,
                 "gol": 0,
                 "assist": 0,
                 "gialli": 4,
                 "rossi": 0,
-                "rigori_parati": 0
+                "rigori_parati": 0,
+                "nota": "Ostigard è risulta indisponibile. Tempi di recupero da definire."
             }
         ],
         "cen": [
@@ -3255,15 +3249,14 @@
                 "squadra": "CAGLIARI",
                 "mv": 6.02,
                 "fm": 6.44,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 1,
                 "assist": 2,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Problema al ginocchio. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             }
         ]
     },
@@ -3530,15 +3523,14 @@
                 "squadra": "INTER",
                 "mv": 6.25,
                 "fm": 7.05,
-                "infortunato": true,
+                "infortunato": false,
                 "diffidato": false,
                 "squalificato": false,
                 "gol": 2,
                 "assist": 2,
                 "gialli": 0,
                 "rossi": 0,
-                "rigori_parati": 0,
-                "nota": "Problema alla pianta del piede. Probabilmente non riuscirà a recuperare; tempi di recupero da definire."
+                "rigori_parati": 0
             }
         ],
         "att": [
